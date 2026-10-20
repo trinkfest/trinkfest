@@ -1,0 +1,10 @@
+{
+  "appId": "de.trinkfest.app",
+  "appName": "TrinkFest",
+  "webDir": "www",
+  "backgroundColor": "#160b03",
+  "ios": {
+    "contentInset": "always",
+    "backgroundColor": "#160b03"
+  }
+}

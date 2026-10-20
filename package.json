@@ -1,0 +1,13 @@
+{
+  "name": "trinkfest",
+  "version": "0.1.0",
+  "private": true,
+  "description": "TrinkFest, Trinkspiele-App",
+  "scripts": {
+    "start": "npx serve .",
+    "build": "node scripts/build.js",
+    "sync": "npm run build && npx cap sync",
+    "ios": "npm run sync && npx cap open ios",
+    "android": "npm run sync && npx cap open android"
+  }
+}
