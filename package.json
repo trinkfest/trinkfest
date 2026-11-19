@@ -12,7 +12,8 @@
     "release-check": "node scripts/release-check.js",
     "graphify-prep": "node scripts/graphify-prep.js",
     "find": "node scripts/tf-find.js",
-    "prepare": "git config core.hooksPath .githooks || true"
+    "prepare": "git config core.hooksPath .githooks || true",
+    "codemap": "node scripts/codemap.js"
   },
   "dependencies": {
     "@capacitor/core": "^8.0.0",
