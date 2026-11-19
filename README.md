@@ -338,3 +338,6 @@ Marker `v134`: Beim Duell-Countdown kommt statt der Ansager-Stimme „Three, two
 
 ## v144 – Circle: Kartennamen, Bube-Beispiel, Königs-Zähler (Version 132, 19.11., Claude Code)
 Marker `v135`: Karten heißen jetzt „Seven Heaven“, „Eight Mate“ und „Ten Men“. Beim Buben ist das Beispiel jetzt „Nur mit der schwachen Hand trinken“. Der Zähler „👑 0/4“ steht über dem Kartenkreis statt oben rechts.
+
+## v145 – Block 1: Allgemein + gemeinsame Bausteine (Version 133, 20.11., Claude Code)
+Marker `v136`: Zurück-Knopf fragt in allen Spielen „Weiter oder zurück?“, Scroll-Balken am Rand weg, Dreh-Knopf mittig und (Circle, Old Nick) unter dem Fragezeichen, neue Spieler bekommen sofort eine Farbe, Würfelfieber und Kartenchaos gestrichen, „Suche“ unten weg. Neu als Bausteine für später: Münzwurf `tfCoin({...})` und Siegerpodest `tfPodium({...})`.

@@ -33,7 +33,7 @@ _Zahlen = Zeile in `index.html`. Mehrere Zahlen = später in einem vNNN-Block ü
 - **Startseite / Navigation:** `hub` 2320 · `hmDraw` 2181 · `hsGo` 2339 · `pick` 2356, 3078, 5502 · `openG` 3502 · `closeG` 3503 · `hSet` 2325 · `showHelp` 3384
 - **Modus Party/Normal:** `setMode` 2184 · `tfSw` 5434 · `modeBanks` 3814 · `refreshText` 3844
 - **Sprache DE/EN:** `I18N` 3593 · `dlT` 4067
-- **Spieler (global):** `PLY` 4830 · `plBtn` 4838 · `plxH` 5222 · `plxOpen` 5235 · `plxBuild` 5225 · `plxClose` 5243
+- **Spieler (global):** `PLY` 4830 · `plBtn` 4838 · `plxH` 5222 · `plxOpen` 5235 · `plxBuild` 5225, 5721 · `plxClose` 5243
 - **Ton / Vibration / Stimme:** `TFSnd` 5410 · `TFS` 5419 · `TFH` 5312 · `tfVoice` 5456 · `tfVoiceN` 5457, 5602 · `tfBeep` 5601
 - **Hilfen:** `toast` 2352 · `skEsc` 2523 · `fit` 1596, 3585, 5153
 - **Premium / Werbung:** `openPW` 3398 · `proDraw` 3396
@@ -93,5 +93,7 @@ _Zahlen = Zeile in `index.html`. Mehrere Zahlen = später in einem vNNN-Block ü
 | `v134js` | 5586 | Duell-Countdown: statt Ansager "Three, two, one, go" drei gleiche Piepser bei 3-2-1, bei LOS kein Ton (Timon 19.11.) |
 | `v135` | 5605 | Circle: Königs-Zähler „👑 0/4“ über dem Kartenkreis statt oben rechts im Kopf (Platz im Kopf bleibt, damit nichts verrutscht) |
 | `v135js` | 5611 | – |
+| `v136` | 5620 | v136 (Block 1, 20.11.): Scroll-Balken weg, Dreh-Knopf mittig und unter dem Fragezeichen, Suche weg, Zurueck-Abfrage, Muenzwurf, Siegerpodest |
+| `v136js` | 5696 | – |
 
 _(Code-Karte fehlt – `graphify update analyse`)_
