@@ -2,9 +2,11 @@
   "appId": "de.trinkfest.app",
   "appName": "TrinkFest",
   "webDir": "www",
-  "backgroundColor": "#160b03",
+  "backgroundColor": "#150a00",
   "ios": {
-    "contentInset": "always",
-    "backgroundColor": "#160b03"
+    "contentInset": "never",
+    "scrollEnabled": false,
+    "backgroundColor": "#150a00",
+    "allowsLinkPreview": false
   }
 }

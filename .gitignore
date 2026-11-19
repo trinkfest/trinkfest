@@ -4,3 +4,13 @@ ios/App/Pods
 android/.gradle
 android/build
 .DS_Store
+
+# Automatisch erzeugt (npm run graphify-prep / graphify update)
+analyse/
+graphify-out/
+
+# Lokale Claude-Code-Einstellungen und Video-Skills (per skills-lock.json neu installierbar)
+.claude/settings.local.json
+.claude/skills/
+.agents/
+agent/

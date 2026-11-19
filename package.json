@@ -6,15 +6,20 @@
   "scripts": {
     "start": "npx serve .",
     "build": "node scripts/build.js",
-    "sync": "npm run build && npx cap sync",
+    "sync": "npm run build && npx cap sync && node scripts/splash.js",
     "ios": "npm run sync && npx cap open ios",
-    "android": "npm run sync && npx cap open android"
+    "android": "npm run sync && npx cap open android",
+    "release-check": "node scripts/release-check.js",
+    "graphify-prep": "node scripts/graphify-prep.js"
   },
   "dependencies": {
-    "@capacitor/android": "^8.5.3",
-    "@capacitor/cli": "^8.5.3",
-    "@capacitor/core": "^8.5.3",
-    "@capacitor/ios": "^8.5.3",
-    "@supabase/supabase-js": "^2.118.0"
+    "@capacitor/core": "^8.0.0",
+    "@capacitor/cli": "^8.0.0",
+    "@capacitor/ios": "^8.0.0",
+    "@capacitor/haptics": "^8.0.0",
+    "@capacitor-community/admob": "^8.3.0",
+    "@capgo/native-purchases": "^8.9.16",
+    "@supabase/supabase-js": "^2.0.0",
+    "@fontsource/montserrat": "^5.0.0"
   }
 }

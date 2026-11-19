@@ -1,0 +1,6 @@
+.agents/
+.claude/
+agent/
+ios/App/build/
+node_modules/
+graphify-out/
