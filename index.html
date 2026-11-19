@@ -5587,16 +5587,16 @@ Promise.all(waits).then(start,start);setTimeout(start,900);
 /* Duell-Countdown: statt Ansager "Three, two, one, go" drei gleiche Piepser bei 3-2-1, bei LOS kein Ton (Timon 19.11.) */
 (function(){
 function beep(){
+ /* weich und dumpf: Sinus mit leichtem Abfall der Tonhöhe, sanfter Einsatz, Tiefpass (wie ein gedämpfter Holzklang) */
  try{if(!window.TFS||!TFS.on())return;var c=TFS.ctx();if(!c)return;
-  if(c.state!='running'){try{c.resume()}catch(e){}}
-  var t=c.currentTime+.01,d=(TFS.out&&TFS.out())||c.destination,dur=.22;
-  var o=c.createOscillator(),o2=c.createOscillator(),f=c.createBiquadFilter(),g=c.createGain();
-  o.type='square';o.frequency.setValueAtTime(880,t);
-  o2.type='sine';o2.frequency.setValueAtTime(880,t);
-  f.type='lowpass';f.frequency.value=2600;f.Q.value=.7;
-  g.gain.setValueAtTime(.0001,t);g.gain.exponentialRampToValueAtTime(.32,t+.008);
-  g.gain.setValueAtTime(.32,t+dur*.6);g.gain.exponentialRampToValueAtTime(.0001,t+dur);
-  o.connect(f);o2.connect(f);f.connect(g);g.connect(d);
+  if(c.state!="running"){try{c.resume()}catch(e){}}
+  var t=c.currentTime+.01,d=(TFS.out&&TFS.out())||c.destination,dur=.42;
+  var o=c.createOscillator(),o2=c.createOscillator(),g2=c.createGain(),f=c.createBiquadFilter(),g=c.createGain();
+  o.type="sine";o.frequency.setValueAtTime(330,t);o.frequency.exponentialRampToValueAtTime(300,t+dur);
+  o2.type="sine";o2.frequency.setValueAtTime(660,t);o2.frequency.exponentialRampToValueAtTime(600,t+dur);g2.gain.value=.12;
+  f.type="lowpass";f.frequency.value=900;f.Q.value=.5;
+  g.gain.setValueAtTime(.0001,t);g.gain.exponentialRampToValueAtTime(.5,t+.025);g.gain.exponentialRampToValueAtTime(.0001,t+dur);
+  o.connect(f);o2.connect(g2);g2.connect(f);f.connect(g);g.connect(d);
   o.start(t);o2.start(t);o.stop(t+dur+.03);o2.stop(t+dur+.03)}catch(e){}}
 window.tfBeep=beep;
 window.tfVoiceN=function(n){if(n>=1&&n<=3)beep()};

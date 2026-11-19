@@ -334,4 +334,4 @@ Marker `v133` (CSS `<style id="v133">`, Skript `<script id="v133js">` am Ende vo
 Nach Test auf dem iPhone: Der Tisch blendet am Ende nur noch aus (rutscht nicht mehr nach oben), der Schriftzug „TrinkFest“ blendet weich ein (vorher ploppte er auf), und die ganze Animation läuft gleichmäßiger (Strahlen vorgezeichnet, weniger Neuberechnung der Startseite während der Animation).
 
 ## v143 – Duell-Countdown piept (Version 130, 19.11., Claude Code)
-Marker `v134`: Beim Duell-Countdown kommt statt der Ansager-Stimme „Three, two, one, go“ jetzt bei 3, 2 und 1 je ein Piepton. Bei „LOS!“ kommt kein Ton. Die Töne erzeugt die App selbst (keine Fremddatei).
+Marker `v134`: Beim Duell-Countdown kommt statt der Ansager-Stimme „Three, two, one, go“ jetzt bei 3, 2 und 1 je ein weicher, dumpfer Ton (Version 131). Bei „LOS!“ kommt kein Ton. Die Töne erzeugt die App selbst (keine Fremddatei).
