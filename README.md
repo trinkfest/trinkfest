@@ -335,3 +335,6 @@ Nach Test auf dem iPhone: Der Tisch blendet am Ende nur noch aus (rutscht nicht 
 
 ## v143 – Duell-Countdown piept (Version 130, 19.11., Claude Code)
 Marker `v134`: Beim Duell-Countdown kommt statt der Ansager-Stimme „Three, two, one, go“ jetzt bei 3, 2 und 1 je ein weicher, dumpfer Ton (Version 131). Bei „LOS!“ kommt kein Ton. Die Töne erzeugt die App selbst (keine Fremddatei).
+
+## v144 – Circle: Kartennamen, Bube-Beispiel, Königs-Zähler (Version 132, 19.11., Claude Code)
+Marker `v135`: Karten heißen jetzt „Seven Heaven“, „Eight Mate“ und „Ten Men“. Beim Buben ist das Beispiel jetzt „Nur mit der schwachen Hand trinken“. Der Zähler „👑 0/4“ steht über dem Kartenkreis statt oben rechts.
