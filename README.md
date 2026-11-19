@@ -326,3 +326,6 @@ Das Duell-Minispiel „Exen-Duell“ heißt jetzt „Trink-Duell“ (EN „Drink
 ## v140 – Duell-Countdown mit Ansager (Version 127, 19.11.)
 `patch163.py` (Marker `v132`, braucht `patch163_voice.json`): Vor jedem Duell-Minispiel steht über der Zahl „SPIEL STARTET IN“, dazu sagt eine Ansager-Stimme „Three! Two! One! Go!“ (auch bei Tauziehen, Zeitgefühl, Trink-Duell und vor der ersten Flagge/Hauptstadt). Die Stimme ist mit dem freien Sprachmodell Kokoro-82M (Apache 2.0) erzeugt und steckt in `index.html` (ca. 19 KB); sie folgt dem Schalter „Ton“. Geändert: `index.html`, `README.md`.
 
+
+## v141 – Start-Animation beim Öffnen (Version 128, 19.11., Claude Code)
+Marker `v133` (CSS `<style id="v133">`, Skript `<script id="v133js">` am Ende von `index.html`): Beim Öffnen der App läuft jetzt die Start-Animation aus dem Prototyp: Schriftzug „Trink**Fest**“ springt auf, Strahlen drehen, 4 zufällige Profil-Charaktere springen hinter dem Holztresen hoch und jubeln, Konfetti. Danach schrumpft die Szene weg, der Schriftzug fliegt genau auf das Logo oben links der echten Startseite. Dauer ca. 3 Sekunden, Tippen überspringt. Läuft nur beim Kaltstart (einmal je Laden der App), bei „Bewegung reduzieren“ nur Einblenden. Beim allerersten Start erscheint der 18+-Hinweis direkt danach.
