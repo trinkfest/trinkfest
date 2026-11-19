@@ -5631,7 +5631,7 @@ sync();new MutationObserver(sync).observe(kc,{childList:true,characterData:true,
 .d4rot::before{content:"";width:18px;height:18px;background:currentColor;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 12a8 8 0 1 1-2.6-5.9'/%3E%3Cpath d='M20 3.5V8h-4.5'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 12a8 8 0 1 1-2.6-5.9'/%3E%3Cpath d='M20 3.5V8h-4.5'/%3E%3C/svg%3E") center/contain no-repeat}
 /* (4) Wo eine Erklaerung (?) ist: ? bleibt oben rechts, Dreh-Knopf in der Ecke darunter */
 #gm .qm,#gm3 .qm{display:grid}
-#gm .foam .rt,#gm3 .foam .rt{position:absolute;right:10px;top:54px;z-index:6;background:rgba(0,0,0,.18)}
+#gm .foam .rt,#gm3 .foam .rt{position:absolute;right:max(10px,env(safe-area-inset-left),env(safe-area-inset-right));top:calc(max(18px,calc(var(--sat,0px) + 6px)) + 34px);z-index:6;background:rgba(0,0,0,.18)}
 /* (5) Abfrage „Weiter oder zurueck?“ */
 .tfbq .mb h4{font-size:17px;margin-bottom:4px}
 .tfbq .mb p{opacity:.8}
