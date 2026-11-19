@@ -10,7 +10,9 @@
     "ios": "npm run sync && npx cap open ios",
     "android": "npm run sync && npx cap open android",
     "release-check": "node scripts/release-check.js",
-    "graphify-prep": "node scripts/graphify-prep.js"
+    "graphify-prep": "node scripts/graphify-prep.js",
+    "find": "node scripts/tf-find.js",
+    "prepare": "git config core.hooksPath .githooks || true"
   },
   "dependencies": {
     "@capacitor/core": "^8.0.0",

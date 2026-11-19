@@ -24,12 +24,17 @@ TrinkFest ist eine deutsche Trinkspiele-App (Party-Modus mit Schlücken, Normal-
 4. Timon sagen, was er tun muss (meist `npm run ios`; bei neuen Paketen `npm install …`).
 5. Geheime Schlüssel nie ins Repo.
 
+## Tokens sparen (wichtig, der Verbrauch ist hoch)
+`index.html` hat sehr lange Zeilen mit Bild-, Ton- und Kartendaten. Ein falscher `grep`/`Read` darauf kostet zehntausende Tokens. Deshalb:
+1. **Code suchen nur mit** `npm run -s find -- <Suchwort>` (z. B. `npm run -s find -- tfVoiceN`). Liefert kurze Ausschnitte mit der echten Zeile `index.html:NNNN`; kennt die Code-Karte die Funktion, auch „aufgerufen von“ und „ruft auf“. Optionen `--max N`, `--ctx N`.
+2. **Auswirkungen prüfen** vor Änderungen an viel benutzten Funktionen: `graphify affected "<funktion>" --graph analyse/graphify-out/graph.json` (oder `graphify explain …`, `graphify path "A" "B" …`).
+3. **Nie** `grep` ohne Begrenzung auf `index.html` und nie ganze Zeilen ausgeben: immer `grep -o '.\{0,80\}X.\{0,80\}'` bzw. `cut -c1-300`. `Read` auf `index.html` nur mit `offset`/`limit` und nur, wenn die Zeilen kurz sind (CSS/neue Blöcke am Ende).
+4. Code lesen lieber in `analyse/js/*.js` (gleicher Code, Daten gekürzt; Zeile in index.html = Startzeile aus `analyse/lines.json` + Zeile − 2).
+5. Tests headless (Playwright) mit Zahlen statt Screenshots; Screenshots nur, wenn es um Optik geht, und verkleinert.
+6. Ein Thema pro Sitzung; Stand steht in `docs/STAND.md`, nicht im Verlauf.
+
 ## Graphify (Code-Karte)
-Graphify liest `.html` nur als Text. Deshalb zuerst den Code herausziehen:
-```
-npm run graphify-prep      # schreibt analyse/js/*.js aus index.html (index.html bleibt unverändert)
-```
-dann in Claude Code `/graphify analyse` (nur Code) oder `/graphify .` (Code + Doku; `.graphifyignore` schließt die Riesen-Datei und Build-Ordner aus). Ergebnis in `graphify-out/` (`graph.html`, `GRAPH_REPORT.md`, `graph.json`). Nach größeren Änderungen `npm run graphify-prep` und `/graphify analyse --update` erneut.
+`analyse/` (gekürzter Code aus `index.html`) und `analyse/graphify-out/` (Karte) werden **nach jedem Commit automatisch** neu erzeugt (Git-Hook `.githooks/post-commit`, eingeschaltet über `git config core.hooksPath .githooks`, macht `npm install` über das `prepare`-Skript). Kostet keine KI-Tokens. Von Hand: `npm run graphify-prep && graphify update analyse`. Beide Ordner sind nicht im Repo (`.gitignore`). Übersicht der Karte: `analyse/graphify-out/GRAPH_REPORT.md`, Ansicht im Browser: `analyse/graphify-out/graph.html`.
 
 ## Abgleich mit den claude.ai-Chats
 Timon arbeitet auch in claude.ai (Projekt „TrinkFest“). Dort ist `code/STAND.md` die zentrale Datei; die Chats schicken ihm eine komplette ZIP dieses Ordners. Gemeinsamer Stand ist dieses GitHub-Repo: nach Änderungen hier committen und pushen, damit der nächste Chat (oder Claude Code) darauf aufbaut.

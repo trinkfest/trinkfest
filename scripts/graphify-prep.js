@@ -29,7 +29,11 @@ const html = fs.readFileSync(src, 'utf8');
 function strip(code) {
   return code
     .replace(/data:[a-z]+\/[a-z0-9.+-]+;base64,[A-Za-z0-9+/=]{200,}/gi, 'data:…;base64,/*gekuerzt*/')
-    .replace(/(["'`])[A-Za-z0-9+/=]{400,}\1/g, '$1/*base64 gekuerzt*/$1');
+    .replace(/(["'`])[A-Za-z0-9+/=]{400,}\1/g, '$1/*base64 gekuerzt*/$1')
+    /* kodierte Kartenformen o. Ae. (z. B. WMC im Weltkarten-Spiel) */
+    .replace(/(["'`])[A-Za-z0-9_+/=|-]{300,}\1/g, '$1/*daten gekuerzt*/$1')
+    /* window.xyz=function(...) bekommt einen Namen, damit Graphify die Funktion als Knoten erkennt */
+    .replace(/(window\.([A-Za-z_$][\w$]*)\s*=\s*function)\s*\(/g, '$1 $2(');
 }
 
 fs.rmSync(out, { recursive: true, force: true });
@@ -38,6 +42,7 @@ fs.mkdirSync(jsDir, { recursive: true });
 const re = /<script([^>]*)>([\s\S]*?)<\/script>/gi;
 let m, n = 0, total = 0;
 const list = [];
+const map = {};  /* Datei -> Startzeile in index.html (fuer scripts/tf-find.js) */
 while ((m = re.exec(html))) {
   const attrs = m[1] || '';
   if (/\bsrc\s*=/.test(attrs)) continue;              /* externe Skripte (config.js, iap.js) liegen schon als Datei vor */
@@ -51,6 +56,7 @@ while ((m = re.exec(html))) {
     '. Nur zur Analyse – Aenderungen bitte in index.html machen. */\n';
   fs.writeFileSync(path.join(jsDir, name), head + body);
   total += body.length;
+  map[name] = line;
   list.push(name + '  (' + Math.round(body.length / 1024) + ' KB, Zeile ' + line + ')');
 }
 
@@ -67,5 +73,7 @@ fs.writeFileSync(path.join(out, 'README.md'),
   'Neu erzeugen: `npm run graphify-prep`. Graph bauen: in Claude Code `/graphify analyse`.\n\n' +
   '## Dateien\n\n' + list.map(x => '- ' + x).join('\n') + '\n');
 
+fs.writeFileSync(path.join(out, 'lines.json'), JSON.stringify(map));
+
 console.log('analyse/js: ' + n + ' Skript-Bloecke, zusammen ' + Math.round(total / 1024) + ' KB Code');
-console.log('Naechster Schritt in Claude Code:  /graphify analyse');
+console.log('Graph aktualisieren:  graphify update analyse   (laeuft nach jedem Commit automatisch)');
