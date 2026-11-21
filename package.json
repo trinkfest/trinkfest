@@ -14,6 +14,7 @@
     "find": "node scripts/tf-find.js",
     "prepare": "git config core.hooksPath .githooks || true",
     "codemap": "node scripts/codemap.js",
+    "cards": "node scripts/tf-cards.js",
     "test-duel": "node scripts/tf-test-duel.js",
     "overflow": "node scripts/tf-overflow.js",
     "replace": "node scripts/tf-replace.js"

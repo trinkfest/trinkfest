@@ -13,8 +13,8 @@ _Zahlen = Zeile in `index.html`. Mehrere Zahlen = später in einem vNNN-Block ü
 |---|---|---|---|---|
 | `#gm` | Circle (Kingscup) | Kartenregeln R (Zeile 2354), flip, again | 1991 | `flip` 3511 · `again` 3517 |
 | `#gm2` | Pferderennen | r… | 1996 | `rstart` 3531 · `rdraw` 3536 · `rpay` 3527 |
-| `#gm3` | Old Nick | b… | 2001 | `bstart` 3557 · `bok` 3578 · `bend` 3581 |
-| `#gm4` | Ass ziehen | a… | 2006 | `astart` 2383 · `adraw` 2384 · `aok` 2388 |
+| `#gm3` | Old Nick | b… | 2001 | `bstart` 3557 · `bok` 3578, 6484 · `bend` 3581 |
+| `#gm4` | Ass ziehen | a… | 2006 | `astart` 2383 · `adraw` 2384, 6486 · `aok` 2388 |
 | `#gm5` | Zungenbrecher | z… | 2011 | `zstart` 2399 · `zgood` 2400 · `zbad` 2401 |
 | `#gm6` | Emoji-Raten (online) | em…, e… | 2032 | `estart` 2415 · `eflip` 2414 · `emHostGo` 2436 · `emJoinGo` 2438 |
 | `#gm7` | Sekundenschätzen | s…, sk… | 2046 | `sstart` 2532, 6026 |
@@ -107,6 +107,8 @@ _Zahlen = Zeile in `index.html`. Mehrere Zahlen = später in einem vNNN-Block ü
 | `v140js` | 6354 | ===== v140 (Block 5a, 21.11.): Duelle Teil 2 ===== |
 | `v141` | 6389 | v141 (Block 5b, 21.11.): Wo liegt das (Karte), Trink-Duell (Bereit-Screen, Rundenende, Wetten, Überspringen) |
 | `v141js` | 6412 | ===== v141 (Block 5b, 21.11.): Duelle Teil 2, zweite Hälfte ===== |
+| `v142` | 6444 | v142 (Block 6a, 21.11.): Old Nick + Ass ziehen |
+| `v142js` | 6475 | ===== v142 (Block 6a, 21.11.): Old Nick + Ass ziehen ===== |
 
 ## Meistbenutzte Funktionen (vor Änderung `graphify affected` prüfen)
-`skEsc()` 2523 (47×) · `dlT()` 4067 (46×) · `toast()` 2352 (27×) · `xL()` 4868 (21×) · `bpL()` 3146 (19×) · `c()` 5449 (19×) · `dlLater()` 4141 (17×) · `bpBc()` 3202 (15×) · `dlBuzz()` 4139 (14×) · `plBtn()` 4838 (12×) · `plNames()` 4837 (12×) · `sqSet()` 2979 (12×) · `tfRound()` 3468 (11×) · `sqNetInit()` 3013 (11×) · `hBc()` 3071 (11×)
+`skEsc()` 2523 (47×) · `dlT()` 4067 (45×) · `toast()` 2352 (27×) · `xL()` 4868 (21×) · `c()` 5449 (20×) · `bpL()` 3146 (19×) · `dlLater()` 4141 (17×) · `bpBc()` 3202 (15×) · `dlBuzz()` 4139 (14×) · `plBtn()` 4838 (12×) · `plNames()` 4837 (12×) · `sqSet()` 2979 (12×) · `tfRound()` 3468 (11×) · `sqNetInit()` 3013 (11×) · `hBc()` 3071 (11×)

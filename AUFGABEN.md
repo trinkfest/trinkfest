@@ -64,12 +64,12 @@ Start einer Sitzung: „Mach Block N aus AUFGABEN.md“. Erledigtes hier abhaken
 - [x] **Wo liegt das:** Nord-/Südpol-Namen weg; kleinere, klarere Markierung aufs richtige Land; **kein Land/Gebäude doppelt in einem Spiel**; statt „Gib das Handy …“ → „[Name], du bist dran“ + Button „Ready“
 - [x] **Trinkduell:** Bereit-Screen neu (kein plumpes Bier-Icon, schöne Schrift, animierte Biere im Hintergrund); nach der Runde groß und klar, wer trinkt und wer nicht (Namen in Spielerfarbe); klarer, dass man auf ein Pferd setzt; Gewonnen/Verloren-Animation per Tippen überspringbar (ohne Hinweistext)
 
-## Block 6 – Kartenspiele: Old Nick, Busfahren, Ass ziehen
+## Block 6 – Kartenspiele: Old Nick, Busfahren, Ass ziehen (6a Old Nick + Ass ziehen erledigt, 6b Busfahren offen)
 **Old Nick**
-- [ ] Bei falsch: „getrunken/weiter“-Text weg, nur „Diego trinkt 4 Schlücke“ + kurze Erklärung (4 zusammenhängende Karten) lassen
-- [ ] „Abgeben“ nach 3 richtigen größer
-- [ ] Tippbare Karten farbig leuchten lassen
-- [ ] Dreh-Symbol rechts oben
+- [x] Bei falsch: „getrunken/weiter“-Text weg, nur „Diego trinkt 4 Schlücke“ + kurze Erklärung (4 zusammenhängende Karten) lassen
+- [x] „Abgeben“ nach 3 richtigen größer
+- [x] Tippbare Karten farbig leuchten lassen
+- [x] Dreh-Symbol rechts oben
 
 **Busfahren**
 - [ ] Jeder tippt „gemerkt/weiter“, erst dann kann der Host starten
@@ -79,10 +79,10 @@ Start einer Sitzung: „Mach Block N aus AUFGABEN.md“. Erledigtes hier abhaken
 - [ ] Endstatistik: farbiger Hintergrund mit Animationen statt weiß
 
 **Ass ziehen**
-- [ ] Wer dran ist: Name groß und auffällig
-- [ ] Ablagestapel: immer oberste Karte offen, gleich groß wie Ziehstapel; auch Asse dort ablegen
-- [ ] „Timon zieht Pik 5 – nichts passiert“ komplett weg; gezogene Asse größer
-- [ ] „Alle Asse gezogen“ nicht weiß, sondern im normalen Spiel-Design
+- [x] Wer dran ist: Name groß und auffällig
+- [x] Ablagestapel: immer oberste Karte offen, gleich groß wie Ziehstapel; auch Asse dort ablegen
+- [x] „Timon zieht Pik 5 – nichts passiert“ komplett weg; gezogene Asse größer
+- [x] „Alle Asse gezogen“ nicht weiß, sondern im normalen Spiel-Design
 
 ## Block 7 – Pferderennen (große Neugestaltung)
 - [ ] Ganzes Spiel im klassischen Pferderennen-Look: Dirt-Bahn, Pferde mit Kartensymbol laufen vor, wenn ihr Symbol gezogen wird; „Pferderennen“ oben bleibt, Anweisungen oben integrieren – schon ab Spielstart

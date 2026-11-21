@@ -356,3 +356,6 @@ Drei gewinnt (Blau/Rot, direkt tippen, Boden), Tic Tac Toe (3× Unentschieden �
 
 ## Test-Werkzeuge (21.11., Claude Code)
 `npm run -s test-duel -- hockey` testet ein Duell-Minispiel, `npm run -s overflow` prüft, ob man im Duell scrollen muss, `npm run -s replace -- patch.json` ersetzt sicher in index.html. Regeln zum Token-Sparen stehen in CLAUDE.md.
+
+### v142 (Block 6a): Old Nick und Ass ziehen überarbeitet
+Old Nick (kürzeres Fehler-Fenster, großes „Abgeben“, bunt leuchtende Karten, Dreh-Symbol rechts oben) und Ass ziehen (großer Name, sichtbarer Ablagestapel, größere Asse, Endscreen im Spiel-Design). Busfahren folgt in Block 6b.
