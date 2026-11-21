@@ -61,8 +61,8 @@ Start einer Sitzung: „Mach Block N aus AUFGABEN.md“. Erledigtes hier abhaken
 - [x] **Flaggen erraten:** Lösung darf nicht auf dem Button stehen, alles sauber anordnen
 - [x] **Tic Tac Toe:** bei Unentschieden bis zu 3 Runden, dann Münzwurf
 - [x] **Armdrücken:** ohne Countdown ins Spiel; beide drücken „Bereit“, dann großer animierter Countdown 3-2-1-GO; Gewinner erst nach 1 s antippbar
-- [ ] **Wo liegt das:** Nord-/Südpol-Namen weg; kleinere, klarere Markierung aufs richtige Land; **kein Land/Gebäude doppelt in einem Spiel**; statt „Gib das Handy …“ → „[Name], du bist dran“ + Button „Ready“
-- [ ] **Trinkduell:** Bereit-Screen neu (kein plumpes Bier-Icon, schöne Schrift, animierte Biere im Hintergrund); nach der Runde groß und klar, wer trinkt und wer nicht (Namen in Spielerfarbe); klarer, dass man auf ein Pferd setzt; Gewonnen/Verloren-Animation per Tippen überspringbar (ohne Hinweistext)
+- [x] **Wo liegt das:** Nord-/Südpol-Namen weg; kleinere, klarere Markierung aufs richtige Land; **kein Land/Gebäude doppelt in einem Spiel**; statt „Gib das Handy …“ → „[Name], du bist dran“ + Button „Ready“
+- [x] **Trinkduell:** Bereit-Screen neu (kein plumpes Bier-Icon, schöne Schrift, animierte Biere im Hintergrund); nach der Runde groß und klar, wer trinkt und wer nicht (Namen in Spielerfarbe); klarer, dass man auf ein Pferd setzt; Gewonnen/Verloren-Animation per Tippen überspringbar (ohne Hinweistext)
 
 ## Block 6 – Kartenspiele: Old Nick, Busfahren, Ass ziehen
 **Old Nick**

@@ -4751,7 +4751,7 @@ function dlMapMake(host,o){
  const api={reset:()=>{V.lon=10;V.lat=0;V.z=Math.max(300/360,(V.H/180)/(V.W/300));clamp();dirty=true},setHi:i=>{hi=i;dirty=true},marks,lines,mark:()=>{dirty=true},onTap:f=>{onTap=f},stop:()=>{gone=true},
   fit:pts=>{if(!pts.length)return;const base=pts[0][1];let x0=1e9,x1=-1e9,y0=1e9,y1=-1e9;pts.forEach(p=>{let lo=p[1];while(lo-base>180)lo-=360;while(lo-base<-180)lo+=360;x0=Math.min(x0,lo);x1=Math.max(x1,lo);y0=Math.min(y0,p[0]);y1=Math.max(y1,p[0])});
    const dx=Math.max(8,(x1-x0)*1.5),dy=Math.max(6,(y1-y0)*1.5);V.z=Math.min(V.W/dx/(V.W/300),V.H/dy/(V.W/300));V.lon=(x0+x1)/2;V.lat=(y0+y1)/2;clamp();dirty=true}};
- const pin=(g,x,y,col)=>{g.fillStyle=col;g.strokeStyle='#fff';g.lineWidth=2;g.beginPath();g.moveTo(x,y);g.bezierCurveTo(x-11,y-12,x-9,y-27,x,y-27);g.bezierCurveTo(x+9,y-27,x+11,y-12,x,y);g.fill();g.stroke();g.fillStyle='#fff';g.beginPath();g.arc(x,y-17,3.2,0,7);g.fill()};
+ const pin=(g,x,y,col)=>{g.save();g.translate(x,y);g.scale(.6,.6);g.translate(-x,-y);g.fillStyle=col;g.strokeStyle='#fff';g.lineWidth=3;g.beginPath();g.moveTo(x,y);g.bezierCurveTo(x-11,y-12,x-9,y-27,x,y-27);g.bezierCurveTo(x+9,y-27,x+11,y-12,x,y);g.fill();g.stroke();g.fillStyle='#fff';g.beginPath();g.arc(x,y-17,3.2,0,7);g.fill();g.restore()};
  function draw(){const g=cv.getContext('2d');g.setTransform(V.sx,0,0,V.sx,0,0);const W=V.W,H=V.H,s=S();
   g.fillStyle='#06223a';g.fillRect(0,0,W,H);
   const yT=Y(90),yB=Y(-90),gr=g.createLinearGradient(0,yT,0,yB);gr.addColorStop(0,'#4a93c2');gr.addColorStop(.5,'#2a7fb5');gr.addColorStop(1,'#1b5f93');g.fillStyle=gr;g.fillRect(0,yT,W,yB-yT);
@@ -4768,12 +4768,12 @@ function dlMapMake(host,o){
   /* Pole */
   g.lineWidth=2;g.strokeStyle='rgba(255,255,255,.85)';[yT,yB].forEach(y=>{if(y>=-2&&y<=H+2){g.beginPath();g.moveTo(0,y);g.lineTo(W,y);g.stroke()}});
   g.font='800 10px -apple-system,Helvetica,Arial,sans-serif';g.textAlign='center';g.textBaseline='middle';
-  [[yT,dlT('NORDPOL','NORTH POLE'),9],[yB,dlT('SÜDPOL','SOUTH POLE'),-9]].forEach(([y,t,dy])=>{const yy=y+dy;if(yy<4||yy>H-4)return;const w=g.measureText(t).width+14;g.fillStyle='rgba(6,34,58,.75)';g.fillRect(W/2-w/2,yy-8,w,16);g.fillStyle='#fff';g.fillText(t,W/2,yy)});
+  [].forEach(([y,t,dy])=>{const yy=y+dy;if(yy<4||yy>H-4)return;const w=g.measureText(t).width+14;g.fillStyle='rgba(6,34,58,.75)';g.fillRect(W/2-w/2,yy-8,w,16);g.fillStyle='#fff';g.fillText(t,W/2,yy)});
   lines.forEach(l=>{g.save();g.setLineDash([5,4]);g.strokeStyle=l.col;g.lineWidth=2.4;const arc=wmArc(l.a,l.b,28);offs.concat([-720,720]).forEach(f=>{g.beginPath();arc.forEach((q,i)=>{const x=X(q[1]+f),y=Y(q[0]);i?g.lineTo(x,y):g.moveTo(x,y)});g.stroke()});g.restore()});
   marks.forEach(m=>{offs.forEach(f=>{const x=X(m.lon+f),y=Y(m.lat);if(x<-30||x>W+30)return;
-   if(m.star){g.fillStyle=m.col;g.strokeStyle='#fff';g.lineWidth=2;g.beginPath();for(let i=0;i<10;i++){const r=i%2?5:12,a=-Math.PI/2+i*Math.PI/5;g.lineTo(x+Math.cos(a)*r,y+Math.sin(a)*r)}g.closePath();g.fill();g.stroke()}
+   if(m.star){g.fillStyle=m.col;g.strokeStyle='#fff';g.lineWidth=2;g.beginPath();for(let i=0;i<10;i++){const r=i%2?3.2:7.5,a=-Math.PI/2+i*Math.PI/5;g.lineTo(x+Math.cos(a)*r,y+Math.sin(a)*r)}g.closePath();g.fill();g.stroke()}
    else pin(g,x,y,m.col);
-   if(m.lab){g.font='800 10px -apple-system,Helvetica,Arial,sans-serif';g.textAlign='center';g.textBaseline='middle';g.lineWidth=3;g.strokeStyle='rgba(0,0,0,.7)';const ty=m.star?y+19:y-36;g.strokeText(m.lab,x,ty);g.fillStyle='#fff';g.fillText(m.lab,x,ty)}})});
+   if(m.lab){g.font='800 10px -apple-system,Helvetica,Arial,sans-serif';g.textAlign='center';g.textBaseline='middle';g.lineWidth=3;g.strokeStyle='rgba(0,0,0,.7)';const ty=m.star?y+13:y-24;g.strokeText(m.lab,x,ty);g.fillStyle='#fff';g.fillText(m.lab,x,ty)}})});
  }
  const loop=()=>{if(gone)return;if(dirty){dirty=false;draw()}requestAnimationFrame(loop)};
  resize();loop();dlOnEnd(api.stop);
@@ -4781,14 +4781,14 @@ function dlMapMake(host,o){
  return api;
 }
 DLRUN.where=function(c){
- const a=c.a,b=c.b,WIN=3,sc={[a]:0,[b]:0};let used=[],rnd=0,ov=null,map=null;
+ const a=c.a,b=c.b,WIN=3,sc={[a]:0,[b]:0};let used=window.WHUSED||(window.WHUSED=[]),rnd=0,ov=null,map=null;
  const score=()=>`<div class="dsco sm"><b>${sc[a]}</b><span>:</span><b>${sc[b]}</b></div>`;
  const kind=t=>t==0?dlT('Land','Country'):t==1?dlT('Stadt','City'):dlT('Sehenswürdigkeit','Landmark');
  const host=gm15;
  function closeOv(){if(ov){ov.remove();ov=null}map=null}
  dlOnEnd(closeOv);
  const PHONE=`<svg viewBox="0 0 64 64" class="dsv dmph"><rect x="18" y="5" width="28" height="54" rx="6" fill="#222" stroke="#fff" stroke-width="3"/><rect x="22" y="11" width="20" height="38" rx="2" fill="#44b8ff"/><circle cx="32" cy="54" r="2" fill="#fff"/></svg>`;
- function next(){rnd++;let pool=WHP.map((_,i)=>i).filter(i=>!used.includes(i));if(!pool.length){used=[];pool=WHP.map((_,i)=>i)}const k=pool[Math.floor(Math.random()*pool.length)];used.push(k);const pl=WHP[k],nm=dlT(pl[0],pl[1]);
+ function next(){rnd++;let pool=WHP.map((_,i)=>i).filter(i=>!used.includes(i));if(!pool.length){used.length=0;pool=WHP.map((_,i)=>i)}const k=pool[Math.floor(Math.random()*pool.length)];used.push(k);const pl=WHP[k],nm=dlT(pl[0],pl[1]);
   const first=rnd%2?a:b,second=first==a?b:a;
   const card=`<div class="dtg">${dlIco('where','sm')}<b class="dwn">${skEsc(nm)}</b><small>${kind(pl[2])}</small></div>`;
   dlMidSet(c,`<div class="r180 dqx">${card}</div><div class="dqs">${score()}</div><div class="dqx">${card}</div>`);
@@ -4805,7 +4805,7 @@ DLRUN.where=function(c){
   ov.querySelector('#dmok').addEventListener('click',()=>{if(!mk)return;res[p]=mk;if(res[other]){reveal(pl,res)}else{hand(other,pl,res,p)}});
  }
  function hand(p,pl,res,prev){
-  shell(`<div class="dmx">${PHONE}<h3>${dlT('Gib das Handy an','Hand the phone to')}</h3><div class="dmnm">${c.nm(p)}</div><p>${dlT('Der Tipp von '+c.nm(prev)+' bleibt geheim.',c.nm(prev)+'’s guess stays secret.')}</p><button class="bt" id="dmrd">${dlT('Ich bin bereit','I’m ready')}</button></div>`);
+  shell(`<div class="dmx">${PHONE}<h3 class="dmyt">${c.nm(p)}${dlT(', du bist dran',', you’re up')}</h3><p>${dlT('Der Tipp von '+c.nm(prev)+' bleibt geheim.',c.nm(prev)+'’s guess stays secret.')}</p><button class="bt" id="dmrd">${dlT('Ready','Ready')}</button></div>`);
   ov.querySelector('#dmrd').addEventListener('click',()=>guess(p,pl,res,prev));
  }
  function reveal(pl,res){
@@ -6385,5 +6385,60 @@ DLRUN.arm=function(c){
  },{goMs:650,go:dlT('LOS!','GO!'),label:dlT('SPIEL STARTET IN','GAME STARTS IN')});
 };
 }catch(e){console.warn('v140',e)}})();
+</script>
+<style id="v141">
+/* v141 (Block 5b, 21.11.): Wo liegt das (Karte), Trink-Duell (Bereit-Screen, Rundenende, Wetten, Überspringen) */
+.dmx h3.dmyt{font:900 19px/1.25 var(--fn);margin:6px 0 4px}
+.tdbr{position:absolute;inset:0;overflow:hidden;display:flex;align-items:center;justify-content:center;text-align:center}
+.tdbg{position:absolute;inset:0;pointer-events:none}
+.tdbb{position:absolute;bottom:-50px;opacity:0;animation:tdbup linear infinite}
+.tdbb svg{width:100%;height:auto;display:block}
+@keyframes tdbup{0%{transform:translateY(0) rotate(-12deg);opacity:0}12%{opacity:.34}85%{opacity:.34}100%{transform:translateY(-330px) rotate(14deg);opacity:0}}
+.tdbt{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;gap:5px;padding:0 10px}
+.tdbt small{font:800 9px var(--fn);letter-spacing:3px;opacity:.85}
+.tdbt>b{font:900 27px/1 var(--fn);letter-spacing:1px;background:linear-gradient(#fff4b0,#ffb81c 55%,#e07a00);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;filter:drop-shadow(0 2px 0 rgba(90,40,0,.55))}
+.tdbt span{font:700 10px/1.3 var(--fn);opacity:.9;max-width:200px}
+.rsx{width:100%}
+.rsx .rsg{font:900 10px var(--fn);letter-spacing:1.6px;margin:10px 0 5px;text-align:center}
+.rsx .rsg.bad{color:#ff6b6b}.rsx .rsg.ok{color:#43e0a0}
+.rsx .rbd{display:flex;align-items:center;gap:8px;padding:10px 12px;border-radius:14px;background:rgba(255,80,80,.16);border:2px solid rgba(255,107,107,.7);margin-bottom:6px}
+.rsx .rbd span{flex:1;line-height:1.25}.rsx .rbd .dnc{font:900 17px var(--fn)}.rsx .rbd small{display:block;font-size:9px;opacity:.75}
+.rsx .rbd em{font-style:normal;font:900 13px var(--fn);white-space:nowrap}
+.rsx .rok{display:flex;flex-wrap:wrap;gap:6px;justify-content:center}
+.rsx .rok span{padding:6px 11px;border-radius:99px;background:rgba(67,224,160,.16);border:2px solid rgba(67,224,160,.7);font:800 12px var(--fn)}
+.rsx .rok .dnc{font-weight:900}
+.rsx.many .rbd{padding:4px 10px;margin-bottom:3px;border-width:1.5px;border-radius:10px}.rsx.many .rbd small{display:none}.rsx.many .rbd .dnc{font-size:13px}.rsx.many .rbd em{font-size:11px}.rsx.many .rsg{margin:5px 0 3px}.rsx.many .rok span{padding:3px 8px;font-size:11px}
+</style>
+<script id="v141js">
+/* ===== v141 (Block 5b, 21.11.): Duelle Teil 2, zweite Hälfte ===== */
+(function(){try{
+/* (1) Wo liegt das: Städte, die auch Land sind (Singapur), nur einmal */
+(function(){const cn={};WHP.forEach(p=>{if(p[2]==0)cn[p[0]]=1});for(let i=WHP.length-1;i>=0;i--)if(WHP[i][2]!=0&&cn[WHP[i][0]])WHP.splice(i,1)})();
+/* (2) Trink-Duell: schöner Bereit-Screen mit aufsteigenden Biergläsern */
+const BEER=`<svg viewBox="0 0 40 52"><path d="M6 12h22l-2 34a4 4 0 0 1-4 4H12a4 4 0 0 1-4-4z" fill="#ffc21a" stroke="#fff" stroke-width="2.4"/><path d="M28 18h5a4 4 0 0 1 4 4v8a4 4 0 0 1-4 4h-6" fill="none" stroke="#fff" stroke-width="2.6"/><path d="M5 12a5 5 0 0 1 4-7 6 6 0 0 1 10-2 6 6 0 0 1 10 3 4 4 0 0 1 0 6z" fill="#fff"/><path d="M13 22v20M19 22v20" stroke="#fff" stroke-opacity=".5" stroke-width="2.4" stroke-linecap="round"/></svg>`;
+DLRUN.exen=function(c){
+ const a=c.a,b=c.b,rd={[a]:false,[b]:false};
+ let bg='';for(let i=0;i<14;i++){const w=14+Math.random()*16;bg+=`<i class="tdbb" style="left:${(Math.random()*92).toFixed(0)}%;width:${w.toFixed(0)}px;animation-duration:${(5+Math.random()*5).toFixed(1)}s;animation-delay:${(-Math.random()*9).toFixed(1)}s">${BEER}</i>`}
+ dlMidSet(c,`<div class="tdbr"><div class="tdbg">${bg}</div><div class="tdbt"><small>${dlT('DAS DUELL','THE DUEL')}</small><b>${dlT('TRINK-DUELL','DRINK DUEL')}</b><span>${dlT('Wer zuerst leer ist, gewinnt. Beide tippen <b>Bereit</b>.','First empty glass wins. Both tap <b>Ready</b>.')}</span></div></div>`);
+ [a,b].forEach(p=>{dlP(c,p).innerHTML=`<button class="drb ok pe dxrdy" data-r="${p}" style="--k:${c.col(p)}">${dlT('Bereit','Ready')}</button>`});
+ c.dar.addEventListener('pointerdown',e=>{const t=e.target.closest&&e.target.closest('[data-r]');if(!t||t.disabled)return;e.preventDefault();const p=+t.dataset.r;rd[p]=true;t.disabled=true;t.classList.add('is');t.textContent='✓ '+dlT('Bereit','Ready');dlBuzz(15);if(rd[a]&&rd[b])dlLater(fs,350)});
+ function fs(){const ov=document.createElement('div');ov.className='dxfs';c.dar.appendChild(ov);dlOnEnd(()=>ov.remove());
+  const num=(t,cls)=>`<div class="dxfn rt ${cls||''}">${cls?'':`<small>${dlT('SPIEL STARTET IN','GAME STARTS IN')}</small>`}<b>${t}</b></div><div class="dxfn ${cls||''}">${cls?'':`<small>${dlT('SPIEL STARTET IN','GAME STARTS IN')}</small>`}<b>${t}</b></div>`;let k=5;
+  const tick=()=>{if(k>0){ov.innerHTML=num(k);try{tfVoiceN(k)}catch(e){}dlBuzz(k==1?40:15);k--;dlLater(tick,1000)}else{ov.innerHTML=num(dlT('TRINK!!!','DRINK!!!'),'go');try{tfVoiceN(0)}catch(e){}ov.classList.add('go');dlBuzz([60,40,120]);dlLater(()=>{ov.remove();dlIrlWho(c,{ico:'exen',title:dlT('Trink-Duell','Drink duel')})},2700)}};tick()}
+};
+/* (3) Rundenende: groß und klar, wer trinkt und wer nicht (Namen in Spielerfarbe) */
+window.dlRs=function(){const a=DLS.a,b=DLS.b,lc=DLS.rr.lc,last=DLS.rnd>=DLS.R;
+ const L=[{i:a,n:lc[a]*DLPER,s:lc[a]+' '+dlT(lc[a]==1?'Niederlage':'Niederlagen',lc[a]==1?'loss':'losses')},{i:b,n:lc[b]*DLPER,s:lc[b]+' '+dlT(lc[b]==1?'Niederlage':'Niederlagen',lc[b]==1?'loss':'losses')}].concat(DLS.tipRes.map(t=>({i:t.i,n:t.n,s:dlT('falsch getippt auf ','wrong tip on ')+DLS.pl[t.h]})));
+ const bad=L.filter(x=>x.n>0),ok=L.filter(x=>!x.n);
+ const head=dlCd()?dlT('STRAFPUNKTE','PENALTY POINTS'):dlT('JETZT TRINKEN','DRINK NOW');
+ dlEl('rs').innerHTML=`<div class="drn">${dlT('RUNDE','ROUND')} ${DLS.rnd} / ${DLS.R}</div><div class="dpb"><i style="width:${DLS.rnd/DLS.R*100}%"></i></div>${dlBoxes(false)}<div class="dmg">${DLTROPHY}<b>${dlNm(DLS.rr.rw)}</b></div><p class="dmd">${dlT('gewinnt die Runde','wins the round')} ${DLS.res.filter(x=>x==DLS.rr.rw).length}:${DLS.res.filter(x=>x!=DLS.rr.rw).length}</p><div class="rsx${L.length>4?' many':''}">`
+  +(bad.length?`<div class="rsg bad">🍺 ${head}</div>`+bad.map(x=>`<div class="rbd"><span>${dlNm(x.i)}<small>${skEsc(x.s)}</small></span><em>${dlDrink(x.n)}</em></div>`).join(''):`<div class="rsg ok">${dlT('Niemand muss trinken 🎉','Nobody drinks 🎉')}</div>`)
+  +(ok.length&&bad.length?`<div class="rsg ok">✓ ${dlT('MÜSSEN NICHT','OFF THE HOOK')}</div><div class="rok">${ok.map(x=>`<span>${dlNm(x.i)}</span>`).join('')}</div>`:'')
+  +`</div><button class="bt" onclick="${last?"dlV('en')":'dlNext()'}">${last?dlT('Zum Endstand','To the final result'):dlT('Erledigt, nächste Runde','Done, next round')}</button>`;try{dlFitV('rs')}catch(x){}};
+/* (4) Wetten: klarer, dass man auf einen Spieler setzt */
+var _tp=window.dlTp;window.dlTp=function(){var r=_tp.apply(this,arguments);try{var e=dlEl('tp'),h=e.querySelector('h3');if(h)h.textContent=dlT('Setzt auf den Sieger!','Bet on the winner!');e.querySelectorAll('.dxh span').forEach(function(s){s.textContent=dlT('setzt auf …','bets on …')})}catch(x){}return r};
+/* (5) Gewonnen/Verloren-Animation: Tippen überspringt (nach 0,7 s) */
+var _rv=window.dlResV;window.dlResV=function(w){_rv.apply(this,arguments);try{var o=document.querySelector('#d-pl .dxr3'),t0=Date.now(),gi=DLS.gi,done=false;if(!o)return;o.addEventListener('pointerdown',function(e){if(done||Date.now()-t0<700||!DLS||DLS.gi!=gi)return;done=true;e.preventDefault();DLT.forEach(clearTimeout);DLT=[];dlAfterGame()})}catch(x){}};
+}catch(e){console.warn('v141',e)}})();
 </script>
 </body></html>
