@@ -15,11 +15,11 @@ _Zahlen = Zeile in `index.html`. Mehrere Zahlen = später in einem vNNN-Block ü
 | `#gm2` | Pferderennen | r… | 1996 | `rstart` 3531, 6676, 6735 · `rdraw` 3536, 6682 · `rpay` 3527 |
 | `#gm3` | Old Nick | b… | 2001 | `bstart` 3557 · `bok` 3578, 6484 · `bend` 3581 |
 | `#gm4` | Ass ziehen | a… | 2006 | `astart` 2383 · `adraw` 2384, 6486 · `aok` 2388 |
-| `#gm5` | Zungenbrecher | z… | 2011 | `zstart` 2399, 6850 · `zgood` 2400 · `zbad` 2401 |
+| `#gm5` | Zungenbrecher | z… | 2011 | `zstart` 2399, 6852 · `zgood` 2400 · `zbad` 2401 |
 | `#gm6` | Emoji-Raten (online) | em…, e… | 2032 | `estart` 2415 · `eflip` 2414 · `emHostGo` 2436 · `emJoinGo` 2438 |
 | `#gm7` | Sekundenschätzen | s…, sk… | 2046 | `sstart` 2532, 6026 |
 | `#gm8` | Tick Tac Boom | bx… | 2049 | `bxstart` 2564 · `bxnext` 2565 · `bxexp` 2593 · `bxend` 2600 |
-| `#gm9` | Wer würde eher? | wr… | 2060 | `wrstart` 2614 · `wrnext` 2615, 6817 |
+| `#gm9` | Wer würde eher? | wr… | 2060 | `wrstart` 2614 · `wrnext` 2615, 6820, 6835 |
 | `#gm10` | Kartensaufen | ks… | 2064 | `ksstart` 2630 · `ksnext` 2631 |
 | `#gm13` | Schätzfragen (online/1 Handy) | sq…, h… | 2124 | `sqHostGo` 3029 · `sqJoinGo` 3032 · `sqLcGo` 3003 · `hStart` 3075 · `hNext` 3088 |
 | `#gm14` | Busfahren (online) | bp… | 2136 | `bpHostGo` 3164 · `bpJoinGo` 3167 · `bpStartO` 3213 · `bpBusDraw` 3351, 6560 |
@@ -37,7 +37,7 @@ _Zahlen = Zeile in `index.html`. Mehrere Zahlen = später in einem vNNN-Block ü
 - **Sprache DE/EN:** `I18N` 3593 · `dlT` 4067
 - **Spieler (global):** `PLY` 4830 · `plBtn` 4838 · `plxH` 5222 · `plxOpen` 5235 · `plxBuild` 5225, 5721 · `plxClose` 5243
 - **Ton / Vibration / Stimme:** `TFSnd` 5410 · `TFS` 5419 · `TFH` 5312 · `tfVoice` 5456 · `tfVoiceN` 5457, 5602 · `tfBeep` 5601
-- **Hilfen:** `toast` 2352 · `skEsc` 2523 · `fit` 1596, 3585, 5153, 6728, 6828
+- **Hilfen:** `toast` 2352 · `skEsc` 2523 · `fit` 1596, 3585, 5153, 6728
 - **Premium / Werbung:** `openPW` 3398 · `proDraw` 3396, 5850
 
 ## Änderungsblöcke (vNNN, neueste unten)
@@ -120,7 +120,7 @@ _Zahlen = Zeile in `index.html`. Mehrere Zahlen = später in einem vNNN-Block ü
 | `v147` | 6757 | v147 (21.11.): Duell-Wetten – Name des Tippenden sichtbar (statt nur Farbe) |
 | `v147js` | 6762 | ===== v147 (21.11.): Duell-Wetten – lange Namen verkleinern statt abschneiden ===== |
 | `v148` | 6766 | v148 (Block 8, 21.11.): Party-Spiele – Wer würde eher, Boom, Zungenbrecher |
-| `v148js` | 6807 | ===== v148 (Block 8, 21.11.): Wer würde eher (Getrunken → Weiter, Animation), Boom (Name, alle Kategorien, ohne Scrollen), Zungenbrecher (Karte umdrehen, 2 s, m |
+| `v148js` | 6810 | ===== v148 (Block 8, 21.11.): Wer würde eher (Getrunken → Weiter, Animation), Boom (Name, alle Kategorien, ohne Scrollen), Zungenbrecher (Karte umdrehen, 2 s, m |
 
 ## Meistbenutzte Funktionen (vor Änderung `graphify affected` prüfen)
 `skEsc()` 2523 (47×) · `dlT()` 4067 (45×) · `toast()` 2352 (27×) · `xL()` 4868 (21×) · `c()` 5449 (20×) · `bpL()` 3146 (19×) · `dlLater()` 4141 (17×) · `bpBc()` 3202 (15×) · `dlBuzz()` 4139 (14×) · `plBtn()` 4838 (12×) · `plNames()` 4837 (12×) · `sqSet()` 2979 (12×) · `tfRound()` 3468 (11×) · `sqNetInit()` 3013 (11×) · `hBc()` 3071 (11×)

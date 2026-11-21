@@ -6771,15 +6771,18 @@ var _w=window.rwin;window.rwin=function(){_w.apply(this,arguments);shrink('#rwt 
 @keyframes v148in{0%{opacity:0;transform:translateX(40px) scale(.94)}100%{opacity:1;transform:none}}
 @keyframes v148out{to{opacity:0;transform:translateX(-40px) scale(.94)}}
 #w-pl.v148d .wrdr{opacity:.55}
-/* Boom: Setup ohne Scrollen */
-#gm8 #b8-su.on{padding-top:10px;padding-bottom:calc(var(--sab,0px) + 14px)}
+#w-pl .wrtop{flex:none}#w-pl .wrmid{display:flex;flex-direction:column;justify-content:center;align-items:stretch;overflow:hidden;min-height:0;flex:1 1 0}#w-pl .wrmid{padding-top:10px}#w-pl .wrmid>*{flex:none}#w-pl .wrmid.v148t .wrdr small{display:none}#w-pl .wrn,#w-pl>.bt{flex:none}
+/* Boom: Setup ohne Scrollen – Kategorien füllen den freien Platz, nichts überlappt */
+#gm8 #b8-su.on{display:flex;flex-direction:column;overflow:hidden;padding-top:10px;padding-bottom:calc(var(--sab,0px) + 14px)}
+#gm8 #b8-su>*{flex:none;margin-top:0;margin-bottom:0}
 #gm8 #b8-su .one{font-size:12px;line-height:1.3;margin:0 0 4px}
-#gm8 #b8-su .bxh{margin:6px 0 3px}
-#gm8 #b8-su .bxcg{gap:4px}
-#gm8 #b8-su .bxc{padding:6px 3px;font-size:10.5px;border-radius:10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-#gm8 #b8-su .bxall{margin-top:4px;padding:7px 10px;min-height:0;font-size:11px}
-#gm8 #b8-su .bxrg{gap:4px}#gm8 #b8-su .bxrg .bxc{font-size:13px;padding:6px 3px}
-#gm8 #b8-su .bxn{margin-top:4px;min-height:0}
+@media (max-height:760px){#gm8 #b8-su .one{display:none}}
+#gm8 #b8-su .bxh{margin:8px 0 4px}
+#gm8 #b8-su .bxcg{flex:1 1 0;min-height:120px;max-height:230px;gap:4px;grid-template-rows:repeat(5,minmax(0,1fr))}
+#gm8 #b8-su .bxc{padding:2px 3px;font-size:11px;border-radius:10px;display:flex;align-items:center;justify-content:center;text-align:center;line-height:1.1;min-height:0}
+#gm8 #b8-su .bxall{margin-top:6px;padding:8px 10px;min-height:0;height:auto;font-size:11px}
+#gm8 #b8-su .bxrg{gap:4px}#gm8 #b8-su .bxrg .bxc{font-size:13px;padding:8px 3px}
+#gm8 #b8-su .bxn{margin-top:4px;min-height:13px}
 #gm8 #b8-su #bxgo{margin-top:6px}
 /* Boom: Aufgabe gut lesbar */
 #gm8 .bxcat{background:#fff;border:0;box-shadow:0 6px 16px #0006;padding:12px 14px}
@@ -6823,15 +6826,14 @@ window.wrBtn=function(){if(wBusy)return;if(!wDr){wDr=true;document.getElementByI
 var wb=wBtn();if(wb){wb.setAttribute('onclick','wrBtn()');wb.textContent=L('Getrunken','Drank')}
 /* ---------- Boom ---------- */
 var bxFirst=true;
-var _ot=window.openT;
-window.openT=function(){if(bxFirst&&!bxSel.size){BXC.forEach(function(c){bxSel.add(c.k)})}bxFirst=false;return _ot.apply(this,arguments)};
-function fit(v,els){if(!v||!v.classList.contains('on'))return;els.forEach(function(e){e.style.zoom=''});
- var d=v.scrollHeight-v.clientHeight;if(d<=0)return;var h=0;els.forEach(function(e){h+=e.offsetHeight});
- var z=1;for(var i=0;i<4&&d>0;i++){z=Math.max(.5,z*(h*z-d-3)/(h*z));els.forEach(function(e){e.style.zoom=z});d=v.scrollHeight-v.clientHeight}}
-function fitSu(){var v=document.getElementById('b8-su');fit(v,[].slice.call(v.children).filter(function(e){return e.offsetHeight}))}
-var _bs=window.bxsetup;window.bxsetup=function(){var r=_bs.apply(this,arguments);requestAnimationFrame(fitSu);return r};
-var _br=window.bxrows;window.bxrows=function(){var r=_br.apply(this,arguments);requestAnimationFrame(fitSu);return r};
-addEventListener('resize',function(){setTimeout(fitSu,200)});
+function bxDef(){if(!bxSel.size&&bxFirst){BXC.forEach(function(c){bxSel.add(c.k)});bxFirst=false}}
+var _bs=window.bxsetup;window.bxsetup=function(){bxDef();return _bs.apply(this,arguments)};
+/* Wer würde eher: Frage darf nie mit Hinweis/Karte kollidieren – Schrift schrumpft, bis alles passt */
+function fitW(){var m=document.querySelector('#w-pl .wrmid'),q=document.getElementById('wQ');if(!m||!q)return;q.style.fontSize='';m.classList.remove('v148t');
+ var f=parseFloat(getComputedStyle(q).fontSize)||22;while(m.scrollHeight>m.clientHeight+1&&f>11){f-=1;q.style.fontSize=f+'px'}
+ if(m.scrollHeight>m.clientHeight+1)m.classList.add('v148t')}
+var _wn2=window.wrnext;window.wrnext=function(){var r=_wn2.apply(this,arguments);if(arguments[0])requestAnimationFrame(fitW);else setTimeout(fitW,200);return r};
+window.fitW=fitW;addEventListener('resize',function(){setTimeout(fitW,200)});
 /* ---------- Zungenbrecher ---------- */
 var zMsg=false,zT=0;
 function zClosed(){return !document.getElementById('zcd').classList.contains('open')}
