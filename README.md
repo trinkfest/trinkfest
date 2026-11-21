@@ -375,3 +375,8 @@ Nachtrag: Die Karte wird jetzt zum echten unteren Bildschirmrand zentriert (vorh
 
 ### v147 – Duell: Wer setzt auf wen?
 Beim Wetten nach der Auslosung steht jetzt wieder der Name jedes Spielers (in seiner Farbe) vor den beiden Tipp-Knöpfen, statt nur „setzt auf …“. Lange Namen werden kleiner oder brechen um.
+
+### v148 – Party-Spiele (Block 8)
+- Wer würde eher: „Getrunken“ → „Weiter“, kleine Karten-Animation.
+- Boom (vorher Tick Tac Boom): alle Kategorien vorgewählt, Setup ohne Scrollen, bessere Lesbarkeit, große „Wer hatte die Bombe“-Auswahl.
+- Zungenbrecher: Karte antippen → dreht sich um; Meldung nur 2 s; mehr und schwierigere Sätze.

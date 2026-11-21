@@ -95,20 +95,20 @@ Start einer Sitzung: „Mach Block N aus AUFGABEN.md“. Erledigtes hier abhaken
 
 ## Block 8 – Party-Spiele: Wer würde eher, Boom, Zungenbrecher
 **Wer würde eher**
-- [ ] Erst „Getrunken“ auf demselben Button, dann „Weiter“
-- [ ] Kleine Animation zwischen den Fragen
+- [x] Erst „Getrunken“ auf demselben Button, dann „Weiter“
+- [x] Kleine Animation zwischen den Fragen
 
 **Boom**
-- [ ] Heißt **„Boom“**, nicht „Tick Tack Boom“
-- [ ] Standard: alle Kategorien ausgewählt
-- [ ] Ohne Scrollen
-- [ ] Aufgaben-Schrift gut lesbar (aktuell dunkelbraun auf grau)
-- [ ] „Wer hat die Bombe“ größer und mittiger, Bildschirm sinnvoll füllen
+- [x] Heißt **„Boom“**, nicht „Tick Tack Boom“
+- [x] Standard: alle Kategorien ausgewählt
+- [x] Ohne Scrollen
+- [x] Aufgaben-Schrift gut lesbar (aktuell dunkelbraun auf grau)
+- [x] „Wer hat die Bombe“ größer und mittiger, Bildschirm sinnvoll füllen
 
 **Zungenbrecher**
-- [ ] Karte erst antippen → dreht sich um → vorlesen
-- [ ] „Diego hat's geschafft“ nur 2 s zeigen
-- [ ] Schwierigere Sätze und mehr bekannte Zungenbrecher
+- [x] Karte erst antippen → dreht sich um → vorlesen
+- [x] „Diego hat's geschafft“ nur 2 s zeigen
+- [x] Schwierigere Sätze und mehr bekannte Zungenbrecher
 
 ---
 

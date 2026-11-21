@@ -19,7 +19,8 @@
     "test-duel": "node scripts/tf-test-duel.js",
     "overflow": "node scripts/tf-overflow.js",
     "replace": "node scripts/tf-replace.js",
-    "horse": "node scripts/tf-horse.js"
+    "horse": "node scripts/tf-horse.js",
+    "p8": "node scripts/tf-p8.js"
   },
   "dependencies": {
     "@capacitor-community/admob": "^8.3.0",
