@@ -4082,13 +4082,13 @@ function dlV(v){dlClr();view15(v);const f={su:dlSu,rn:dlRn,tp:dlTp,gs:dlGs,rs:dl
 function openD(){if(!DLi){const nn=N.map(x=>x.trim()).filter(Boolean);if(nn.length>=2)DLP=nn.slice(0,DLMAX);DLi=true}DLS=null;md15.classList.remove('on');gm15.classList.add('on');dlV('su')}
 function closeD(){dlClr();gm15.classList.remove('on');md15.classList.remove('on')}
 function dlBack(){if(gm15.dataset.v=='su'){closeD();return}if(gm15.dataset.v=='rn'){dlV('su');return}md15.innerHTML=`<div class="mb"><h4>${dlT('Spiel beenden?','End the game?')}</h4><p>${dlT('Der Spielstand geht verloren.','The score will be lost.')}</p><button class="bt" onclick="closeD()">${dlT('Zum Menü','To menu')}</button><button class="bt g" onclick="md15.classList.remove('on')">${dlT('Weiter spielen','Keep playing')}</button></div>`;md15.classList.add('on')}
-function dlSu(){dlEl('su').innerHTML=`<p class="one">${dlCd()?dlT(`Pro Runde duellieren sich zwei Spieler in ${DLG} Minispielen. Alle anderen tippen vorher, wer gewinnt – wer falsch liegt, bekommt die Strafpunkte des Verlierers.`,`Each round two players duel in ${DLG} minigames. Everyone else first picks who they think will win – a wrong pick gets the loser’s penalty points.`):dlT(`Pro Runde duellieren sich zwei Spieler in ${DLG} Minispielen. Alle anderen tippen vorher, wer gewinnt – wer falsch liegt, trinkt mit dem Verlierer.`,`Each round two players duel in ${DLG} minigames. Everyone else first picks who they think will win – a wrong pick drinks with the loser.`)}</p><div id="dlRows"></div><button class="plb dmgb" onclick="dlGames()"><span>🎮 ${dlT('Minispiele','Minigames')}</span><b>${dlCnt()}</b><i>›</i></button><button class="bt g" id="dlAdd" onclick="DLP.push('');dlRows()">${dlT('+ Spieler','+ Player')}</button><button class="bt" id="dlGo" onclick="dlToRn()">${dlT('Weiter','Continue')}</button>`;dlRows()}
+function dlSu(){dlEl('su').innerHTML=`<p class="one">${dlCd()?dlT(`Zwei Spieler, <b>${DLG} Minispiele</b>. Die anderen tippen auf den Sieger – <b>falsch getippt</b> = Strafpunkte des Verlierers.`,`Two players, <b>${DLG} minigames</b>. Everyone else bets on the winner – <b>wrong bet</b> = the loser’s penalty points.`):dlT(`Zwei Spieler, <b>${DLG} Minispiele</b>. Die anderen tippen auf den Sieger – <b>falsch getippt</b> = mit dem Verlierer trinken.`,`Two players, <b>${DLG} minigames</b>. Everyone else bets on the winner – <b>wrong bet</b> = drink with the loser.`)}</p><div id="dlRows"></div><button class="plb dmgb" onclick="dlGames()"><span>🎮 ${dlT('Minispiele','Minigames')}</span><b>${dlCnt()}</b><i>›</i></button><button class="bt g" id="dlAdd" onclick="DLP.push('');dlRows()">${dlT('+ Spieler','+ Player')}</button><button class="bt" id="dlGo" onclick="dlToRn()">${dlT('Weiter','Continue')}</button>`;dlRows()}
 function dlRows(){DLP=plNames();document.getElementById('dlRows').innerHTML=plBtn('dlRows');dlAdd.style.display='none';dlChk()}
 function dlChk(){dlGo.disabled=DLP.filter(x=>x.trim()).length<2}
 function dlNames(){const seen={};return DLP.map(x=>x.trim()).filter(Boolean).map(n=>{const k=n.toLowerCase();seen[k]=(seen[k]||0)+1;return seen[k]>1?n+' '+seen[k]:n})}
 const dlMin=n=>Math.ceil(n/2);
 function dlToRn(){DLP=dlNames();DLRN=Math.min(10,Math.max(DLRN,dlMin(DLP.length)));dlV('rn')}
-function dlRn(){const n=DLP.length,mn=dlMin(n);dlEl('rn').innerHTML=`<h3>${dlT('Wie viele Runden?','How many rounds?')}</h3><p>${dlT(`Eine Runde sind ${DLG} Minispiele zwischen denselben zwei Spielern. Wer mehr gewinnt, holt die Runde. Für ${n} Spieler sind mindestens ${mn} ${mn==1?'Runde':'Runden'} nötig, damit jeder drankommt.`,`One round is ${DLG} minigames between the same two players. Whoever wins more takes the round. With ${n} players you need at least ${mn} ${mn==1?'round':'rounds'} so everyone gets a turn.`)}</p><div class="drs"><button onclick="dlRSet(-1)" ${DLRN<=mn?'disabled':''}>−</button><div><b>${DLRN}</b><small>${dlT(DLRN==1?'RUNDE':'RUNDEN',DLRN==1?'ROUND':'ROUNDS')}</small></div><button onclick="dlRSet(1)" ${DLRN>=10?'disabled':''}>+</button></div><p class="dmd">${dlT(`Das sind ${DLRN*DLG} Minispiele.`,`That makes ${DLRN*DLG} minigames.`)}${DLRN*DLG>dlAct().length?' '+dlT(`Es gibt ${dlAct().length}, danach wiederholen sie sich.`,`There are ${dlAct().length}, after that they repeat.`):''}</p><button class="bt" onclick="dlStart()">${dlT('Los geht’s','Let’s go')}</button><button class="bt g" onclick="dlV('su')">${dlT('Zurück','Back')}</button>`}
+function dlRn(){const n=DLP.length,mn=dlMin(n);dlEl('rn').innerHTML=`<h3>${dlT('Wie viele Runden?','How many rounds?')}</h3><p>${dlT(`1 Runde = <b>${DLG} Minispiele</b>, gleiche zwei Spieler. Mindestens <b>${mn}</b>, damit jeder drankommt.`,`1 round = <b>${DLG} minigames</b>, same two players. At least <b>${mn}</b> so everyone gets a turn.`)}</p><div class="drs"><button onclick="dlRSet(-1)" ${DLRN<=mn?'disabled':''}>−</button><div><b>${DLRN}</b><small>${dlT(DLRN==1?'RUNDE':'RUNDEN',DLRN==1?'ROUND':'ROUNDS')}</small></div><button onclick="dlRSet(1)" ${DLRN>=10?'disabled':''}>+</button></div><p class="dmd">${dlT(`Das sind ${DLRN*DLG} Minispiele.`,`That makes ${DLRN*DLG} minigames.`)}${DLRN*DLG>dlAct().length?' '+dlT(`Es gibt ${dlAct().length}, danach wiederholen sie sich.`,`There are ${dlAct().length}, after that they repeat.`):''}</p><button class="bt" onclick="dlStart()">${dlT('Los geht’s','Let’s go')}</button>`}
 function dlRSet(d){DLRN=Math.min(10,Math.max(dlMin(DLP.length),DLRN+d));dlRn()}
 function dlStart(){const nm=DLP.slice();DLS={pl:nm,col:dlAssignCols(nm.length),R:DLRN,st:nm.map(()=>({d:0,l:0,bt:0,rw:0,dr:0})),met:{},rnd:0,used:[],last:[],a:-1,b:-1,gl:[],gi:0,res:[],tips:{},lock:false};dlNext()}
 /* Fairness: Wer bisher am wenigsten Runden hatte, kommt zuerst (so spielt am Ende jeder ungefähr gleich oft). Gleichstand: zufällig, wobei bekannte Gegner und die Spieler der letzten Runde unwahrscheinlicher sind. */
@@ -4209,7 +4209,7 @@ DLRUN.tug=function(c){
 
 /* ---------- 3. Air Hockey ---------- */
 DLRUN.hockey=function(c){
- const a=c.a,b=c.b,GOALS=3,TL=60;
+ const a=c.a,b=c.b,GOALS=3,TL=45,OT=15;/* v139: 45 s, bei Gleichstand 15 s Verlaengerung, dann Muenzwurf */
  const cv=document.createElement('canvas');cv.className='dfull';c.dar.appendChild(cv);
  const g=dlCv(cv),r0=cv.getBoundingClientRect(),H=(r0.width>20&&r0.height>20&&isFinite(r0.height/r0.width))?r0.height/r0.width:2.05,SC=cv.width||600;
  const R=.075,PR=.048,GW=.44,MAXV=2.3,MV=3.6,LA=H*.64,LB=H*.36;
@@ -4264,7 +4264,7 @@ DLRUN.hockey=function(c){
   /* Punkte und Namen */
   txt(sc[b],.5,H*.25,.3,true,.18,c.col(b));txt(sc[a],.5,H*.75,.3,false,.18,c.col(a));
   /* Zeit dezent an der Mittellinie */
-  const tt=Math.ceil(tleft),ts=ot?dlT('Verlängerung','Overtime'):Math.floor(tt/60)+':'+String(tt%60).padStart(2,'0');
+  const tt=Math.ceil(tleft),ts=(ot?dlT('Verlängerung ','Overtime '):'')+Math.floor(tt/60)+':'+String(tt%60).padStart(2,'0');
   const tx=ot?.5:.84,tz=ot?.052:.08,to=ot?.05:.07;txt(ts,tx,H/2+to,tz,false,.92);txt(ts,tx,H/2-to,tz,true,.92);
   [a,b].forEach(p=>{const m=M[p],cl=c.col(p),rg=g.createRadialGradient((m.x-.02)*SC,(m.y-.02)*SC,.005*SC,m.x*SC,m.y*SC,R*SC);rg.addColorStop(0,dlShade(cl,.55));rg.addColorStop(.55,cl);rg.addColorStop(1,dlShade(cl,-.5));g.fillStyle=rg;g.beginPath();g.arc(m.x*SC,m.y*SC,R*SC,0,7);g.fill();g.fillStyle='rgba(0,0,0,.2)';g.beginPath();g.arc(m.x*SC,m.y*SC,R*.42*SC,0,7);g.fill();g.strokeStyle='rgba(255,255,255,.8)';g.lineWidth=.006*SC;g.beginPath();g.arc(m.x*SC,m.y*SC,R*SC,0,7);g.stroke()});
   g.fillStyle='#111';g.beginPath();g.arc(P.x*SC,P.y*SC,PR*SC,0,7);g.fill();g.strokeStyle='#fff';g.lineWidth=.008*SC;g.stroke();
@@ -4273,7 +4273,7 @@ DLRUN.hockey=function(c){
  dlLoop(dt=>{
   if(!(dt>0)){draw();return}
   if(freeze>0){freeze-=dt;if(freeze<=0&&!end){msg=null;P.out=false;serve(P.next)}draw();return}
-  if(!end){if(!ot){tleft-=dt;if(tleft<=0){tleft=0;if(sc[a]!=sc[b])finish(sc[a]>sc[b]?a:b,true);else{ot=true;msg={t:dlT('Verlängerung','Overtime'),p:Math.random()<.5?a:b};freeze=1.2;P.vx=P.vy=0;P.x=.5;P.y=H/2;P.out=true;P.next=Math.random()<.5?a:b}}}}
+  if(!end){{tleft-=dt;if(tleft<=0){tleft=0;if(sc[a]!=sc[b])finish(sc[a]>sc[b]?a:b,true);else if(ot){end=true;freeze=99;msg={t:dlT('GLEICHSTAND','TIE'),p:a};dlLater(()=>{try{tfCoin({p:[{n:c.name(a),c:c.col(a)},{n:c.name(b),c:c.col(b)}],sub:dlT('Auch nach der Verlängerung unentschieden','Still tied after overtime')}).then(r=>c.win(r.win?b:a))}catch(e){c.win(Math.random()<.5?a:b)}},1100)}else{ot=true;tleft=OT;msg={t:dlT('Verlängerung','Overtime'),p:Math.random()<.5?a:b};freeze=1.2;P.vx=P.vy=0;P.x=.5;P.y=H/2;P.out=true;P.next=Math.random()<.5?a:b}}}}
   for(let i=0;i<4;i++){step(dt/4);if(freeze>0||end)break}unstick(dt);draw()});
 };
 
@@ -4281,7 +4281,7 @@ DLRUN.hockey=function(c){
 /* Zeichenfeld in der eigenen Seite: gibt {cv,g,size,strokes} zurück. Punkte sind 0..1 im Feld. */
 function dlPad(c,p,opt){
  opt=opt||{};const side=c.side(p),host=dlP(c,p),rot=p==c.b;
- const w=side.clientWidth,h=side.clientHeight,top=opt.top==null?30:opt.top,sz=Math.max(90,Math.min(w-20-(opt.nar||0),h-top-26));
+ const w=side.clientWidth,h=side.clientHeight,top=opt.top==null?30:opt.top,sz=Math.max(90,Math.min(w-20-(opt.nar||0),h-top-(opt.bot==null?26:opt.bot)));
  const cv=document.createElement('canvas');cv.className='dpad pe';host.appendChild(cv);
  const g=dlCv(cv,sz,sz),o={cv,g,sz,strokes:[],on:false,locked:true,rot,under:opt.under,over:opt.over};
  const pt=e=>{const q=dlPtr(e,cv,rot);return[Math.min(1,Math.max(0,q.x)),Math.min(1,Math.max(0,q.y))]};
@@ -4322,7 +4322,7 @@ function trScore(tpl,strokes){
  const T=dlNorm(dlRes(tpl,.011)).pts,U=dlNorm(up).pts,tol=.085,sc=(A,B)=>{let s=0;A.forEach(p=>{let m=9;B.forEach(q=>{const d=Math.hypot(p[0]-q[0],p[1]-q[1]);if(d<m)m=d});s+=Math.max(0,1-m/tol)});return s/A.length};
  const cov=sc(T,U),pre=sc(U,T);return Math.round(Math.sqrt(cov*pre)*1000)/10}
 DLRUN.trace=function(c){
- const a=c.a,b=c.b,WIN=3,SHOW=5,DRAW=5;const sc={[a]:0,[b]:0};let used=[],round=0,pads={};
+ const a=c.a,b=c.b,WIN=3,SHOW=3,DRAW=3;const sc={[a]:0,[b]:0};let used=[],round=0,pads={};
  const hostTxt=(p,html)=>{const e=dlP(c,p).querySelector('.dnt');if(e)e.innerHTML=html};
  const score=()=>`<div class="dsco sm"><b>${sc[a]}</b><span>:</span><b>${sc[b]}</b></div>`;
  function next(){
@@ -4330,12 +4330,12 @@ DLRUN.trace=function(c){
   let pool=TRS.map((_,i)=>i).filter(i=>!used.includes(i));if(!pool.length){used=[];pool=TRS.map((_,i)=>i)}const si=pool[Math.floor(Math.random()*pool.length)];used.push(si);const sh=TRS[si];
   [a,b].forEach(p=>{dlP(c,p).innerHTML=`<div class="dnt"></div>`});
   dlMidSet(c,`<div class="dtrs r180"><canvas class="dtc"></canvas></div>${score()}<div class="dtrs"><canvas class="dtc"></canvas></div>`);
-  c.mid.querySelectorAll('.dtc').forEach(cv=>{const g=dlCv(cv,96,96);dlPoly(g,sh.s,cv.width,'#ffd54a',cv.width*.03,null,0,0,1)});
+  c.dar.classList.add('dxbig');c.mid.querySelectorAll('.dtc').forEach(cv=>{const g=dlCv(cv,96,96);dlPoly(g,sh.s,cv.width,'#ffd54a',cv.width*.03,null,0,0,1)});
   let t=SHOW;const tick=()=>{[a,b].forEach(p=>hostTxt(p,`<small>${dlT('Merk dir die Form','Memorize the shape')}</small><b>${t}</b>`));if(t==0){draw();return}t--;dlLater(tick,1000)};tick();
   function draw(){
    dlMidSet(c,score());pads={};
-   [a,b].forEach(p=>{dlP(c,p).innerHTML=`<div class="dnt tt"></div>`;const o=dlPad(c,p,{top:86,nar:44,under:dlFrame(c.col(p))});o.locked=false;pads[p]=o});
-   let tl=sh.h?DRAW+3:DRAW;const tk=()=>{[a,b].forEach(p=>hostTxt(p,`<small>${dlT('Zeichne die Form!','Draw the shape!')}</small><b>${tl}</b>`));if(tl==0){reveal();return}tl--;dlLater(tk,1000)};tk()}
+   [a,b].forEach(p=>{dlP(c,p).innerHTML=`<div class="dnt tt"></div>`;const o=dlPad(c,p,{top:40,nar:0,bot:50,under:dlFrame(c.col(p))});o.locked=false;pads[p]=o});
+   let tl=DRAW;const tk=()=>{[a,b].forEach(p=>hostTxt(p,`<small>${dlT('Zeichne die Form!','Draw the shape!')}</small><b>${tl}</b>`));if(tl==0){reveal();return}tl--;dlLater(tk,1000)};tk()}
   function reveal(){
    [a,b].forEach(p=>{pads[p].locked=true;pads[p].on=false});
    const pc={};[a,b].forEach(p=>{pc[p]=trScore(sh.s,pads[p].strokes)});const wn=Math.abs(pc[a]-pc[b])>=.05?(pc[a]>pc[b]?a:b):null;
@@ -4352,7 +4352,7 @@ DLRUN.trace=function(c){
 
 /* ---------- 6. Simon Says ---------- */
 DLRUN.simon=function(c){
- const a=c.a,b=c.b,COL=[{c:'#ff4d6d',s:'●'},{c:'#2fd4a4',s:'▲'},{c:'#4c8dff',s:'■'},{c:'#ffc21a',s:'◆'}],NC=COL.length;let L=3,seq=[],st={},ph='';
+ const a=c.a,b=c.b,COL=[{c:'#ff4d6d',s:'●'},{c:'#2fd4a4',s:'▲'},{c:'#4c8dff',s:'■'},{c:'#ffc21a',s:'◆'}],NC=COL.length;let L=4,rep=0,seq=[],st={},ph='';
  const row=()=>`<div class="dsr" id="dxSr">${COL.map((k,i)=>`<i style="--c:${k.c}" data-i="${i}">${k.s}</i>`).join('')}</div>`;
  const lvl=()=>'';
  const nt=(p,h)=>{const e=document.getElementById('dxSn'+p);if(e)e.innerHTML=h};
@@ -4375,13 +4375,13 @@ DLRUN.simon=function(c){
   else{st[p].fail=true;dlBuzz([40,30,40]);dots(p);btns(p,true);nt(p,`<small class="bad">✗ ${dlT('Falsch','Wrong')}</small>`)}
   if((st[a].done||st[a].fail)&&(st[b].done||st[b].fail))resolve()}
  function resolve(){if(ph!='in')return;ph='res';const da=st[a].done,db=st[b].done;let w=null,m;
-  if(da&&db){L++;m=dlT('Beide richtig – weiter','Both right – next')}
+  if(da&&db){L++;rep=0;m='✓ ✓'}
   else if(da!=db){w=da?a:b}
   else if(st[a].i!=st[b].i){w=st[a].i>st[b].i?a:b}
-  else m=dlT('Beide falsch – nochmal','Both wrong – again');
+  else{rep++;m=rep>=2?dlT('Wieder beide falsch','Both wrong again'):dlT('Beide falsch – nochmal','Both wrong – again')}
   const msg=w!=null?c.nm(w)+' ✓':m;
   dlMidSet(c,`<div class="dmsg r180">${msg}</div>${lvl()}<div class="dsrow">${row()}</div><div class="dmsg">${msg}</div>`);
-  if(w!=null){dlFinish(c,w,1700);return}dlLater(round,1900)}
+  if(w!=null){dlFinish(c,w,1700);return}if(rep>=2){dlLater(()=>{try{tfCoin({p:[{n:c.name(a),c:c.col(a)},{n:c.name(b),c:c.col(b)}],sub:dlT('Zweimal beide falsch','Both wrong twice')}).then(r=>c.win(r.win?b:a))}catch(e){c.win(Math.random()<.5?a:b)}},1200);return}dlLater(round,da&&db?900:1600)}
  c.dar.addEventListener('pointerdown',e=>{const t=e.target.closest&&e.target.closest('.dsbt');if(!t||t.classList.contains('off'))return;e.preventDefault();press(+t.dataset.p,+t.dataset.i)});
  round();
 };
@@ -4423,7 +4423,7 @@ DLRUN.bomb=function(c){
   const pt=Array.from({length:34},(_,i)=>{const an=Math.random()*Math.PI*2,d=120+Math.random()*320;return `<u style="--dx:${Math.round(Math.cos(an)*d)}px;--dy:${Math.round(Math.sin(an)*d)}px;--s:${(.6+Math.random()*1.3).toFixed(2)};background:${['#ffd54a','#ff8a1f','#ff3b1d','#fff'][i%4]};animation-delay:${(Math.random()*.12).toFixed(2)}s"></u>`}).join('');
   ov.innerHTML=`<i class="f"></i><i class="r1"></i><i class="r2"></i><div class="dxbp">${pt}</div><div class="dxbb">${DLBOOM}</div><b class="dxbt2 rt">BOOM!</b><b class="dxbt2">BOOM!</b>`;c.dar.appendChild(ov)}
  dlLoop((dt,now)=>{if(over)return;const el=now-t0;
-  if(el>=FUSE){over=true;try{bxboom()}catch(e){}dlBuzz([120,60,240]);const w=hold==a?b:a;bm.classList.add('gone');[a,b].forEach(p=>c.side(p).classList.remove('turn'));explode(w);dlFinish(c,w,2300);return}
+  if(el>=FUSE){over=true;try{if(!window.dlBoomFx)bxboom()}catch(e){}dlBuzz([120,60,240]);const w=hold==a?b:a;bm.classList.add('gone');[a,b].forEach(p=>c.side(p).classList.remove('turn'));(window.dlBoomFx?dlBoomFx(c,bm):explode(w));dlFinish(c,w,2700);return}
   const left=(FUSE-el)/FUSE;
   if(el>=nextTick){try{bxtick(hi,el>FUSE-5000)}catch(e){}hi=!hi;nextTick=el+170+left*700;bm.classList.remove('tk');void bm.offsetWidth;bm.classList.add('tk');bm.classList.toggle('hot',left<.3)}});
 };
@@ -4457,7 +4457,7 @@ function ciScore(strokes){
 DLRUN.circle=function(c){
  const a=c.a,b=c.b,TL=8;let pads={},res={},ended=false;
  [a,b].forEach(p=>{dlP(c,p).innerHTML=`<div class="dnt"><small>${dlT('Zeichne den perfekten Kreis!','Draw the perfect circle!')}</small><b id="ct${p}">${TL}</b></div>`;
-  const kc=c.col(p);const o=dlPad(c,p,{top:64,nar:44,up:null,under:(oo,g,S)=>{g.save();g.fillStyle=dlHexA(kc,.2);g.fillRect(0,0,S,S);g.strokeStyle=kc;g.lineWidth=Math.max(4,S*.026);g.strokeRect(g.lineWidth/2+1,g.lineWidth/2+1,S-g.lineWidth-2,S-g.lineWidth-2);g.fillStyle='rgba(255,255,255,.45)';g.beginPath();g.arc(S/2,S/2,S*.012,0,7);g.fill();g.restore()}});o.locked=false;pads[p]=o;o.opts=null});
+  const kc=c.col(p);const o=dlPad(c,p,{top:40,nar:0,bot:36,up:null,under:(oo,g,S)=>{g.save();g.fillStyle=dlHexA(kc,.2);g.fillRect(0,0,S,S);g.strokeStyle=kc;g.lineWidth=Math.max(4,S*.026);g.strokeRect(g.lineWidth/2+1,g.lineWidth/2+1,S-g.lineWidth-2,S-g.lineWidth-2);g.fillStyle='rgba(255,255,255,.45)';g.beginPath();g.arc(S/2,S/2,S*.012,0,7);g.fill();g.restore()}});o.locked=false;pads[p]=o;o.opts=null});
  [a,b].forEach(p=>{const o=pads[p];o.cv.addEventListener('pointerup',()=>{if(o.locked)return;const L=dlRes(o.strokes,.012).length;if(L>=14){fin(p)}else{o.clear()}})});
  function fin(p){if(res[p]!=null)return;pads[p].locked=true;res[p]=ciScore(pads[p].strokes);document.getElementById('ct'+p).parentNode.innerHTML=`<small class="ok">✓ ${dlT('Fertig','Done')}</small>`;if(res[a]!=null&&res[b]!=null)reveal()}
  let t=TL;const tk=()=>{if(ended)return;[a,b].forEach(p=>{const e=document.getElementById('ct'+p);if(e)e.textContent=t});if(t<=0){[a,b].forEach(p=>{if(res[p]==null){pads[p].locked=true;res[p]=ciScore(pads[p].strokes)}});reveal();return}t--;dlLater(tk,1000)};tk();
@@ -4685,7 +4685,7 @@ function dlIrlWho(c,o){
  dlMidSet(c,`<div class="dirp">${dlIco(o.ico,'big')}<h4>${o.title}</h4>${o.text?`<p>${o.text}</p>`:''}${dlWho(c)}</div>`);
  [c.a,c.b].forEach(p=>{dlP(c,p).innerHTML=''});
  c.dar.addEventListener('pointerdown',e=>{const t=e.target.closest&&e.target.closest('[data-w]');if(!t)return;e.preventDefault();c.win(+t.dataset.w)})}
-DLRUN.rps=function(c){dlIrlWho(c,{ico:'rps',title:dlT('Schere, Stein, Papier','Rock, paper, scissors'),text:dlT('Spielt in echt, bis einer von euch <b>3 Runden</b> gewonnen hat. Tippt dann nur den Gewinner an.','Play for real until one of you has won <b>3 rounds</b>. Then just tap the winner.')})};
+DLRUN.rps=function(c){dlIrlWho(c,{ico:'rps',title:dlT('Schere, Stein, Papier','Rock, paper, scissors')})};
 DLRUN.arm=function(c){
  [c.a,c.b].forEach(p=>{dlP(c,p).innerHTML=''});
  dlMidSet(c,`<div class="dirp">${DLARM}<h4>${dlT('Armdrücken','Arm wrestling')}</h4><p>${dlT('Duelliert euch jetzt im <b>Armdrücken</b>!','Duel each other in <b>arm wrestling</b> now!')}</p></div>`);
@@ -6162,5 +6162,171 @@ try{
  if(H.emoji)H.emoji.h=H.emoji.h.replace(/\b5 sips/g,'2 sips');if(HC.emoji)HC.emoji.h=HC.emoji.h.replace(/\b5 (sips|penalty points)/g,'2 $1');
 }catch(e){}
 })();
+</script>
+<style id="v139">
+/* v139 (Block 4, 21.11.): Duelle Teil 1 – kurze Erklärungen mit Schlagwörtern, kein Scrollen, größere Zeichenfelder, Boom wie im normalen Boom, Zeitgefühl neu */
+.dex em.dkw,.dgi .dex em.dkw{font-style:normal;font-weight:900;color:#ffd54a}
+#d-su p.one b,#d-rn p b{color:#ffd54a;font-weight:900}
+#d-gs .dex{gap:4px}#d-gs .dex span{border-top:0;padding-top:0;opacity:.88}
+/* Zeichenspiele: Text neben der Zahl statt darüber, damit das Feld größer wird */
+.dxbig .dgm .dnt{flex-direction:row;align-items:baseline;justify-content:center;gap:8px;min-height:0}
+.dxbig .dgm .dnt b{font-size:22px}.dxbig .dgm .dnt small{max-width:none}
+.dxbig .dside.rwin .dnt b.trw{font-size:30px}
+/* Boom im Duell: gleiche Explosion wie im normalen Boom */
+.dxbomb.dxpre svg{animation:bxpre .4s linear forwards}
+.bxex.dxbex{z-index:30}
+.bxex>.dxbr{left:0;width:100%;height:50%;top:50%}.bxex>.dxbr.rt{top:0;transform:rotate(180deg)}
+.dxbr>*{position:absolute;left:50%;top:50%}
+.dxbr .bxe-tx{font-size:48px}
+.dar.dxshk{animation:bxsk2 .7s}
+/* Zeitgefühl */
+.dxzt{display:flex;flex-direction:column;align-items:center;gap:6px}
+.dxzt .dtg b{font-size:44px;text-shadow:0 0 22px rgba(255,213,74,.5);color:#ffd54a}
+.dxzr{position:relative;width:74px;height:74px}
+.dxzr i{position:absolute;inset:0;border-radius:50%;border:4px solid transparent;border-top-color:#ffd54a;border-right-color:rgba(255,213,74,.35);animation:dxzr 1.7s linear infinite}
+.dxzr i:nth-child(2){inset:12px;border-top-color:#fff;border-right-color:rgba(255,255,255,.3);animation-duration:1.13s;animation-direction:reverse}
+.dxzr i:nth-child(3){inset:24px;border-top-color:#ff7ab6;border-right-color:rgba(255,122,182,.3);animation-duration:2.3s}
+.dxzr.big{width:120px;height:120px;margin:auto}.dxzr.big i:nth-child(2){inset:18px}.dxzr.big i:nth-child(3){inset:36px}.dxzr.big b{font-size:28px}
+.dxzr b{position:absolute;inset:0;display:grid;place-items:center;font:900 20px var(--fn)}
+@keyframes dxzr{to{transform:rotate(360deg)}}
+.dxzrun .dzb:not(:disabled){animation:dxzp 1.1s ease-in-out infinite}
+@keyframes dxzp{0%,100%{filter:brightness(1)}50%{filter:brightness(1.25) drop-shadow(0 0 14px var(--k))}}
+.dxzq{font:900 13px var(--fn);letter-spacing:3px;opacity:.9;animation:dxzq .5s ease-in-out infinite alternate}
+@keyframes dxzq{to{opacity:.45}}
+.dxzn{font:900 44px/1 var(--fn);font-variant-numeric:tabular-nums;color:var(--k,#fff);text-shadow:0 0 18px rgba(0,0,0,.35)}
+.dxzd{font:800 13px var(--fn);opacity:0;transition:opacity .3s;margin-top:4px}.dxzd.on{opacity:.95}
+.dside.rwin .dxzn{color:#ffd54a;text-shadow:0 0 20px rgba(255,213,74,.75);animation:dxzw .5s cubic-bezier(.3,1.6,.5,1)}
+.dside.rlose .dxzn{opacity:.7}
+@keyframes dxzw{0%{transform:scale(1)}50%{transform:scale(1.25)}100%{transform:scale(1)}}
+.dxzl{position:relative;width:230px;height:40px;margin:2px auto}
+.dxzl:before{content:"";position:absolute;left:0;right:0;top:19px;height:3px;border-radius:2px;background:rgba(255,255,255,.25)}
+.dxzl .tg{position:absolute;left:50%;top:6px;width:3px;height:28px;margin-left:-1.5px;background:#ffd54a;border-radius:2px;box-shadow:0 0 10px #ffd54a}
+.dxzl .tg small{position:absolute;top:-12px;left:50%;transform:translateX(-50%);font:800 9px var(--fn);color:#ffd54a;white-space:nowrap}
+.dxzl u{position:absolute;top:11px;left:0;width:18px;height:18px;margin-left:-9px;border-radius:50%;background:var(--k);border:2px solid #fff;box-shadow:0 0 10px var(--k);transition:left 1.6s cubic-bezier(.2,.8,.25,1)}
+.dxzl .lo,.dxzl .hi{position:absolute;top:28px;font:700 9px var(--fn);opacity:.6}.dxzl .lo{left:0}.dxzl .hi{right:0}
+.dex em.dkw{display:inline;margin:0;padding:0;border:0;width:auto;font-size:inherit}
+/* Duell: nie scrollen – wird es zu voll, wird die Seite stufenweise kompakter (dlfit1..3, per JS) */
+#d-tp .dxp{display:flex;align-items:center;gap:8px;padding:6px 8px;margin:0 0 6px}
+#d-tp .dxp .dxh{flex:0 0 34%;min-width:0;text-align:left;margin:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#d-tp .dxp .dxh b{font-size:15px}#d-tp .dxp .dxh>span{display:none}
+#d-tp .dxp .sbr{flex:1;min-width:0;display:flex;gap:6px;margin:0}
+#d-tp .dxp .dsb{flex:1;min-width:0;margin:0;padding:9px 4px;font-size:13px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.dlfit1 .dbm{padding:8px 10px;margin:2px 0 6px}.dlfit1 .dbm .dnc{font-size:21px}.dlfit1 .dbm .dvx{font-size:24px}
+.dlfit1 .dbo{height:46px}.dlfit1 .dpb{margin:4px 0 8px}
+#d-gs.dlfit1 .dic.big{width:54px;height:54px}#d-gs.dlfit1 .dmg>b{font-size:17px}#d-gs.dlfit1 .dex b{font-size:14px}#d-gs.dlfit1 .dex span{font-size:12px}
+#d-tp.dlfit1 .dxp{padding:4px 8px;margin-bottom:4px}#d-tp.dlfit1 .dxp .dsb{padding:7px 4px}#d-tp.dlfit1 h3{margin:2px 0 4px;font-size:16px}#d-tp.dlfit1 .dxn{margin:2px 0 6px;font-size:11px}
+.dlfit1 .dsc .pyr{padding-top:5px;padding-bottom:5px}.dlfit1 .dsh{margin:8px 0 4px}
+#d-en.dlfit1 .big{font-size:30px;margin:0}
+.dlfit2 .dbw small{display:none}.dlfit2 .dbo{height:38px}.dlfit2 .dbm{padding:5px 8px}.dlfit2 .dbm .dnc{font-size:18px}.dlfit2 .dbm .dvx{font-size:20px}
+#d-gs.dlfit2 .dic.big{width:44px;height:44px}
+#d-tp.dlfit2 .dxp .dsb{padding:5px 4px;font-size:12px}#d-tp.dlfit2 .dxp .dxh b{font-size:13px}
+#d-rs.dlfit2 .dbx{display:none}#d-rs.dlfit2 .dmg svg,#d-rs.dlfit2 .dmg i{max-height:36px}
+.dlfit2 .dsc .pyr{padding-top:3px;padding-bottom:3px}.dlfit2 .dsc .pyr small{font-size:9px}
+#d-en.dlfit2 .big{display:none}
+.dlfit3 .dbx{display:none}.dlfit3 .drn{display:none}
+#d-tp.dlfit3 .dxp{margin-bottom:3px;padding:3px 6px}#d-tp.dlfit3 .dxp .dsb{padding:4px}
+.dlfit2 .dsc .pyr em{font-size:9.5px}.dlfit2 .dsc .pyr>span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}.dlfit2 .dsc .pyr br{display:none}.dlfit2 .dsc .pyr small{margin-left:5px}.dlfit2 .dsc .pyr{min-height:0}
+#d-rs.dlfit3 .dmg{flex-direction:row;gap:8px;justify-content:center;margin:0}#d-rs.dlfit3 .dmg svg{max-height:26px;width:auto}#d-rs.dlfit3 .dmd{margin:2px 0}#d-en.dlfit3 h3{margin:0}
+.dlfit3 .dsc .pyr{padding-top:2px;padding-bottom:2px;font-size:10px;margin-bottom:3px}.dlfit3 .dsc .pyr br{display:none}.dlfit3 .dsc .pyr small{margin-left:5px}
+</style>
+<script id="v139js">
+/* ===== v139 (Block 4, 21.11.): Duelle Teil 1 ===== */
+(function(){try{
+/* (1) Kurze Erklärungen, *Schlagwort* wird hervorgehoben */
+var D={
+ react:['Tippt nur, wenn das Bild *stehen bleibt*!|*Münze* = Punkte, *Dynamit* = −5, zu früh = 3 s Sperre.|Nach *45 s* gewinnt, wer mehr hat.','Tap only when the picture *stops*!|*Coin* = points, *dynamite* = −5, too early = 3 s lock.|After *45 s* the higher score wins.'],
+ tug:['Tippt so *schnell* ihr könnt!|*8 Tipps* Vorsprung oder nach *15 s* vorne = Sieg.','Tap as *fast* as you can!|*8 taps* ahead, or ahead after *15 s*, wins.'],
+ hockey:['Schießt den Puck ins *gegnerische Tor*!|Schläger nur hinter eurer Linie.|*3 Tore* gewinnen · *45 s* · Gleichstand: Verlängerung.','Shoot the puck into the *other goal*!|Paddle stays behind your line.|*3 goals* win · *45 s* · tie: overtime.'],
+ rps:['Spielt *in echt* Schere, Stein, Papier!|Wer zuerst *3 Runden* gewinnt, siegt.','Play rock, paper, scissors *for real*!|First to win *3 rounds* takes it.'],
+ trace:['Zeichnet die Form *aus dem Gedächtnis*!|*3 s* merken, *3 s* zeichnen.|Genauer = Punkt, *3 Punkte* gewinnen.','Redraw the shape *from memory*!|*3 s* to look, *3 s* to draw.|More accurate = point, *3 points* win.'],
+ simon:['Merkt euch die *Farbfolge* und tippt sie nach!|Jede Runde *eine Farbe mehr*.|Wer zuerst *falsch* tippt, verliert.','Memorize the *color sequence* and tap it back!|*One more color* every round.|First *mistake* loses.'],
+ bomb:['Gebt die *Bombe* weiter, bevor sie explodiert!|Nennt etwas zum *Thema*, dann „Weitergeben“.|Wer beim *Knall* hält, verliert.','Pass the *bomb* before it explodes!|Name something for the *topic*, then “Pass on”.|Holding it at the *bang* loses.'],
+ stop:['Stoppt die Zeit *ohne Uhr*!|Tippt *STOPP* bei der Zielzeit.|*Näher dran* gewinnt.','Stop the time *without a clock*!|Tap *STOP* at the target time.|*Closer* wins.'],
+ circle:['Zeichnet den *rundesten Kreis*!|*8 s*, in *einem Strich*.','Draw the *roundest circle*!|*8 s*, in *one stroke*.'],
+ four:['*Drei in einer Reihe* gewinnt!|Abwechselnd einen Stein setzen, auch *diagonal*.','*Three in a row* wins!|Take turns dropping a disc, *diagonals* count.'],
+ ttt:['*Drei in einer Reihe* gewinnt!|Abwechselnd *X* und *O* setzen.','*Three in a row* wins!|Take turns placing *X* and *O*.'],
+ flag:['Kennt ihr die *Flagge*? Tippt „Ich wusste es“!|Dann *ehrlich* sagen, ob es stimmt.|*3 Punkte* gewinnen.','Know the *flag*? Tap “I knew it”!|Then say *honestly* if you were right.|*3 points* win.'],
+ cap:['Kennt ihr die *Hauptstadt*? Tippt „Ich wusste es“!|Dann *ehrlich* sagen, ob es stimmt.|*3 Punkte* gewinnen.','Know the *capital*? Tap “I knew it”!|Then say *honestly* if you were right.|*3 points* win.'],
+ where:['Tippt auf der *Weltkarte*, wo der Ort liegt!|Nacheinander und *geheim*, Handy weiterreichen.|*Näher dran* = Punkt, *3 Punkte* gewinnen.','Tap on the *world map* where the place is!|Take turns *secretly*, pass the phone.|*Closer* = point, *3 points* win.'],
+ arm:['*Armdrücken* in echt!|Danach den *Gewinner* antippen.','*Arm wrestling* for real!|Then tap the *winner*.'],
+ exen:['Wer sein Glas *zuerst leer* hat, gewinnt!|Bei „TRINK!“ los, Glas *umgedreht* abstellen.','First to *empty the glass* wins!|Go on “DRINK!”, put the glass down *upside down*.']};
+DLM.forEach(function(g){var x=D[g.id];if(x){g.d=x[0];g.den=x[1]}});
+var kw=function(s){return skEsc(s).replace(/\*([^*]+)\*/g,'<em class="dkw">$1</em>')};
+window.dlDesc=function dlDesc(g){var L=dlGd(g).split('|');return '<div class="dmd dex"><b>'+kw(L[0])+'</b>'+L.slice(1).map(function(x){return '<span>'+kw(x)+'</span>'}).join('')+'</div>'};
+
+/* (2) Linie nachfahren: mehr und schwierigere Formen */
+var P=function(a){return a.map(function(q){return [q[0],q[1]]})};
+var arc=function(cx,cy,r,t0,t1,n){var o=[];for(var i=0;i<=n;i++){var t=t0+(t1-t0)*i/n;o.push([cx+r*Math.cos(t),cy+r*Math.sin(t)])}return o};
+var add=[
+ {n:'Krone',en:'Crown',h:1,s:[P([[.08,.82],[.08,.25],[.3,.55],[.5,.15],[.7,.55],[.92,.25],[.92,.82],[.08,.82]])]},
+ {n:'Tannenbaum',en:'Fir tree',h:1,s:[P([[.5,.05],[.25,.38],[.38,.38],[.15,.66],[.42,.66],[.42,.92],[.58,.92],[.58,.66],[.85,.66],[.62,.38],[.75,.38],[.5,.05]])]},
+ {n:'Fisch',en:'Fish',h:1,s:[(function(){var o=arc(.4,.5,.32,Math.PI*.2,Math.PI*1.8,30);return o.concat([[.95,.2],[.95,.8],o[0]])})()]},
+ {n:'Treppe',en:'Stairs',h:1,s:[P([[.08,.92],[.08,.7],[.3,.7],[.3,.48],[.52,.48],[.52,.26],[.74,.26],[.74,.06],[.92,.06]])]},
+ {n:'Sechseck',en:'Hexagon',s:[arc(.5,.5,.44,-Math.PI/2,Math.PI*1.5,6)]},
+ {n:'Schlange',en:'Snake',h:1,s:[P([[.1,.12],[.9,.12],[.9,.37],[.1,.37],[.1,.62],[.9,.62],[.9,.88],[.1,.88]])]},
+ {n:'Doppelwelle',en:'Double wave',h:1,s:[(function(){var o=[];for(var i=0;i<=60;i++){var t=i/60;o.push([.05+.9*t,.5+.32*Math.sin(t*Math.PI*6)*Math.cos(t*Math.PI)])}return o})()]},
+ {n:'Glocke',en:'Bell',h:1,s:[[[.12,.85]].concat(arc(.5,.4,.3,Math.PI,Math.PI*2,24)).concat([[.88,.85],[.12,.85]])]},
+ {n:'Briefumschlag',en:'Envelope',h:1,s:[P([[.08,.22],[.92,.22],[.92,.82],[.08,.82],[.08,.22],[.5,.55],[.92,.22]])]},
+ {n:'Mond',en:'Moon',h:1,s:[(function(){var o=arc(.5,.5,.42,Math.PI*.3,Math.PI*1.7,34);var i=arc(.68,.5,.34,Math.PI*1.62,Math.PI*.38,26);return o.concat(i)})()]}];
+add.forEach(function(x){if(!TRS.some(function(y){return y.n==x.n}))TRS.push(x)});
+
+/* (3) Boom im Duell: Ton an (beim Tippen auf Start) und gleiche Explosion wie im normalen Boom */
+var _play=window.dlPlay;
+window.dlPlay=function dlPlay(){try{var g=dlG(DLS.gi);if(g&&g.id=='bomb'&&typeof bxau=='function')bxau()}catch(e){}return _play.apply(this,arguments)};
+var _circ=DLRUN.circle;DLRUN.circle=function(c){c.dar.classList.add('dxbig');return _circ(c)};
+var _bomb=DLRUN.bomb;
+DLRUN.bomb=function(c){try{bxau()}catch(e){}var h=function(){try{bxau()}catch(e){}};c.dar.addEventListener('pointerdown',h);dlOnEnd(function(){c.dar.removeEventListener('pointerdown',h)});return _bomb(c)};
+function fx(){var R=function(a,b){return a+Math.random()*(b-a)},h='<i class="bxe-bg"></i><i class="bxe-fl"></i><i class="bxe-fb"></i><i class="bxe-rg"></i><i class="bxe-rg" style="animation-delay:.18s"></i>',i;
+ for(i=0;i<34;i++)h+='<i class="bxe-sp" style="--a:'+Math.round(i*360/34+R(-5,5))+'deg;--d:'+Math.round(R(150,430))+'px;animation-delay:'+R(0,.12).toFixed(2)+'s"></i>';
+ for(i=0;i<16;i++){var an=R(0,6.28),dd=R(120,330);h+='<i class="bxe-db" style="--s:'+Math.round(R(7,16))+'px;--x:'+Math.round(Math.cos(an)*dd)+'px;--y:'+Math.round(Math.sin(an)*dd+R(60,200))+'px;--r:'+Math.round(R(-540,540))+'deg"></i>'}
+ for(i=0;i<7;i++){var a2=R(0,6.28),d2=R(40,150);h+='<i class="bxe-sm" style="--x:'+Math.round(Math.cos(a2)*d2)+'px;--y:'+Math.round(Math.sin(a2)*d2-R(30,110))+'px;--dl:'+R(.15,.5).toFixed(2)+'s"></i>'}
+ return h+'<div class="dxbr rt"><b class="bxe-tx">BOOM!</b></div><div class="dxbr"><b class="bxe-tx">BOOM!</b></div>'}
+window.dlBoomFx=function dlBoomFx(c,bm){
+ if(bm){bm.classList.remove('gone');bm.classList.add('dxpre')}
+ var ex=document.createElement('div');ex.className='bxex dxbex';c.dar.appendChild(ex);
+ dlLater(function(){if(bm)bm.classList.add('gone');ex.innerHTML=fx();ex.classList.add('on');try{bxboom()}catch(e){}try{TFH('boom')}catch(e){}c.dar.classList.remove('dxshk');void c.dar.offsetWidth;c.dar.classList.add('dxshk')},400);
+ dlLater(function(){ex.classList.add('out')},2350)};
+
+/* (4) Zeitgefühl: spannender – drehende Ringe während die Zeit läuft, Auflösung mit hochzählenden Zeiten und Zeitstrahl */
+DLRUN.stop=function(c){
+ var a=c.a,b=c.b,T=dlRI(6,14),ph='show',t0=0,res={};
+ var kv=function(p){var k=c.col(p);return '--k:'+k+';--k0:'+dlShade(k,.5)+';--k2:'+dlShade(k,-.5)+';--ki:'+dlInk(k)};
+ var tgt='<div class="dtg"><small>'+dlT('ZIEL','TARGET')+'</small><b>'+T+(LANG=='en'?'.0':',0')+' s</b></div>';
+ dlMidSet(c,dlDual('<div class="dxzt">'+tgt+'</div>'));
+ var build=function(){[a,b].forEach(function(p){dlP(c,p).innerHTML='<div class="dnt" id="pn'+p+'"></div><button class="dzb pe" id="pb'+p+'" style="'+kv(p)+'" disabled><span>'+dlT('STOPP','STOP')+'</span></button>'});
+  [a,b].forEach(function(p){document.getElementById('pb'+p).addEventListener('pointerdown',function(e){e.preventDefault();stop(p)})})};
+ var go=function(){ph='run';t0=performance.now();c.dar.classList.add('dxzrun');
+  dlMidSet(c,'<div class="dxzr big"><i></i><i></i><i></i><b>?</b></div>');
+  [a,b].forEach(function(p){var bt=document.getElementById('pb'+p);bt.disabled=false;document.getElementById('pn'+p).innerHTML='<small class="dxzq">'+dlT('ZEIT LÄUFT …','TIME IS RUNNING …')+'</small><small>'+dlT('Ziel','Target')+' <b style="font-size:15px;color:#ffd54a">'+T+' s</b></small>'});
+  dlLater(function(){if(ph=='run'){[a,b].forEach(function(p){if(res[p]==null)stop(p)})}},(T+12)*1000)};
+ dlReady(c,function(){build();dlBuzz(30);go()},{label:dlT('ZEIT STARTET IN','TIME STARTS IN'),go:dlT('JETZT!','NOW!')});
+ function stop(p){if(ph!='run'||res[p]!=null)return;res[p]=(performance.now()-t0)/1000;var bt=document.getElementById('pb'+p);bt.disabled=true;bt.classList.add('done');bt.innerHTML='<span>✓</span>';document.getElementById('pn'+p).innerHTML='<small class="ok">✓ '+dlT('Gestoppt – warte …','Stopped – wait …')+'</small>';dlBuzz(25);try{TFSnd('sel')}catch(e){}if(res[a]!=null&&res[b]!=null)reveal()}
+ function reveal(){ph='res';c.dar.classList.remove('dxzrun');
+  var d={};d[a]=Math.abs(res[a]-T);d[b]=Math.abs(res[b]-T);var w=d[a]<d[b]?a:d[b]<d[a]?b:(Math.random()<.5?a:b);
+  var span=Math.max(1,Math.ceil(Math.max(d[a],d[b])*1.25*2)/2),lo=T-span,hi=T+span,pos=function(x){return Math.max(0,Math.min(100,(x-lo)/(hi-lo)*100))};
+  var fm=function(x){return dlFmt(x,1)};
+  var line='<div class="dxzl"><div class="tg"><small>'+T+' s</small></div>'+[a,b].map(function(p){return '<u data-z="'+p+'" style="--k:'+c.col(p)+'"></u>'}).join('')+'<span class="lo">'+fm(Math.max(0,lo))+'</span><span class="hi">'+fm(hi)+'</span></div>';
+  dlMidSet(c,dlDual('<div class="dxzt">'+tgt+line+'</div>'));
+  [a,b].forEach(function(p){document.getElementById('pb'+p).style.display='none';document.getElementById('pn'+p).innerHTML='<div class="dxzn" id="pz'+p+'" style="--k:'+c.col(p)+'">0,00 s</div><div class="dxzd" id="pd'+p+'"></div>'});
+  /* kurze Spannungspause, dann zählen beide Zeiten hoch und die Punkte fahren auf den Zeitstrahl */
+  dlLater(function(){
+   c.mid.querySelectorAll('.dxzl u').forEach(function(u){var p=+u.dataset.z;u.style.left=pos(res[p])+'%'});
+   var st=performance.now(),D=1600,last=0;
+   var stopL=dlLoop(function(dt,now){var k=Math.min(1,(now-st)/D),e=1-Math.pow(1-k,3);
+    [a,b].forEach(function(p){var el=document.getElementById('pz'+p);if(el)el.textContent=dlFmt(res[p]*e,2)+' s'});
+    if(now-last>110&&k<1){last=now;try{TFSnd('sel')}catch(x){}dlBuzz(5)}
+    if(k>=1){stopL();
+     [a,b].forEach(function(p){var df=res[p]-T,e2=document.getElementById('pd'+p);c.side(p).classList.add(p==w?'rwin':'rlose');
+      if(e2){e2.innerHTML=(p==w?'🏆 ':'')+(df>=0?'+':'−')+dlFmt(Math.abs(df),2)+' s '+(df>=0?dlT('zu spät','too late'):dlT('zu früh','too early'));e2.classList.add('on')}});
+     try{TFSnd('ok')}catch(x){}dlBuzz([30,40,60]);dlFinish(c,w,2600)}})},700)}
+};
+
+/* (5) Duell: nie scrollen – nach dem Aufbau einer Seite prüfen und stufenweise verdichten */
+var FITV={su:1,rn:1,tp:1,gs:1,rs:1,en:1};
+window.dlFitV=function dlFitV(v){var e=dlEl(v);if(!e||!FITV[v])return;e.classList.remove('dlfit1','dlfit2','dlfit3');
+ for(var k=1;k<=3&&e.scrollHeight>e.clientHeight+1;k++)e.classList.add('dlfit'+k)};
+var _v=window.dlV;window.dlV=function dlV(v){var r=_v.apply(this,arguments);try{dlFitV(v);setTimeout(function(){if(gm15.dataset.v==v)dlFitV(v)},450)}catch(e){}return r};
+var _tip=window.dlTip;window.dlTip=function dlTip(){var r=_tip.apply(this,arguments);try{dlFitV('tp')}catch(e){}return r};
+}catch(e){console.warn('v139',e)}})();
 </script>
 </body></html>

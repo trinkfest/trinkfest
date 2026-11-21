@@ -45,16 +45,16 @@ Start einer Sitzung: „Mach Block N aus AUFGABEN.md“. Erledigtes hier abhaken
 - [x] Ein-Handy-Modus: Emojis und Namen weiter nach unten (unten zu viel Platz); Popup „Chrisi war zuerst …“ auf Lösung + Gewinner + Schlücke kürzen
 
 ## Block 4 – Duelle Teil 1 (Texte, Action-Spiele)
-- [ ] Erklärungen kürzen, Schlagwörter hervorheben; auch Text nach Namenseingabe kürzen
-- [ ] „Zurück“ unter „Los geht's“ weg (oben gibt's den Button)
-- [ ] In Duellen nie scrollen müssen
-- [ ] **Air Hockey:** 45 s statt 1 min; danach (wenn niemand 3 Tore) 15 s Verlängerung; bei Gleichstand Münzwurf (einer wählt Kopf/Zahl, Richtiger gewinnt)
-- [ ] **Linie nachzeichnen:** Form nur 3 s zeigen, nur 3 s zeichnen; Zeichenfeld größer; mehr und schwierigere Formen
-- [ ] **Simon says:** kürzere „Richtig“-Meldung; mit 4 Farben starten; schaffen beide ein Level nicht → gleiche Länge nochmal, dann Münzwurf
-- [ ] **Schere Stein Papier:** im Spiel weniger Text, nur antippen, wer gewonnen hat
-- [ ] **Boom (Duell):** gleicher Sound + Animation wie im normalen Boom
-- [ ] **Zeitgefühl:** spannender gestalten (Spiel und Auflösung wirken trist)
-- [ ] **Kreis zeichnen:** größeres Feld
+- [x] Erklärungen kürzen, Schlagwörter hervorheben; auch Text nach Namenseingabe kürzen
+- [x] „Zurück“ unter „Los geht's“ weg (oben gibt's den Button)
+- [x] In Duellen nie scrollen müssen
+- [x] **Air Hockey:** 45 s statt 1 min; danach (wenn niemand 3 Tore) 15 s Verlängerung; bei Gleichstand Münzwurf (einer wählt Kopf/Zahl, Richtiger gewinnt)
+- [x] **Linie nachzeichnen:** Form nur 3 s zeigen, nur 3 s zeichnen; Zeichenfeld größer; mehr und schwierigere Formen
+- [x] **Simon says:** kürzere „Richtig“-Meldung; mit 4 Farben starten; schaffen beide ein Level nicht → gleiche Länge nochmal, dann Münzwurf
+- [x] **Schere Stein Papier:** im Spiel weniger Text, nur antippen, wer gewonnen hat
+- [x] **Boom (Duell):** gleicher Sound + Animation wie im normalen Boom
+- [x] **Zeitgefühl:** spannender gestalten (Spiel und Auflösung wirken trist)
+- [x] **Kreis zeichnen:** größeres Feld
 
 ## Block 5 – Duelle Teil 2 (Brett-, Wissens-, Trinkduelle)
 - [ ] **Drei gewinnt:** klar als „Drei gewinnt“ erkennbar; Spieler blau vs. rot (Steine in der Farbe); Drop-Leiste weg, direkt in die Spalte tippen, Taler fällt; Boden klarer (Ständer größer o. ä.); Zurück-Button links oben, kein Dreh-Button
