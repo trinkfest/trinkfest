@@ -36,6 +36,21 @@ TrinkFest ist eine deutsche Trinkspiele-App (Party-Modus mit Schlücken, Normal-
 5. Tests headless (Playwright) mit Zahlen statt Screenshots; Screenshots nur, wenn es um Optik geht, und verkleinert.
 6. Ein Thema pro Sitzung; Stand steht in `docs/STAND.md`, nicht im Verlauf.
 
+**Fertige Werkzeuge benutzen statt eigene Testskripte schreiben** (Playwright ist installiert, `scripts/tf-pw.js` = gemeinsamer Helfer mit eigenem Webserver):
+- `npm run -s test-duel -- <minispiel> [--sek N] [--lang en] [--mode normal] [--js "code"] [--shot x.png]` – startet ein Duell-Minispiel, spult N Sekunden vor, gibt Ergebnis/Text/Fehler als Zahlen aus.
+- `npm run -s overflow` – muss man im Duell irgendwo scrollen? (DE/EN, Party/Normal, 2/4/10 Spieler).
+- `npm run -s replace -- patch.json [--dry]` – Ersetzungen in index.html, jede Stelle muss genau einmal vorkommen; `["@END","…"]` hängt einen neuen vNNN-Block vor `</body></html>` an.
+- Für andere Spiele bei Bedarf ein ähnliches Skript auf Basis von `tf-pw.js` ergänzen (nicht jedes Mal neu im Scratchpad).
+
+**Feste Regeln (Verbrauch pro Block klein halten):**
+- Modell laut Tabelle in `AUFGABEN.md` (Standard Sonnet). Läuft die Sitzung auf Opus, obwohl Sonnet empfohlen ist, Timon am Anfang kurz darauf hinweisen.
+- Große Blöcke (mehr als ca. 6 Punkte oder mehrere Spiele) in zwei Sitzungen teilen; am Ende der ersten committen und sagen, was offen ist.
+- Code höchstens ca. 40 Zeilen am Stück lesen, vorher mit `npm run -s find` die Stelle suchen.
+- Erst messen (Größen, Abstände per JS), dann ändern – nicht raten und per Screenshot nachbessern.
+- Höchstens ca. 5 Screenshots pro Sitzung, nur für Optik.
+- Eintrag in `docs/STAND.md` höchstens ca. 600 Zeichen (was, welcher Block, welche Dateien, Besonderheiten); Details in die Commit-Nachricht.
+- Keine langen Zwischenberichte; Unklares in einer Frage am Anfang klären statt später umbauen.
+
 ## Graphify (Code-Karte)
 Git-Hooks in `.githooks/`: **vor** jedem Commit mit geänderter index.html werden `analyse/js/` und `docs/CODEMAP.md` neu erzeugt (CODEMAP wird mit committet); **nach** jedem Commit wird die Graphify-Karte `analyse/graphify-out/` im Hintergrund erneuert (Hooks eingeschaltet über `git config core.hooksPath .githooks`, macht `npm install` über das `prepare`-Skript). Kostet keine KI-Tokens. Von Hand: `npm run graphify-prep && graphify update analyse`. Beide Ordner sind nicht im Repo (`.gitignore`). Übersicht der Karte: `analyse/graphify-out/GRAPH_REPORT.md`, Ansicht im Browser: `analyse/graphify-out/graph.html`.
 

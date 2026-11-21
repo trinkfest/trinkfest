@@ -13,16 +13,22 @@
     "graphify-prep": "node scripts/graphify-prep.js",
     "find": "node scripts/tf-find.js",
     "prepare": "git config core.hooksPath .githooks || true",
-    "codemap": "node scripts/codemap.js"
+    "codemap": "node scripts/codemap.js",
+    "test-duel": "node scripts/tf-test-duel.js",
+    "overflow": "node scripts/tf-overflow.js",
+    "replace": "node scripts/tf-replace.js"
   },
   "dependencies": {
-    "@capacitor/core": "^8.0.0",
-    "@capacitor/cli": "^8.0.0",
-    "@capacitor/ios": "^8.0.0",
-    "@capacitor/haptics": "^8.0.0",
     "@capacitor-community/admob": "^8.3.0",
+    "@capacitor/cli": "^8.0.0",
+    "@capacitor/core": "^8.0.0",
+    "@capacitor/haptics": "^8.0.0",
+    "@capacitor/ios": "^8.0.0",
     "@capgo/native-purchases": "^8.9.16",
-    "@supabase/supabase-js": "^2.0.0",
-    "@fontsource/montserrat": "^5.0.0"
+    "@fontsource/montserrat": "^5.0.0",
+    "@supabase/supabase-js": "^2.0.0"
+  },
+  "devDependencies": {
+    "playwright-core": "^1.63.0"
   }
 }

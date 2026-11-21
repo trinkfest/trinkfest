@@ -131,3 +131,5 @@ Modell beim Start der Sitzung in der App wählen.
 | 8 Party-Spiele | Sonnet | klare Änderungen |
 
 Faustregel: neues Design oder Online/Mehrspieler → Opus; Texte, Größen, Regeln anpassen → Sonnet.
+
+**Tokens sparen:** Große Blöcke in zwei Sitzungen teilen (z. B. „Block 5a: Punkte 1–4“, „Block 5b: Rest“). Unklare Punkte vorher hier entscheiden und dazuschreiben, woran man merkt, dass es fertig ist.
