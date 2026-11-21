@@ -6739,4 +6739,19 @@ var _pr=window.rpr;window.rpr=function(){_pr.apply(this,arguments);document.getE
 addEventListener('resize',function(){setTimeout(function(){fitPl();fitSu();fitPay();fitEn()},200)});
 }catch(e){console.error('v145',e)}})();
 </script>
+<style id="v146">
+/* v146 (Block 7 Nachtrag 2, 21.11.): Karte mittig unter der Bahn, Namen immer einzeilig */
+#gm2 #r-pl .bm{flex:1 0 auto;align-items:center;padding-top:6px;padding-bottom:6px}
+#gm2 .v144rs .v144n{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+#gm2 .v144rs .v144t{flex:none;white-space:nowrap}
+#gm2 .v144py span{min-width:0}#gm2 .v144py span b{white-space:nowrap}
+#gm2 #rch .ch{white-space:nowrap}
+</style>
+<script id="v146js">
+/* ===== v146: Namen im Pferderennen passen die Schrift an, statt umzubrechen ===== */
+(function(){try{
+function shrink(sel){document.querySelectorAll(sel).forEach(function(e){e.style.fontSize='';var f=parseFloat(getComputedStyle(e).fontSize);while(e.scrollWidth>e.clientWidth+1&&f>10){f-=.5;e.style.fontSize=f+'px'}})}
+var _w=window.rwin;window.rwin=function(){_w.apply(this,arguments);shrink('#rwt .v144n')};
+}catch(e){console.error('v146',e)}})();
+</script>
 </body></html>

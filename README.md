@@ -368,3 +368,6 @@ Grüner Rasen, Sandbahn mit weißen Rails, Start und Ziel; Pferde 🏇 mit Karte
 
 ### v145 – Pferderennen ohne Scrollen (Block 7 Nachtrag)
 Rennen, Startmenü, Einsatz- und Endseite passen jetzt immer auf den Bildschirm (auch mit Notch/Home-Balken, kleinen iPhones und 10 Spielern). Startmenü kompakt: Name + Einsatz in einer Zeile, Pferde-Symbole darunter; ab 6 Spielern alles in einer Zeile. Wird es trotzdem zu eng, verkleinert sich der Inhalt automatisch.
+
+### v146 – Pferderennen: Karte mittig, Namen einzeilig
+Stapel und aufgedeckte Karte stehen mittig zwischen Rennbahn und unterem Rand. Namen im Endergebnis bleiben immer in einer Zeile; lange Namen bekommen kleinere Schrift.
