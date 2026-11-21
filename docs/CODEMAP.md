@@ -22,7 +22,7 @@ _Zahlen = Zeile in `index.html`. Mehrere Zahlen = später in einem vNNN-Block ü
 | `#gm9` | Wer würde eher? | wr… | 2060 | `wrstart` 2614 · `wrnext` 2615 |
 | `#gm10` | Kartensaufen | ks… | 2064 | `ksstart` 2630 · `ksnext` 2631 |
 | `#gm13` | Schätzfragen (online/1 Handy) | sq…, h… | 2124 | `sqHostGo` 3029 · `sqJoinGo` 3032 · `sqLcGo` 3003 · `hStart` 3075 · `hNext` 3088 |
-| `#gm14` | Busfahren (online) | bp… | 2136 | `bpHostGo` 3164 · `bpJoinGo` 3167 · `bpStartO` 3213 · `bpBusDraw` 3351 |
+| `#gm14` | Busfahren (online) | bp… | 2136 | `bpHostGo` 3164 · `bpJoinGo` 3167 · `bpStartO` 3213 · `bpBusDraw` 3351, 6560 |
 | `#gm15` | Duell (16 Minispiele in DLRUN) | dl…, DL… | 2151 | `dlPlay` 4034, 6275 · `dlEnd` 4042 · `dlAfterGame` 4122 · `dlFsCount` 4050 · `dlResV` 1869, 6441 · `dlT` 4067 |
 | `#gm16` | Würfelfieber | wf… | 2015 | `wfStart` 4881 · `wfRoll` 4906 |
 | `#gm17` | Kartenchaos (online) | kc… | 2023 | `kcHostGo` 4949 · `kcJoinGo` 4951 · `kcStartO` 4990 · `kcNext` 4988 · `kcTake` 4986 |
@@ -109,6 +109,8 @@ _Zahlen = Zeile in `index.html`. Mehrere Zahlen = später in einem vNNN-Block ü
 | `v141js` | 6412 | ===== v141 (Block 5b, 21.11.): Duelle Teil 2, zweite Hälfte ===== |
 | `v142` | 6444 | v142 (Block 6a, 21.11.): Old Nick + Ass ziehen |
 | `v142js` | 6475 | ===== v142 (Block 6a, 21.11.): Old Nick + Ass ziehen ===== |
+| `v143` | 6489 | v143 (Block 6b, 21.11.): Busfahren |
+| `v143js` | 6518 | ===== v143 (Block 6b, 21.11.): Busfahren ===== |
 
 ## Meistbenutzte Funktionen (vor Änderung `graphify affected` prüfen)
 `skEsc()` 2523 (47×) · `dlT()` 4067 (45×) · `toast()` 2352 (27×) · `xL()` 4868 (21×) · `c()` 5449 (20×) · `bpL()` 3146 (19×) · `dlLater()` 4141 (17×) · `bpBc()` 3202 (15×) · `dlBuzz()` 4139 (14×) · `plBtn()` 4838 (12×) · `plNames()` 4837 (12×) · `sqSet()` 2979 (12×) · `tfRound()` 3468 (11×) · `sqNetInit()` 3013 (11×) · `hBc()` 3071 (11×)

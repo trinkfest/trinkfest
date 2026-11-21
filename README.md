@@ -359,3 +359,6 @@ Drei gewinnt (Blau/Rot, direkt tippen, Boden), Tic Tac Toe (3× Unentschieden �
 
 ### v142 (Block 6a): Old Nick und Ass ziehen überarbeitet
 Old Nick (kürzeres Fehler-Fenster, großes „Abgeben“, bunt leuchtende Karten, Dreh-Symbol rechts oben) und Ass ziehen (großer Name, sichtbarer Ablagestapel, größere Asse, Endscreen im Spiel-Design). Busfahren folgt in Block 6b.
+
+### v143 – Busfahren (Block 6b)
+Alle müssen „Gemerkt – weiter“ tippen, bevor der Host starten kann; Busfahrer spielt auf seinem eigenen Handy; Verlauf für alle sichtbar; rote Falsch-Liste weg; Endstatistik mit buntem, animiertem Hintergrund.

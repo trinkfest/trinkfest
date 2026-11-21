@@ -15,6 +15,7 @@
     "prepare": "git config core.hooksPath .githooks || true",
     "codemap": "node scripts/codemap.js",
     "cards": "node scripts/tf-cards.js",
+    "bus": "node scripts/tf-bus.js",
     "test-duel": "node scripts/tf-test-duel.js",
     "overflow": "node scripts/tf-overflow.js",
     "replace": "node scripts/tf-replace.js"

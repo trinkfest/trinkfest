@@ -64,7 +64,7 @@ Start einer Sitzung: „Mach Block N aus AUFGABEN.md“. Erledigtes hier abhaken
 - [x] **Wo liegt das:** Nord-/Südpol-Namen weg; kleinere, klarere Markierung aufs richtige Land; **kein Land/Gebäude doppelt in einem Spiel**; statt „Gib das Handy …“ → „[Name], du bist dran“ + Button „Ready“
 - [x] **Trinkduell:** Bereit-Screen neu (kein plumpes Bier-Icon, schöne Schrift, animierte Biere im Hintergrund); nach der Runde groß und klar, wer trinkt und wer nicht (Namen in Spielerfarbe); klarer, dass man auf ein Pferd setzt; Gewonnen/Verloren-Animation per Tippen überspringbar (ohne Hinweistext)
 
-## Block 6 – Kartenspiele: Old Nick, Busfahren, Ass ziehen (6a Old Nick + Ass ziehen erledigt, 6b Busfahren offen)
+## Block 6 – Kartenspiele: Old Nick, Busfahren, Ass ziehen (6a Old Nick + Ass ziehen erledigt, 6b Busfahren erledigt)
 **Old Nick**
 - [x] Bei falsch: „getrunken/weiter“-Text weg, nur „Diego trinkt 4 Schlücke“ + kurze Erklärung (4 zusammenhängende Karten) lassen
 - [x] „Abgeben“ nach 3 richtigen größer
@@ -72,11 +72,11 @@ Start einer Sitzung: „Mach Block N aus AUFGABEN.md“. Erledigtes hier abhaken
 - [x] Dreh-Symbol rechts oben
 
 **Busfahren**
-- [ ] Jeder tippt „gemerkt/weiter“, erst dann kann der Host starten
-- [ ] Falsch-Liste in Rot unter den Karten komplett weg
-- [ ] Verlauf für alle sichtbar
-- [ ] Wer busfahren muss, spielt es auf **seinem** Handy, nicht auf dem Haupthandy
-- [ ] Endstatistik: farbiger Hintergrund mit Animationen statt weiß
+- [x] Jeder tippt „gemerkt/weiter“, erst dann kann der Host starten
+- [x] Falsch-Liste in Rot unter den Karten komplett weg
+- [x] Verlauf für alle sichtbar
+- [x] Wer busfahren muss, spielt es auf **seinem** Handy, nicht auf dem Haupthandy
+- [x] Endstatistik: farbiger Hintergrund mit Animationen statt weiß
 
 **Ass ziehen**
 - [x] Wer dran ist: Name groß und auffällig

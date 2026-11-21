@@ -6486,4 +6486,102 @@ window.bok=function(){md3.classList.remove('on');if(bnext=='end')return bend();b
 var _ad=window.adraw;window.adraw=function(){var r=_ad.apply(this,arguments);try{if(!adc.querySelector('.ace'))arm.textContent=''}catch(e){}return r};
 }catch(e){console.warn('v142',e)}})();
 </script>
+<style id="v143">
+/* v143 (Block 6b, 21.11.): Busfahren */
+/* Falsch-Liste in Rot unter den eigenen Karten weg (das Trink-Fenster zeigt es schon) */
+#bnM .bfmsg.no{display:none}
+/* Verlauf */
+#bnM .bpf{margin-top:2px}
+/* Busfahrer steht fest + Endstatistik: bunter Hintergrund mit Animationen statt weiss */
+#gm14[data-v=en],#gm14[data-v=bd]{background:linear-gradient(rgba(0,0,0,.18),rgba(0,0,0,.18)),var(--bg)!important;color:#fff;--fc:#111;--ff:#fff;--fg:#fff;--card:rgba(255,255,255,.16);--bd:1px solid rgba(255,255,255,.25);--ac:#fff}
+#gm14[data-v=en] .foam,#gm14[data-v=bd] .foam,#gm14[data-v=en] .en,#gm14[data-v=bd] .en,#gm14[data-v=en] .en *,#gm14[data-v=bd] .en *{color:#fff}
+#gm14[data-v=en] .en .bt:not(.g),#gm14[data-v=bd] .en .bt:not(.g){background:#fff;color:#111}
+#gm14[data-v=en] .en .bt.g{background:transparent;color:#fff;border:2px solid #fff}
+#gm14[data-v=en] .en b.nn,#gm14[data-v=en] .en h3,#gm14[data-v=bd] .en b.nn,#gm14[data-v=bd] .en h3{text-shadow:2px 3px 0 rgba(0,0,0,.3)}
+#gm14[data-v=en] .en b.nn{font-size:34px;color:#ffe066;text-shadow:0 4px 0 rgba(0,0,0,.35),0 0 24px rgba(255,224,102,.6);animation:v143pop .7s cubic-bezier(.3,1.6,.5,1) both}
+#gm14[data-v=en] .en .big{animation:v143bus 2.2s ease-in-out infinite}
+#gm14[data-v=en] .en .sqrk{background:rgba(255,255,255,.18);border-color:rgba(255,255,255,.35);color:#fff;animation:v143in .5s cubic-bezier(.3,1.3,.5,1) both}
+#gm14[data-v=en] .en .sqrk:nth-child(2){animation-delay:.12s}
+#gm14[data-v=en] .en .sqrk:nth-child(3){animation-delay:.24s}
+#gm14[data-v=en] .en .sqrk:nth-child(n+4){animation-delay:.36s}
+#gm14[data-v=en] .en .sqrk:first-child{background:rgba(255,224,102,.3);border-color:#ffe066}
+#gm14[data-v=en] .en .sqrk b{font-size:14px}
+@keyframes v143pop{0%{transform:scale(.4);opacity:0}100%{transform:none;opacity:1}}
+@keyframes v143in{0%{transform:translateX(-40px);opacity:0}100%{transform:none;opacity:1}}
+@keyframes v143bus{0%,100%{transform:translateX(-14px) rotate(-3deg)}50%{transform:translateX(14px) rotate(3deg)}}
+#gm14 .v143fx{display:none;position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0}
+#gm14[data-v=en] .v143fx,#gm14[data-v=bd] .v143fx{display:block}
+#gm14 .v143fx span{position:absolute;top:-40px;font-size:26px;opacity:.85;animation:v143fall linear infinite}
+@keyframes v143fall{0%{transform:translateY(-40px) rotate(0)}100%{transform:translateY(900px) rotate(360deg)}}
+#gm14 .vw{position:relative;z-index:1}
+</style>
+<script id="v143js">
+/* ===== v143 (Block 6b, 21.11.): Busfahren ===== */
+(function(){try{
+/* Deko-Schicht: fallende Emojis (nur Busfahrer-/End-Ansicht sichtbar) */
+var fx=document.createElement('div');fx.className='v143fx';
+['🍺','🚌','🎉','🍻','⭐','🚌','🍺','🎉','🍻','⭐'].forEach(function(e,i){var s=document.createElement('span');s.textContent=e;s.style.left=(5+i*10)+'%';s.style.animationDuration=(5+(i*7%5))+'s';s.style.animationDelay=(-i*1.1)+'s';fx.appendChild(s)});
+gm14.insertBefore(fx,gm14.children[1]);
+
+/* 1) Alle tippen "Gemerkt", erst dann kann der Host die Pyramide starten */
+var _pk=window.bpPeekDraw;window.bpPeekDraw=function(s){_pk.apply(this,arguments);try{
+  var on=s.pl.filter(function(p){return p.o!==0}),rd=on.filter(function(p){return p.r}).length,tot=on.length,me=s.pl.find(function(p){return p.i==bpMe.id});
+  bnRdy.textContent=bpL('Gemerkt – weiter','Got it – continue');
+  if(me&&me.r)bnPm.textContent=bpL('Deine Karten sind jetzt verdeckt und bleiben es bis zum Schluss. Bereit: '+rd+' von '+tot+'.','Your cards are face down now and stay that way until the end. Ready: '+rd+' of '+tot+'.');
+  bnPyGo.disabled=rd<tot;
+  bnPyGo.textContent=rd<tot?bpL('Warten … ('+rd+'/'+tot+' bereit)','Waiting … ('+rd+'/'+tot+' ready)'):bpL('Pyramide starten','Start pyramid');
+}catch(e){}};
+var _ps=window.bpPyStart;window.bpPyStart=function(){var H=BPH;if(!H||H.ph!='peek')return;if(!H.pl.filter(bpPres).every(function(p){return p.rdy}))return;return _ps.apply(this,arguments)};
+
+/* 3) Verlauf auch unter "Meine Karten" (also fuer alle sichtbar) */
+function logHtml(s){var nm=function(id){return skEsc(bpPnm(id))};
+  var fd=(s.ev||[]).slice(-6).reverse().map(function(e){var t=e[1],a=e[2],b=e[3],c=e[4];
+    if(t=='ok')return bpL('✓ '+nm(a)+' legt '+bpRn(c)+' ab und verteilt '+bpSc(b),'✓ '+nm(a)+' plays a '+bpRn(c)+' and hands out '+bpSc(b));
+    if(t=='no')return bpL('✗ '+nm(a)+' lag falsch und trinkt '+bpSc(b),'✗ '+nm(a)+' guessed wrong and drinks '+bpSc(b));
+    if(t=='gv')return '🍻 '+nm(a)+' → '+nm(b)+': '+bpSc(c);return''}).filter(Boolean);
+  return fd.length?'<div class="bxh">'+bpL('VERLAUF','LOG')+'</div><div class="bpf">'+fd.map(function(x){return'<div>'+x+'</div>'}).join('')+'</div>':''}
+var _my=window.bpMy;window.bpMy=function(s,me){return _my.apply(this,arguments)+logHtml(s)};
+
+/* 4) Wer Bus faehrt, antwortet auf dem eigenen Handy (Bot-Fahrer: der Host macht es) */
+var _ans=window.bpBusAns,_nxt=window.bpBusNext,_msg=window.bpMsg;
+var botDrv=function(){var H=BPH;var p=H&&H.bus&&H.pl.find(function(x){return x.id==H.bus.p});return !!(p&&p.bot)};
+window.bpBusAns=function(a){a=Math.floor(+a);if(!(a>=0&&a<=3))return;
+  if(bpIsH){var H=BPH;if(!H||H.ph!='bus'||!H.bus)return;if(H.bus.p==bpMe.id||botDrv())_ans.call(this,a)}
+  else if(bpNet)bpNet.send({k:'bus',f:bpMe.id,a:a})};
+window.bpBusNext=function(){
+  if(bpIsH){var H=BPH;if(!H||H.ph!='bus'||!H.bus)return;if(H.bus.p==bpMe.id||botDrv())_nxt.call(this)}
+  else if(bpNet)bpNet.send({k:'busn',f:bpMe.id})};
+window.bpMsg=function(m){var H=BPH;
+  if(H&&m&&typeof m=='object'&&(m.k=='bus'||m.k=='busn')){
+    var p=H.pl.find(function(x){return x.id==String(m.f||'')});
+    if(p&&H.ph=='bus'&&H.bus&&p.id==H.bus.p){p.seen=Date.now();if(m.k=='bus'){var a=Math.floor(+m.a);if(a>=0&&a<=3)_ans.call(window,a)}else _nxt.call(window)}
+    return}
+  return _msg.apply(this,arguments)};
+window.bpBusDraw=function(s){var b=s.bus;if(!b)return;var nm=bpPnm(b.p),en=LANG=='en';
+  var dp=s.pl.find(function(p){return p.i==b.p}),me=b.p==bpMe.id,ctl=me||(bpIsH&&dp&&dp.b);
+  var win=b.res=='ok'&&b.stg>=3;if(win){bnGs.textContent=bpL('GESCHAFFT!','MADE IT!');if(!bnBus.classList.contains('on'))bnBus.classList.add('on')}else bnBus.classList.remove('on');bnBsB.classList.toggle('l4',b.stg==3);
+  bnBsT.textContent=me?bpL('DU FÄHRST BUS','YOU RIDE THE BUS'):bpL('BUSFAHRT · ','BUS RIDE · ')+nm.toUpperCase();
+  bnBsS.textContent=bpL('Versuch '+b.try+' · Stufe '+(b.stg+1)+' von 4','Attempt '+b.try+' · Stage '+(b.stg+1)+' of 4');
+  var slots=[0,1,2,3].map(function(i){return b.cs[i]?(i==3&&b.stg==3?bcFlip(b.cs[i]):bcd(b.cs[i],i==b.cs.length-1?'in':'')):bbk()}).join('');
+  var Q=[[bpL('Rot oder Schwarz?','Red or black?'),[[bpL('Rot ♥♦','Red ♥♦'),'red'],[bpL('Schwarz ♠♣','Black ♠♣'),'']]],
+  [bpL('Höher oder tiefer als die letzte Karte?','Higher or lower than the last card?'),[[bpL('Höher ▲','Higher ▲'),''],[bpL('Tiefer ▼','Lower ▼'),'']]],
+  [bpL('Innerhalb oder außerhalb der ersten beiden Karten?','Inside or outside the first two cards?'),[[bpL('Innerhalb','Inside'),''],[bpL('Außerhalb','Outside'),'']]],
+  [bpL('Welches Symbol hat die nächste Karte?','Which suit is the next card?'),BPY.map(function(y,i){return[y[0]+' '+(en?BPS_EN[i]:BPS_DE[i]),y[1]]})]][b.stg];
+  var hint=[bpL('Rate die Farbe der Karte.','Guess the color of the card.'),bpL('Gleicher Wert zählt als falsch.','The same value counts as wrong.'),bpL('Gleicher Wert zählt als innerhalb.','The same value counts as inside.'),bpL('Rate das Symbol.','Guess the suit.')][b.stg];
+  var who=me?bpL('Du','You'):skEsc(nm);
+  var h='<div class="bfrow" style="margin:6px 0 4px">'+slots+'</div>';
+  if(!b.res){
+    h+='<div class="bfq">'+who+':<br>'+Q[0]+'<br><small>'+bpL('Falsch = '+bpSc(BPW[b.stg])+' trinken','Wrong = drink '+bpSc(BPW[b.stg]))+' · '+hint+'</small></div>';
+    h+=ctl?'<div class="bfa">'+Q[1].map(function(x,i){return'<button class="'+x[1]+'" onclick="bpBusAns('+i+')">'+x[0]+'</button>'}).join('')+'</div>'
+      :'<div class="bfmsg" style="min-height:0;padding:10px 0 0">🚌 '+bpL(skEsc(nm)+' antwortet auf dem eigenen Handy …',skEsc(nm)+' answers on their own phone …')+'</div>'}
+  else{
+    var msg=b.res=='ok'?bpL('✓ Richtig!','✓ Correct!'):(me?bpL('✗ Falsch!<br>Trinke '+bpSc(b.n)+'.','✗ Wrong!<br>Drink '+bpSc(b.n)+'.'):bpL('✗ Falsch!<br>'+skEsc(nm)+' trinkt '+bpSc(b.n)+'.','✗ Wrong!<br>'+skEsc(nm)+' drinks '+bpSc(b.n)+'.'));
+    h+='<div class="'+(b.stg>=3?'bfdl'+(b.res=='ok'?' win':''):'')+'"><div class="bfmsg '+b.res+'" style="margin-top:8px">'+msg+'</div>'
+      +(ctl?'<button class="bt" onclick="bpBusNext()">'+(b.res=='ok'?(b.stg>=3?bpL('Zur Auswertung','Results'):bpL('Weiter zu Stufe '+(b.stg+2),'On to stage '+(b.stg+2))):bpL('Nochmal von vorn','Start over'))+'</button>'
+        :'<div class="bfmsg" style="min-height:0;padding:8px 0 0">'+bpL('Warte auf '+skEsc(nm)+' …','Waiting for '+skEsc(nm)+' …')+'</div>')+'</div>'}
+  h+='<div class="bfmsg" style="min-height:0;padding:10px 0 0">'+bpL('Bisher '+bpSc(b.sips)+' getrunken','So far '+bpSc(b.sips)+' drunk')+'</div>';
+  sqSet(bnBsB,h)};
+var _bd=window.bpBdDraw;window.bpBdDraw=function(s){_bd.apply(this,arguments);try{if(s.bd&&s.bd.p==bpMe.id)bnBdT.textContent+=' '+bpL('Du spielst die Busfahrt auf deinem Handy.','You play the bus ride on your own phone.')}catch(e){}};
+}catch(e){console.warn('v143',e)}})();
+</script>
 </body></html>
