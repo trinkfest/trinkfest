@@ -84,14 +84,14 @@ Start einer Sitzung: „Mach Block N aus AUFGABEN.md“. Erledigtes hier abhaken
 - [x] „Timon zieht Pik 5 – nichts passiert“ komplett weg; gezogene Asse größer
 - [x] „Alle Asse gezogen“ nicht weiß, sondern im normalen Spiel-Design
 
-## Block 7 – Pferderennen (große Neugestaltung)
-- [ ] Ganzes Spiel im klassischen Pferderennen-Look: Dirt-Bahn, Pferde mit Kartensymbol laufen vor, wenn ihr Symbol gezogen wird; „Pferderennen“ oben bleibt, Anweisungen oben integrieren – schon ab Spielstart
-- [ ] Einsatz: Zahl auffälliger und zwischen Plus/Minus zentriert
-- [ ] Bei „Getrunken?“ Text „Einsatz zahlen …“ weg; Rest nach unten ziehen (keine große Lücke)
-- [ ] „Timon trinkt 2 Schlücke“ (mit Ü, ohne Punkt), gesetztes Symbol auffälliger
-- [ ] Ziehstapel größer, „Tippe auf den Stapel“ weg, kein Cooldown beim Aufdecken
-- [ ] Hindernisse größer
-- [ ] Endergebnis klarer: wer wie viele Schlücke verteilen darf
+## Block 7 – Pferderennen (große Neugestaltung, erledigt v144)
+- [x] Ganzes Spiel im klassischen Pferderennen-Look: Dirt-Bahn, Pferde mit Kartensymbol laufen vor, wenn ihr Symbol gezogen wird; „Pferderennen“ oben bleibt, Anweisungen oben integrieren – schon ab Spielstart
+- [x] Einsatz: Zahl auffälliger und zwischen Plus/Minus zentriert
+- [x] Bei „Getrunken?“ Text „Einsatz zahlen …“ weg; Rest nach unten ziehen (keine große Lücke)
+- [x] „Timon trinkt 2 Schlücke“ (mit Ü, ohne Punkt), gesetztes Symbol auffälliger
+- [x] Ziehstapel größer, „Tippe auf den Stapel“ weg, kein Cooldown beim Aufdecken
+- [x] Hindernisse größer
+- [x] Endergebnis klarer: wer wie viele Schlücke verteilen darf
 
 ## Block 8 – Party-Spiele: Wer würde eher, Boom, Zungenbrecher
 **Wer würde eher**

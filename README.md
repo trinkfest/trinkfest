@@ -362,3 +362,6 @@ Old Nick (kürzeres Fehler-Fenster, großes „Abgeben“, bunt leuchtende Karte
 
 ### v143 – Busfahren (Block 6b)
 Alle müssen „Gemerkt – weiter“ tippen, bevor der Host starten kann; Busfahrer spielt auf seinem eigenen Handy; Verlauf für alle sichtbar; rote Falsch-Liste weg; Endstatistik mit buntem, animiertem Hintergrund.
+
+### v144 – Pferderennen im Rennbahn-Look (Block 7)
+Grüner Rasen, Sandbahn mit weißen Rails, Start und Ziel; Pferde 🏇 mit Kartensymbol laufen vor. Anzeigetafel oben erklärt jeden Zug. Einsatz groß in der Mitte, „Timon trinkt 2 Schlücke“ mit großem Symbol, Stapel und Hindernisse größer, Aufdecken ohne Wartezeit, Endergebnis zeigt groß, wer wie viele Schlücke verteilt. Test: `npm run -s horse -- pl --draw 8 --shot x.png`.

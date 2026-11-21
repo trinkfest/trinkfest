@@ -18,7 +18,8 @@
     "bus": "node scripts/tf-bus.js",
     "test-duel": "node scripts/tf-test-duel.js",
     "overflow": "node scripts/tf-overflow.js",
-    "replace": "node scripts/tf-replace.js"
+    "replace": "node scripts/tf-replace.js",
+    "horse": "node scripts/tf-horse.js"
   },
   "dependencies": {
     "@capacitor-community/admob": "^8.3.0",
