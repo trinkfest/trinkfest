@@ -25,24 +25,24 @@ Start einer Sitzung: „Mach Block N aus AUFGABEN.md“. Erledigtes hier abhaken
 
 ## Block 3 – Schätz-Spiele + Emoji raten
 **Schätzfragen**
-- [ ] Beim Eingeben der Antwort muss oben das Feld (mind. die Zeitleiste) sichtbar bleiben
-- [ ] Nächster dran: 0 Schlücke · Zweiter: 1 · Dritter und Rest: 2
-- [ ] Krass falsche Antwort (z. B. „Wie viele Menschen gibt es?“ → 100.000): groß anzeigen, 3 Schlücke – nur bei extremen Abweichungen
+- [x] Beim Eingeben der Antwort muss oben das Feld (mind. die Zeitleiste) sichtbar bleiben
+- [x] Nächster dran: 0 Schlücke · Zweiter: 1 · Dritter und Rest: 2
+- [x] Krass falsche Antwort (z. B. „Wie viele Menschen gibt es?“ → 100.000): groß anzeigen, 3 Schlücke – nur bei extremen Abweichungen
 
 **Sekundenschätzen (Duell)**
-- [ ] Alle stoppen nacheinander; jeder bekommt eine eigene, aber nah beieinander liegende Zielzeit (z. B. 10/11/12 s) – fair, aber nicht gleich
-- [ ] Schlücke erst am Ende verteilen: große Liste 1./2./3. … – Erster 0, Zweiter 1, Dritter und Rest 2; Buttons „Nochmal“ + „Exit“
-- [ ] Auf Start/Stopp-Button steht nichts (keine Zahl, kein Wort)
+- [x] Alle stoppen nacheinander; jeder bekommt eine eigene, aber nah beieinander liegende Zielzeit (z. B. 10/11/12 s) – fair, aber nicht gleich
+- [x] Schlücke erst am Ende verteilen: große Liste 1./2./3. … – Erster 0, Zweiter 1, Dritter und Rest 2; Buttons „Nochmal“ + „Exit“
+- [x] Auf Start/Stopp-Button steht nichts (keine Zahl, kein Wort)
 
 **Sekundenschätzen (eigenes Spiel)**
-- [ ] Alles mittig zwischen Überschrift und unterem Handyrand
-- [ ] Ein Handy: wie im Duell (ähnliche Zeiten, wer am nächsten dran ist), Design anpassen
-- [ ] Online: Raum erstellen/beitreten, alle bekommen dieselbe Zeit, Auflösung am Ende, gleiche Regeln/Strafen wie im Duell
+- [x] Alles mittig zwischen Überschrift und unterem Handyrand
+- [x] Ein Handy: wie im Duell (ähnliche Zeiten, wer am nächsten dran ist), Design anpassen
+- [x] Online: Raum erstellen/beitreten, alle bekommen dieselbe Zeit, Auflösung am Ende, gleiche Regeln/Strafen wie im Duell
 
 **Emoji raten**
-- [ ] Auch auf die Trinkspiel-Seite; wer richtig liegt, darf 2 Schlücke verteilen
-- [ ] Auflösung: Antwort **groß und fett**, sonst nur, wer richtig lag (und wie viele Schlücke er verteilen darf)
-- [ ] Ein-Handy-Modus: Emojis und Namen weiter nach unten (unten zu viel Platz); Popup „Chrisi war zuerst …“ auf Lösung + Gewinner + Schlücke kürzen
+- [x] Auch auf die Trinkspiel-Seite; wer richtig liegt, darf 2 Schlücke verteilen
+- [x] Auflösung: Antwort **groß und fett**, sonst nur, wer richtig lag (und wie viele Schlücke er verteilen darf)
+- [x] Ein-Handy-Modus: Emojis und Namen weiter nach unten (unten zu viel Platz); Popup „Chrisi war zuerst …“ auf Lösung + Gewinner + Schlücke kürzen
 
 ## Block 4 – Duelle Teil 1 (Texte, Action-Spiele)
 - [ ] Erklärungen kürzen, Schlagwörter hervorheben; auch Text nach Namenseingabe kürzen

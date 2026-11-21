@@ -17,7 +17,7 @@ _Zahlen = Zeile in `index.html`. Mehrere Zahlen = später in einem vNNN-Block ü
 | `#gm4` | Ass ziehen | a… | 2006 | `astart` 2383 · `adraw` 2384 · `aok` 2388 |
 | `#gm5` | Zungenbrecher | z… | 2011 | `zstart` 2399 · `zgood` 2400 · `zbad` 2401 |
 | `#gm6` | Emoji-Raten (online) | em…, e… | 2032 | `estart` 2415 · `eflip` 2414 · `emHostGo` 2436 · `emJoinGo` 2438 |
-| `#gm7` | Sekundenschätzen | s…, sk… | 2046 | `sstart` 2532 |
+| `#gm7` | Sekundenschätzen | s…, sk… | 2046 | `sstart` 2532, 6026 |
 | `#gm8` | Tick Tac Boom | bx… | 2049 | `bxstart` 2564 · `bxnext` 2565 · `bxexp` 2593 · `bxend` 2600 |
 | `#gm9` | Wer würde eher? | wr… | 2060 | `wrstart` 2614 · `wrnext` 2615 |
 | `#gm10` | Kartensaufen | ks… | 2064 | `ksstart` 2630 · `ksnext` 2631 |
@@ -28,6 +28,8 @@ _Zahlen = Zeile in `index.html`. Mehrere Zahlen = später in einem vNNN-Block ü
 | `#gm17` | Kartenchaos (online) | kc… | 2023 | `kcHostGo` 4949 · `kcJoinGo` 4951 · `kcStartO` 4990 · `kcNext` 4988 · `kcTake` 4986 |
 | `#gm11` | Einstellungen |  | 2069 | `view11` 2642 · `hapToggle` 5317 · `sndToggle` 5422 · `pfSave` 3858 |
 | `#gm12` | Anmelden | au…, auth… | 2109 | `authEmail` 2670 · `authOAuth` 2666 · `auMode` 2664 |
+
+**Duell-Minispiele (`DLRUN.<id>`, Zeile):** `react` 4155 · `tug` 4193 · `hockey` 4211 · `trace` 4324 · `simon` 4354 · `bomb` 4413 · `stop` 4432 · `circle` 4457 · `four` 4474 · `ttt` 4496 · `flag` 4679 · `cap` 4680 · `rps` 4688 · `arm` 4689 · `exen` 4693 · `where` 4783
 
 ## Globale Bausteine
 - **Startseite / Navigation:** `hub` 2320 · `hmDraw` 2181 · `hsGo` 2339 · `pick` 2356, 3078, 5502 · `openG` 3502 · `closeG` 3503 · `hSet` 2325 · `showHelp` 3384
@@ -97,5 +99,8 @@ _Zahlen = Zeile in `index.html`. Mehrere Zahlen = später in einem vNNN-Block ü
 | `v136js` | 5696 | – |
 | `v137` | 5809 | ===== v137 (Block 2, 20.11.): Gratis-Woche sichtbar machen ===== |
 | `v137js` | 5815 | ===== v137 (Block 2, 20.11.): Werbefrei 2,99 EUR, erste Woche gratis, etwas mehr Werbung ===== |
+| `v138` | 5874 | v138 (Block 3, 21.11.): Schaetzfragen, Sekundenschaetzen, Emoji-Raten |
+| `v138js` | 5926 | ===== v138 (Block 3, 21.11.): Schaetzfragen (Rang statt Abstand, krass daneben, Tastatur), Sekundenschaetzen (neue Regeln + online), Emoji-Raten (auch Trinkspie |
 
-_(Code-Karte fehlt – `graphify update analyse`)_
+## Meistbenutzte Funktionen (vor Änderung `graphify affected` prüfen)
+`skEsc()` 2523 (47×) · `dlT()` 4067 (46×) · `toast()` 2352 (27×) · `xL()` 4868 (21×) · `bpL()` 3146 (19×) · `dlLater()` 4141 (17×) · `c()` 5449 (16×) · `bpBc()` 3202 (15×) · `dlBuzz()` 4139 (14×) · `plBtn()` 4838 (12×) · `plNames()` 4837 (12×) · `sqSet()` 2979 (12×) · `tfRound()` 3468 (11×) · `sqNetInit()` 3013 (11×) · `hBc()` 3071 (11×)

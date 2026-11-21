@@ -5871,4 +5871,296 @@ wrap('mbDraw',function(){var el=document.getElementById('s11-mb'),c=el&&el.query
 try{proDraw()}catch(x){}
 })();
 </script>
+<style id="v138">
+/* v138 (Block 3, 21.11.): Schaetzfragen, Sekundenschaetzen, Emoji-Raten */
+/* Schaetzfragen: Tastatur offen -> kompakt, Zeitleiste bleibt oben */
+#gm13.kb .sqmid{padding-top:4px}
+#gm13.kb .sqq{padding:10px 12px;border-radius:16px}
+#gm13.kb .sqq b{font-size:15px;line-height:1.25}
+#gm13.kb .sqq small{margin-top:4px}
+#gm13.kb .sqin{margin-top:8px}
+#gm13.kb .sqtop{padding-top:6px}
+/* Krass daneben */
+.sqkr{margin:10px 0 8px;padding:12px 12px 10px;border-radius:18px;text-align:center;background:linear-gradient(160deg,#ff3b47,#a3101b);color:#fff;box-shadow:0 10px 24px -10px rgba(0,0,0,.6);animation:kr138 .55s cubic-bezier(.3,1.6,.5,1) both}
+.sqkr .sqkx{font-size:34px;line-height:1}
+.sqkr>b{display:block;font:900 22px/1.1 var(--fn);letter-spacing:.5px;margin:4px 0 6px;text-shadow:2px 3px 0 rgba(0,0,0,.3)}
+.sqkr p{margin:2px 0;font:800 12px/1.35 var(--fn);color:#fff}
+.sqkr p em{font-style:normal;font-weight:900;font-size:14px}
+.sqkr>i{display:inline-block;margin-top:6px;padding:4px 12px;border-radius:99px;background:rgba(0,0,0,.28);font:900 13px var(--fn);font-style:normal}
+@keyframes kr138{0%{transform:scale(.6) rotate(-4deg);opacity:0}100%{transform:none;opacity:1}}
+@media (prefers-reduced-motion:reduce){.sqkr{animation:none}}
+/* Sekundenschaetzen: alles mittig zwischen Ueberschrift und unterem Rand */
+#gm7>.vw.on{overflow-y:auto;padding-bottom:calc(14px + var(--sab,0px))}
+#gm7>.vw.on>:first-child{margin-top:auto}
+#gm7>.vw.on>:last-child{margin-bottom:auto}
+#gm7 #s-pl .rbtn{font-size:0}
+#gm7 #s-pl .sktg small{margin-bottom:2px}
+#gm7 #s-pl .rm{min-height:30px}
+#gm7 #s-pl .skres .sbig{font:900 18px var(--fn);margin:2px 0 8px}
+#gm7 #s-pl .skres .bt{margin:0}
+#gm7 .chs .ch.on{outline:2px solid #fff}
+#gm7 #s-msu .rw,#gm7 #s-jsu .rw{margin-bottom:4px}
+.sk138d{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px;vertical-align:-1px}
+.sk138t{margin:10px auto 0;max-width:260px;display:flex;flex-direction:column;gap:4px;text-align:left}
+.sk138t>div{display:grid;grid-template-columns:18px 1fr auto;grid-template-rows:auto auto;column-gap:6px;align-items:center;padding:6px 10px;border-radius:12px;background:rgba(255,255,255,.12)}
+.sk138t i{grid-row:1/3;font:900 13px var(--fn);font-style:normal;opacity:.8}
+.sk138t b{font:900 13px var(--fn);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.sk138t span{grid-column:2;font:700 10px var(--fn);opacity:.8}
+.sk138t em{grid-column:3;grid-row:1/3;font:900 12px var(--fn);font-style:normal;padding:3px 8px;border-radius:99px;background:#c0262d;color:#fff;white-space:nowrap}
+.sk138t em.z{background:#1fa63f}
+/* Emoji-Raten: ein Handy -> Karte und Namen mittig, groessere Knoepfe */
+#gm6 #e-pl.on>.ecd{margin-top:auto;height:190px}
+#gm6 #e-pl.on>.enm{margin-bottom:auto}
+#gm6 #e-pl.on{padding-bottom:calc(24px + var(--sab,0px))}
+#gm6 #e-pl .elb{margin:18px 0 8px;font-size:11px}
+#gm6 #e-pl .enm button{padding:14px 6px;font-size:13px}
+/* Emoji-Raten: Aufloesung gross und fett */
+#md6.tfe138 .big{display:none}
+#md6.tfe138 h4{font:900 26px/1.15 var(--fn);margin:4px 0 8px;overflow-wrap:anywhere}
+#md6.tfe138 p{font-size:14px}
+#md6.tfe138 h4::before{content:attr(data-l);display:block;font:800 10px var(--fn);letter-spacing:2px;opacity:.7;margin-bottom:4px}
+.emwn.e138 small{display:block;font:800 10px var(--fn);letter-spacing:2px;opacity:.75;margin-top:6px}
+.emwn.e138 .emans{font:900 30px/1.12 var(--fn);margin:4px 0 12px;overflow-wrap:anywhere;text-shadow:2px 3px 0 rgba(0,0,0,.3)}
+.emwn.e138 .emwho{display:flex;align-items:center;justify-content:center;gap:8px;margin:0;font:800 13px/1.35 var(--fn)}
+</style>
+<script id="v138js">
+/* ===== v138 (Block 3, 21.11.): Schaetzfragen (Rang statt Abstand, krass daneben, Tastatur), Sekundenschaetzen (neue Regeln + online), Emoji-Raten (auch Trinkspiele, 2 Schluecke, Aufloesung) ===== */
+(function(){
+var en=function(){return typeof LANG!='undefined'&&LANG=='en'},cards=function(){return typeof MODE!='undefined'&&MODE=='cards'},T=function(d,e){return en()?e:d};
+var M=function(dp,dn,ep,enn){return en()?(cards()?enn:ep):(cards()?dn:dp)};
+var esc=function(s){return skEsc(String(s==null?'':s))};
+var hap=function(k){try{TFH(k)}catch(e){}};
+var $=function(id){return document.getElementById(id)};
+var sipW=function(n){return en()?(n==1?'1 sip':n+' sips'):(n==1?'1 Schluck':n+' Schlücke')};
+var setLi=function(o,li){if(o&&o.h)o.h=o.h.replace(/<li>(?:(?!<li>)[\s\S])*<\/li><\/ol>\s*$/,li+'</ol>')};
+var cp=function(o){return o?{t:o.t,g:o.g,h:o.h}:null};
+
+/* ===================== (A) Schaetzfragen ===================== */
+/* krass daneben: Faktor 10 (Zahlen) bzw. mind. 50 Jahre und halbes Alter (Jahreszahlen) */
+function sqX(q,g){var a=q[3];if(q[4]){var age=Math.max(10,2026-a);return Math.abs(g-a)>=Math.max(50,age*.5)}
+ var hi=Math.max(g,a),lo=Math.min(g,a);return (hi+.5)/(lo+.5)>=10}
+/* Naechster 0, Zweiter 1, Rest 2; krass daneben 3; keine Antwort 2 */
+window.hEnd=function hEnd(){var H=SQH;if(!H||H.ph!='ask')return;clearTimeout(H.tm);var a=H.cur[3];
+ var d=H.act.map(function(id){var g=H.gs[id];return g==null||sqX(H.cur,g)?null:Math.abs(g-a)});
+ H.res=H.act.map(function(id,i){var g=H.gs[id],s,x=0;
+  if(g==null)s=2;else if(d[i]==null){s=3;x=1}
+  else{var rk=1+d.filter(function(v){return v!=null&&v<d[i]-1e-9}).length;s=rk==1?0:rk==2?1:2}
+  H.tot[id]=(H.tot[id]||0)+s;return[id,g==null?null:g,s,x]});
+ H.ph='reveal';hBc()};
+var oRev=window.sqRevDraw;
+window.sqRevDraw=function sqRevDraw(s){oRev(s);try{
+ var kr=(s.res||[]).filter(function(r){return r[3]});if(!kr.length)return;
+ var b=document.createElement('div');b.className='sqkr';
+ b.innerHTML='<div class="sqkx">🤯</div><b>'+T('KRASS DANEBEN!','WAY OFF!')+'</b>'
+  +kr.map(function(r){return '<p>'+esc(sqPn(r[0]))+': <em>'+esc(sqFmt(r[1],s.q))+'</em></p>'}).join('')
+  +'<i>+ '+sipW(3)+(kr.length>1?T(' für jeden',' each'):'')+'</i>';
+ var f=sqRv.firstElementChild;sqRv.insertBefore(b,f?f.nextSibling:null);hap('heavy')}catch(e){}};
+/* Tastatur: Seite oben halten, damit Zeitleiste und Frage sichtbar bleiben */
+var kbT=[];
+function kbPin(){var a=document.activeElement;if(!a||a.id!='sqNum')return;
+ try{if(window.scrollY||window.pageYOffset)window.scrollTo(0,0);document.documentElement.scrollTop=0;document.body.scrollTop=0;
+  for(var e=a.parentNode;e&&e.nodeType==1;e=e.parentNode){if(e.scrollTop)e.scrollTop=0}}catch(e){}}
+try{var nI=$('sqNum');
+ nI.addEventListener('focus',function(){gm13.classList.add('kb');kbT.forEach(clearTimeout);kbT=[0,50,150,300,500,800].map(function(t){return setTimeout(kbPin,t)})});
+ nI.addEventListener('blur',function(){gm13.classList.remove('kb');setTimeout(function(){try{window.scrollTo(0,0)}catch(e){}},60)});
+ if(window.visualViewport){visualViewport.addEventListener('scroll',kbPin);visualViewport.addEventListener('resize',kbPin)}}catch(e){}
+/* Texte */
+function sqTexts(){var t=M('Alle schätzen dieselbe Zahl – wer am nächsten dran ist, trinkt nichts.','Alle schätzen dieselbe Zahl – wer am nächsten dran ist, bekommt keinen Strafpunkt.','Everyone estimates the same number – whoever is closest drinks nothing.','Everyone estimates the same number – whoever is closest gets no penalty point.');
+ document.querySelectorAll('#q-su>p.one,#q-lc>p.one').forEach(function(p){p.textContent=t})}
+var oOQ=window.openQ;window.openQ=function openQ(){sqTexts();return oOQ.apply(this,arguments)};
+/* Normal-Modus: Siegerpodest am Ende */
+var sqPod=0,oSG=window.sqGot;
+window.sqGot=function sqGot(s){var r=oSG.apply(this,arguments);try{
+ if(!s||s.ph!='end'){sqPod=0;return r}
+ if(cards()&&!sqPod&&sqMode&&s.pl&&s.pl.length){sqPod=1;
+  tfPodium({title:T('Endstand','Final ranking'),sub:T('Wenigste Strafpunkte gewinnen.','Fewest penalty points wins.'),
+   list:s.pl.map(function(p){return{n:p[1],v:s.tot[p[0]]||0}}),sort:'asc',unit:T('Strafpunkte','penalty points'),
+   againText:sqIsH?T('Nochmal','Again'):'OK',again:function(){if(sqIsH)hAgain()},exit:function(){sqMenu()}})}}catch(e){}return r};
+
+/* ===================== (B) Emoji-Raten ===================== */
+try{if(HMS.beer.indexOf(10)<0)HMS.beer.push(10);if(HBO.indexOf(10)<0){var k11=HBO.indexOf(11);HBO.splice(k11<0?HBO.length:k11,0,10)}
+ hmList();if(typeof tp0!='undefined'&&tp0)tp0.innerHTML=hSp()}catch(e){}
+function emTexts(){var a=$('e-md'),b=$('e-su');
+ if(a&&a.querySelector('p.one'))a.querySelector('p.one').textContent=M('Jeder sieht die Emojis am eigenen Handy – wer zuerst richtig liegt, verteilt 2 Schlücke.','Jeder sieht die Emojis am eigenen Handy – wer zuerst richtig liegt, verteilt 2 Strafpunkte.','Everyone sees the emojis on their own phone – the first to get it right hands out 2 sips.','Everyone sees the emojis on their own phone – the first to get it right hands out 2 penalty points.');
+ if(b&&b.querySelector('p.one'))b.querySelector('p.one').textContent=M('Ratet gemeinsam, was die Emojis zeigen – wer zuerst richtig liegt, verteilt 2 Schlücke.','Ratet gemeinsam, was die Emojis zeigen – wer zuerst richtig liegt, verteilt 2 Strafpunkte.','Guess together what the emojis show – the first to get it right hands out 2 sips.','Guess together what the emojis show – the first to get it right hands out 2 penalty points.')}
+var oOE=window.openE;window.openE=function openE(){emTexts();return oOE.apply(this,arguments)};
+/* ein Handy: Popup nur Loesung + Gewinner + Schluecke */
+window.ewin=function ewin(i){emWho=i;emWins[i]++;var sol=emSol(EMQ[emCur][2]);
+ e6t.textContent=sol;e6t.setAttribute('data-l',T('LÖSUNG','ANSWER'));
+ e6x.innerHTML='<b>'+esc(EMP[i])+'</b> '+T('verteilt','hands out')+' <b>'+sipW(2)+'</b> 🍻';
+ md6.classList.add('tfe138');md6.classList.add('on');hap('ok')};
+/* online: Loesung gross, sonst nur wer richtig lag */
+window.emWinDraw=function emWinDraw(s){var w=s.win,pn=w?emPn(w.id):'',me=w&&w.id==emMe.id;
+ eoWn.innerHTML='<div class="emwn e138"><div class="emo">'+esc(s.em)+'</div><small>'+T('LÖSUNG','ANSWER')+'</small><div class="emans">'+esc(s.sol)+'</div>'
+  +(w?'<p class="emwho">'+emDot(w.id)+'<span><b>'+esc(pn)+'</b>'+(me?T(' (du)',' (you)'):'')+' '+T('lag richtig und verteilt','got it and hands out')+' <b>'+sipW(2)+'</b> 🍻</span></p>'
+     :'<p class="emwho">'+T('Niemand lag richtig.','Nobody got it.')+'</p>')+'</div>'};
+var emPod=0,oEG=window.emGot;
+window.emGot=function emGot(s){var r=oEG.apply(this,arguments);try{
+ if(!s||s.ph!='end'){emPod=0;return r}
+ if(cards()&&!emPod&&emMode&&s.pl&&s.pl.length){emPod=1;
+  tfPodium({title:T('Endstand','Final ranking'),list:s.pl.map(function(p){return{n:p[1],v:p[2]||0}}),sort:'desc',unit:T('Treffer','hits'),
+   againText:emIsH?T('Nochmal','Again'):'OK',again:function(){if(emIsH)emAgain()},exit:function(){emMenu()}})}}catch(e){}return r};
+
+/* ===================== (C) Sekundenschaetzen ===================== */
+/* neue Ansichten: Modus (s-msu), Beitreten (s-jsu), Raum (s-lsu). Namen enden auf "su", damit die Zurueck-Abfrage dort nicht kommt. */
+try{gm7.querySelector('.foam').insertAdjacentHTML('afterend',
+ '<div class="vw su" id="s-msu"><p class="one" id="skI1"></p><div class="bxh" id="skNh"></div><div class="rw"><input id="skNm" maxlength="12" autocomplete="off"></div>'
+ +'<button class="bt" id="skHb"></button><button class="bt g" id="skJb"></button><button class="bt g" id="skLb"></button><div class="bxn" id="skNote"></div></div>'
+ +'<div class="vw su" id="s-jsu"><h3 id="skJh"></h3><p id="skJp"></p><div class="bxh" id="skJn"></div><div class="rw"><input id="skNj" maxlength="12" autocomplete="off"></div>'
+ +'<div class="bxh" id="skJc"></div><div class="rw"><input id="skCd" class="sqcd" maxlength="4" placeholder="ABCD" autocomplete="off" autocapitalize="characters"></div><div class="auerr" id="skErr"></div>'
+ +'<button class="bt" id="skJg"></button><button class="bt g" id="skJz"></button></div>'
+ +'<div class="vw su" id="s-lsu"><div id="skTop"></div><div class="bxh" id="skPh"></div><div class="sqpl" id="skPl"></div><div class="bxn" id="skLn"></div><button class="bt" id="skGo"></button><button class="bt g" id="skLv"></button></div>')}catch(e){}
+function skTexts(){
+ $('skI1').textContent=M('Triff die Zielzeit ohne Uhr – wer am nächsten dran ist, trinkt nichts.','Triff die Zielzeit ohne Uhr – wer am nächsten dran ist, bekommt keinen Strafpunkt.','Hit the target time without a clock – whoever is closest drinks nothing.','Hit the target time without a clock – whoever is closest gets no penalty point.');
+ var p=document.querySelector('#s-su>p.one');if(p)p.textContent=M('Jeder bekommt eine eigene Zielzeit, alle nah beieinander. Auflösung am Ende.','Jeder bekommt eine eigene Zielzeit, alle nah beieinander. Auflösung am Ende.','Everyone gets their own target time, all close together. Results at the end.','Everyone gets their own target time, all close together. Results at the end.');
+ $('skNh').textContent=$('skJn').textContent=T('DEIN NAME','YOUR NAME');$('skJc').textContent=T('RAUMCODE','ROOM CODE');
+ $('skNm').placeholder=$('skNj').placeholder=T('Dein Name','Your name');
+ $('skHb').textContent=T('Online-Raum erstellen','Create online room');$('skJb').textContent=T('Raum beitreten','Join room');$('skLb').textContent=T('Alle an einem Handy','All on one phone');
+ $('skJh').textContent=T('Raum beitreten','Join room');$('skJp').textContent=T('Gib den Code ein, den dir der Host zeigt. Oder scanne seinen QR-Code mit der Kamera.','Enter the code the host shows you. Or scan their QR code with the camera.');
+ $('skJg').textContent=T('Beitreten','Join');$('skJz').textContent=T('Zurück','Back');
+ $('skGo').textContent=T('Spiel starten','Start game');$('skLv').textContent=T('Raum verlassen','Leave room')}
+var SKL=null,SKO={mode:'',code:'',me:{id:'',n:''},isH:false,net:null,H:null,S:null,joined:false,seen:0,t0:0,pt:null,tk:0,run:null,resK:''};
+var fT=function(x){var r=Math.round(x*10)/10;return (r%1?r.toFixed(1):String(r)).replace('.',en()?'.':',')};
+function skBtnReset(){skBtn.textContent='';skBtn.className='rbtn';skBtn.disabled=false;skBtn.setAttribute('aria-label',T('Start / Stopp','Start / stop'))}
+/* --- ein Handy --- */
+window.sstart=function sstart(){var nm=plNames().map(function(x){return x.trim()}).filter(Boolean);if(nm.length<2)return;try{tfRound(.5)}catch(e){}
+ var st=nm.length<=5?1:.5,base=6+Math.floor(Math.random()*7),tg=[];for(var i=0;i<nm.length;i++)tg.push(base+i*st);
+ SKL={pl:nm,tg:bshuf(tg),t:[],cur:0,ph:'ready',t0:0};SP=nm;skLocTurn();view7('pl')};
+function skProg(){skCh.innerHTML=SKL.pl.map(function(n,i){return '<span class="ch'+(i==SKL.cur&&SKL.ph!='done'?' on':'')+'">'+esc(n)+(SKL.t[i]!=null?' ✓':'')+'</span>'}).join('')}
+function skLocTurn(){var i=SKL.cur;SKL.ph='ready';
+ skTn.innerHTML='<small>'+T('AM ZUG','YOUR TURN')+'</small><b>'+esc(SKL.pl[i])+'</b>';
+ skTg.innerHTML='<small>'+T('STOPPE GENAU BEI','STOP EXACTLY AT')+'</small><b>'+fT(SKL.tg[i])+'</b><span>'+T('Sekunden','seconds')+'</span>';
+ skBtnReset();skMsg.textContent=T('Tippe zum Starten – und nochmal, wenn die Zeit um ist.','Tap to start – and again when the time is up.');skRes.className='skres';skRes.innerHTML='';skProg()}
+window.stap=function stap(e){if(e)e.preventDefault();
+ if(SKO.mode){skOTap();return}
+ if(!SKL)return;
+ if(SKL.ph=='ready'){SKL.t0=performance.now();SKL.ph='run';skBtn.className='rbtn run';skMsg.textContent=T('Die Zeit läuft …','Time is running …');hap('light');return}
+ if(SKL.ph!='run')return;SKL.t[SKL.cur]=(performance.now()-SKL.t0)/1000;SKL.ph='done';skBtn.className='rbtn';skBtn.disabled=true;skMsg.textContent='';hap('light');
+ var last=SKL.cur>=SKL.pl.length-1;
+ skRes.innerHTML='<div class="sbig">✓ '+T('Gestoppt','Stopped')+'</div><button class="bt" id="skNx">'+(last?T('Auflösung','Show results'):T('Weiter: ','Next: ')+esc(SKL.pl[SKL.cur+1]))+'</button>';
+ skRes.className='skres on';skProg();
+ $('skNx').onclick=function(){if(last)skLocEnd();else{SKL.cur++;skLocTurn()}}};
+function skRank(rows){rows.forEach(function(r){r.d=r.t==null?1e9:Math.abs(r.t-r.tg)});
+ rows.sort(function(a,b){return a.d-b.d});
+ rows.forEach(function(r){var me=Math.round(r.d*100);r.rk=1+rows.filter(function(x){return Math.round(x.d*100)<me}).length;r.s=r.rk==1?0:r.rk==2?1:2});return rows}
+function skShow(rows,again,exit,againText,meId){
+ var w=tfPodium({title:T('Auflösung','Results'),sub:M('Am nächsten dran: 0 · Zweiter: 1 · Rest: 2 Schlücke','Am nächsten dran: 0 · Zweiter: 1 · Rest: 2 Strafpunkte','Closest: 0 · second: 1 · rest: 2 sips','Closest: 0 · second: 1 · rest: 2 penalty points'),
+  list:rows.map(function(r){return{n:r.n,v:r.t==null?'–':fmt(r.d)+' s',c:r.c}}),again:again,exit:exit,againText:againText});
+ var tb=document.createElement('div');tb.className='sk138t';
+ tb.innerHTML=rows.map(function(r){var df=r.t==null?'':(r.t-r.tg>=0?' (+':' (−')+fmt(Math.abs(r.t-r.tg))+')';
+  return '<div><i>'+r.rk+'.</i><b>'+esc(r.n)+(meId&&r.id==meId?T(' (du)',' (you)'):'')+'</b><span>'+T('Ziel','Target')+' '+fT(r.tg)+' s · '+(r.t==null?T('nicht gestoppt','not stopped'):fmt(r.t)+' s'+df)+'</span><em class="'+(r.s?'':'z')+'">'+(r.s?sipW(r.s):T('nichts','nothing'))+'</em></div>'}).join('');
+ var b=w.querySelector('.tfbtns');if(b)b.parentNode.insertBefore(tb,b);var pl=w.querySelector('.tfpl');if(pl)pl.remove();return w}
+function skLocEnd(){var rows=SKL.pl.map(function(n,i){return{n:n,tg:SKL.tg[i],t:SKL.t[i]==null?null:SKL.t[i],c:tfPlCol(n,i)}});
+ skRank(rows);skMsg.textContent='';skRes.className='skres';
+ skShow(rows,function(){sstart()},function(){SKL=null;gm7.classList.remove('on');setTimeout(function(){if(!SKO.mode)view7('msu')},500)})}
+/* --- Navigation --- */
+window.openS=function openS(){spInit=true;gm7.classList.add('on');skTexts();
+ if(!SKO.mode){view7('msu');if(!skNm.value)skNm.value=sqLS('tf_sqn')||(PLY.find(function(x){return x})||'').slice(0,12);skNote.textContent=T('Verbinde …','Connecting …');
+  sqNetInit().then(function(k){if(!SKO.mode)skNote.textContent=k?'':T('Online-Räume sind hier noch nicht verbunden. Spielt an einem Handy.','Online rooms are not connected here yet. Play on one phone.')})}
+ srows()};
+window.closeS=function closeS(){var v=gm7.dataset.v;
+ if(v=='su'||v=='jsu'){view7('msu');return}
+ if(v=='lsu'){skLeave();view7('msu');return}
+ skLeave();SKL=null;spPh='ready';var o=document.querySelector('#gm7>.tfov');if(o)o.remove();gm7.classList.remove('on');
+ setTimeout(function(){if(!SKO.mode&&!gm7.classList.contains('on'))view7('msu')},500)};
+/* --- online (gleiche Zielzeit fuer alle, Aufloesung am Ende) --- */
+function skNetRecv(d){if(!d||typeof d!='object'||d.f===SKO.me.id)return;if(SKO.isH)skHMsg(d);else if(d.k=='st'&&d.code==SKO.code)skGot(d)}
+function skSend(d){if(SKO.isH)skHMsg(d);else if(SKO.net)SKO.net.send(d)}
+async function skHostGo(){var n=sqNameGet(skNm);if(!n)return;if(!(await sqNetInit())){toast(T('Online-Räume sind hier noch nicht verbunden','Online rooms are not connected here yet'));return}
+ var code=sqGenCode(),nt;try{nt=await sqConnect(code,'sk',skNetRecv)}catch(e){toast(T('Verbindung fehlgeschlagen','Connection failed'));return}skBegin('host',code,n,nt)}
+async function skJoinGo(){var n=sqNameGet(skNj);if(!n)return;skNm.value=n;
+ var code=(skCd.value||'').toUpperCase().replace(/[^A-Z]/g,'');if(code.length!=4){skErr.textContent=T('Der Code hat 4 Buchstaben.','The code has 4 letters.');return}
+ if(!(await sqNetInit())){skErr.textContent=T('Online-Räume sind hier noch nicht verbunden.','Online rooms are not connected here yet.');return}
+ skErr.textContent=T('Verbinde …','Connecting …');var nt;try{nt=await sqConnect(code,'sk',skNetRecv)}catch(e){skErr.textContent=T('Verbindung fehlgeschlagen.','Connection failed.');return}skBegin('join',code,n,nt)}
+function skToJoin(){view7('jsu');skErr.textContent='';if(!skNj.value)skNj.value=skNm.value||sqLS('tf_sqn')||'';(skNj.value?skCd:skNj).focus()}
+function skBegin(mode,code,n,net){skLeave();SKO.net=net||null;SKO.mode=mode;SKO.code=code;SKO.me={id:sqRid(),n:n};SKO.isH=mode=='host';SKO.S=null;SKO.joined=false;SKO.t0=SKO.seen=Date.now();SKO.tk=0;SKO.run=null;SKO.resK='';skTop.dataset.k='';
+ if(SKO.isH){SKO.H={code:code,host:SKO.me.id,pl:[],ph:'lobby',r:0,tg:0,act:[],res:{},tm:null};skHAdd(SKO.me.id,n);SKO.joined=true;SKO.H.loop=setInterval(skBc,2000);skBc()}
+ SKO.pt=setInterval(skPulse,1000);view7('lsu');skLobby()}
+function skLeave(){var H=SKO.H;if(SKO.pt){clearInterval(SKO.pt);SKO.pt=null}if(H){clearInterval(H.loop);clearTimeout(H.tm)}
+ if(SKO.net){var nt=SKO.net,me=SKO.me.id;try{if(!SKO.isH)nt.send({k:'bye',f:me});else if(H)nt.send({k:'st',f:H.host,code:H.code,ph:'closed',pl:[]})}catch(e){}setTimeout(function(){try{nt.close()}catch(e){}},400);SKO.net=null}
+ SKO.H=null;SKO.mode='';SKO.S=null;SKO.joined=false;SKO.isH=false;SKO.run=null}
+function skLeaveJoin(m){skLeave();var o=document.querySelector('#gm7>.tfov');if(o)o.remove();view7('jsu');skErr.textContent=m}
+function skPulse(){if(!SKO.mode)return;SKO.tk++;
+ if(SKO.isH){var p=SKO.H&&SKO.H.pl.find(function(x){return x.id==SKO.me.id});if(p)p.seen=Date.now();return}
+ if(!SKO.net)return;
+ if(!SKO.joined){SKO.net.send({k:'join',f:SKO.me.id,n:SKO.me.n});if(Date.now()-SKO.t0>9000)skLeaveJoin(T('Raum nicht gefunden. Prüfe den Code.','Room not found. Check the code.'));return}
+ if(SKO.tk%4==0)SKO.net.send({k:'hi',f:SKO.me.id});
+ if(Date.now()-SKO.seen>9000){skLeaveJoin(T('Die Verbindung zum Host ist weg.','Lost the connection to the host.'));return}
+ var s=SKO.S,r=SKO.run;if(r&&r.t!=null&&s&&s.ph=='run'&&s.r==r.r&&(s.got||[]).indexOf(SKO.me.id)<0)SKO.net.send({k:'t',f:SKO.me.id,r:r.r,v:r.t})}
+/* Host */
+function skPres(p){return !!p&&(p.id==SKO.H.host||Date.now()-p.seen<10000)}
+function skHAdd(id,n){var H=SKO.H,p=H.pl.find(function(x){return x.id==id});if(p){p.seen=Date.now();return}if(H.pl.length>=12)return;
+ var nm=n||'Spieler',b=nm,i=2;while(H.pl.some(function(x){return x.n.toLowerCase()==nm.toLowerCase()}))nm=b.slice(0,10)+' '+i++;H.pl.push({id:id,n:nm,seen:Date.now()})}
+function skHMsg(m){var H=SKO.H;if(!H||!m||typeof m!='object')return;var f=String(m.f||'');
+ if(m.k=='join'){if(typeof m.n=='string'){skHAdd(f,m.n.slice(0,12));skBc()}return}
+ var p=H.pl.find(function(x){return x.id==f});if(!p)return;p.seen=Date.now();
+ if(m.k=='bye'){if(H.ph=='lobby')H.pl=H.pl.filter(function(x){return x.id!=f});else{p.seen=0;skHChk()}skBc();return}
+ if(m.k=='t'&&H.ph=='run'&&m.r===H.r&&H.act.indexOf(f)>=0&&!(f in H.res)&&typeof m.v=='number'&&isFinite(m.v)&&m.v>0&&m.v<300){H.res[f]=m.v;skHChk();skBc()}}
+function skHChk(){var H=SKO.H;if(!H||H.ph!='run')return;
+ if(H.act.every(function(id){return (id in H.res)||!skPres(H.pl.find(function(p){return p.id==id}))}))skHEnd()}
+function skHStart(){var H=SKO.H;if(!H||(H.ph!='lobby'&&H.ph!='res'))return;var pl=H.pl.filter(skPres);if(pl.length<2){toast(T('Mindestens 2 Spieler','At least 2 players'));return}
+ try{tfRound(.5)}catch(e){}H.r++;H.ph='run';H.tg=6+Math.floor(Math.random()*10);H.act=pl.map(function(p){return p.id});H.res={};clearTimeout(H.tm);
+ var r0=H.r;H.tm=setTimeout(function(){if(SKO.H&&SKO.H.ph=='run'&&SKO.H.r==r0)skHEnd()},(H.tg+40)*1000);skBc()}
+function skHEnd(){var H=SKO.H;if(!H||H.ph!='run')return;clearTimeout(H.tm);H.ph='res';skBc()}
+function skSt(){var H=SKO.H,s={k:'st',f:H.host,code:H.code,ph:H.ph,pl:H.pl.map(function(p){return[p.id,p.n]}),fl:H.pl.length>=12?1:0,r:H.r,tg:H.tg,act:H.act,got:Object.keys(H.res)};if(H.ph=='res')s.res=H.res;return s}
+function skBc(){var H=SKO.H;if(!H)return;if(H.ph=='lobby')H.pl=H.pl.filter(skPres);var s=skSt();skGot(s);if(SKO.net)SKO.net.send(s)}
+/* Anzeige (Host und Gaeste) */
+function skCol(s,id){var i=s.pl.findIndex(function(p){return p[0]==id});return SQC[(i<0?0:i)%SQC.length]}
+function skGot(s){if(s.ph=='closed'){if(!SKO.isH)skLeaveJoin(T('Der Host hat den Raum geschlossen.','The host closed the room.'));return}
+ SKO.S=s;SKO.seen=Date.now();if(s.pl.some(function(p){return p[0]==SKO.me.id}))SKO.joined=true;skRender()}
+function skRender(){var s=SKO.S;if(!s||!SKO.mode)return;
+ if(!SKO.joined){if(s.fl)skLeaveJoin(T('Der Raum ist voll.','The room is full.'));return}
+ if(s.ph=='lobby'){if(gm7.dataset.v!='lsu')view7('lsu');skLobby()}
+ else if(s.ph=='run'){if(!SKO.run||SKO.run.r!=s.r){SKO.run={r:s.r,ph:s.act.indexOf(SKO.me.id)>=0?'ready':'out',t:null,t0:0};skORun(s)}if(gm7.dataset.v!='pl')view7('pl');skOUp(s)}
+ else if(s.ph=='res'){if(gm7.dataset.v!='pl')view7('pl');var k=String(s.r);if(SKO.resK!=k){SKO.resK=k;skORes(s)}}}
+function skLobby(){var s=SKO.S,pl=s?s.pl:[[SKO.me.id,SKO.me.n]],base=sqBase();
+ var top='<div class="sqcode"><small>'+T('RAUMCODE','ROOM CODE')+'</small><b>'+SKO.code+'</b></div>';
+ if(SKO.isH)top+=base?'<div class="sqqr" id="skQr"></div><div class="sqhint">'+T('Die anderen scannen den QR-Code mit der Kamera oder geben den Code ein.','The others scan the QR code with the camera or enter the code.')+'</div>'
+  :'<div class="sqhint">'+T('Die anderen tippen auf „Raum beitreten“ und geben diesen Code ein.','The others tap “Join room” and enter this code.')+'</div>';
+ else top+='<div class="sqhint">'+(SKO.joined?T('Du bist dabei. Warte, bis der Host das Spiel startet.','You are in. Wait for the host to start.'):T('Verbinde mit dem Raum …','Connecting to the room …'))+'</div>';
+ if(skTop.dataset.k!=top){skTop.innerHTML=top;skTop.dataset.k=top;var q=$('skQr');if(q){q.innerHTML=sqQrSvg(base+'?skroom='+SKO.code,150);if(!q.innerHTML)q.remove()}}
+ skPh.textContent=T('SPIELER','PLAYERS')+' ('+pl.length+')';
+ sqSet(skPl,pl.map(function(p,i){return '<span><i class="sk138d" style="background:'+SQC[i%SQC.length]+'"></i>'+esc(p[1])+(p[0]==SKO.me.id?' <em>'+T('(du)','(you)')+'</em>':'')+'</span>'}).join(''));
+ var inf=T('Alle bekommen dieselbe Zielzeit und stoppen gleichzeitig. Auflösung am Ende.','Everyone gets the same target time and stops at the same time. Results at the end.');
+ if(SKO.isH){var ok=pl.length>=2;skGo.style.display='';skGo.disabled=!ok;skLn.textContent=ok?inf:T('Warte auf Mitspieler (mindestens 2).','Waiting for players (at least 2).')}
+ else{skGo.style.display='none';skLn.textContent=inf}}
+function skORun(s){var o=document.querySelector('#gm7>.tfov');if(o)o.remove();
+ skTn.innerHTML='<small>'+T('RUNDE','ROUND')+' '+s.r+'</small><b>'+esc(SKO.me.n)+'</b>';
+ skTg.innerHTML='<small>'+T('STOPPE GENAU BEI','STOP EXACTLY AT')+'</small><b>'+fT(s.tg)+'</b><span>'+T('Sekunden','seconds')+'</span>';
+ skBtnReset();skRes.className='skres';skRes.innerHTML='';
+ if(SKO.run.ph=='out'){skBtn.disabled=true;skMsg.textContent=T('Du steigst in der nächsten Runde ein.','You join in the next round.')}
+ else skMsg.textContent=T('Alle spielen gleichzeitig. Tippe zum Starten – und nochmal, wenn die Zeit um ist.','Everyone plays at once. Tap to start – and again when the time is up.')}
+function skOUp(s){var me=SKO.run;
+ skCh.innerHTML=s.pl.filter(function(p){return s.act.indexOf(p[0])>=0}).map(function(p){var g=s.got.indexOf(p[0])>=0;return '<span class="ch">'+esc(p[1])+(g?' ✓':'')+'</span>'}).join('');
+ if(me&&me.ph=='done')skMsg.textContent=T('Gestoppt ✓ – warte auf die anderen','Stopped ✓ – waiting for the others')+' ('+s.got.length+'/'+s.act.length+')'}
+function skOTap(){var me=SKO.run,s=SKO.S;if(!me||!s||s.ph!='run')return;
+ if(me.ph=='ready'){me.t0=performance.now();me.ph='run';skBtn.className='rbtn run';skMsg.textContent=T('Die Zeit läuft …','Time is running …');hap('light');return}
+ if(me.ph!='run')return;me.t=(performance.now()-me.t0)/1000;me.ph='done';skBtn.className='rbtn';skBtn.disabled=true;hap('light');
+ skSend({k:'t',f:SKO.me.id,r:me.r,v:me.t});skOUp(SKO.S||s)}
+function skORes(s){var rows=s.act.map(function(id){var p=s.pl.find(function(x){return x[0]==id}),t=s.res&&s.res[id];return{id:id,n:p?p[1]:'?',tg:s.tg,t:t==null?null:t,c:skCol(s,id)}});
+ skRank(rows);skBtn.disabled=true;skMsg.textContent=SKO.isH?'':T('Warte auf die nächste Runde …','Waiting for the next round …');
+ skShow(rows,function(){if(SKO.isH)skHStart()},function(){skLeave();SKL=null;gm7.classList.remove('on');setTimeout(function(){if(!SKO.mode)view7('msu')},500)},SKO.isH?T('Nochmal','Again'):'OK',SKO.me.id)}
+/* Knoepfe */
+try{skHb.onclick=skHostGo;skJb.onclick=skToJoin;skLb.onclick=function(){view7('su');srows()};
+ skJg.onclick=skJoinGo;skJz.onclick=function(){view7('msu')};skGo.onclick=skHStart;skLv.onclick=function(){skLeave();view7('msu')};
+ skNm.onkeydown=function(e){if(e.key=='Enter')skHostGo()};skNj.onkeydown=function(e){if(e.key=='Enter')skCd.focus()};skCd.onkeydown=function(e){if(e.key=='Enter')skJoinGo()};
+ skBtn.removeAttribute('onpointerdown');skBtn.addEventListener('pointerdown',function(e){stap(e)})}catch(e){}
+setTimeout(function(){try{var r=new URLSearchParams(location.search).get('skroom');if(r&&/^[A-Za-z]{4}$/.test(r)){openS();skToJoin();skCd.value=r.toUpperCase()}}catch(e){}},90);
+
+/* ===================== (D) Spielregeln ===================== */
+try{
+ var hs=HELP.sek;if(hs){hs.h='<ol><li><b>Ein Handy:</b> Jeder bekommt seine eigene Zielzeit, alle liegen nah beieinander (zum Beispiel 10, 11 und 12 Sekunden).</li><li>Tippe auf den Knopf zum Starten und noch einmal, wenn du denkst, die Zeit ist um. Eine Uhr siehst du nicht.</li><li>Dann gibst du das Handy weiter. Erst wenn alle dran waren, kommt die Auflösung.</li><li><b>Online:</b> Einer erstellt einen Raum, die anderen treten bei. Alle bekommen dieselbe Zielzeit und stoppen gleichzeitig am eigenen Handy.</li><li>Wer am nächsten dran ist, trinkt nichts. Der Zweite trinkt 1 Schluck, alle anderen 2.</li></ol>';
+  HELPC.sek=cp(hs);setLi(HELPC.sek,'<li>Wer am nächsten dran ist, bekommt keinen Strafpunkt. Der Zweite bekommt 1, alle anderen 2.</li>')}
+ var hq=HELP.schaetz;if(hq){setLi(hq,'<li>Wer am nächsten dran ist, trinkt nichts. Der Zweite trinkt 1 Schluck, alle anderen 2. Wer <b>krass danebenliegt</b> (etwa zehnmal zu viel oder zu wenig), trinkt 3. Wer nicht antwortet, trinkt 2.</li>');
+  HELPC.schaetz=cp(hq);setLi(HELPC.schaetz,'<li>Wer am nächsten dran ist, bekommt keinen Strafpunkt. Der Zweite bekommt 1, alle anderen 2. Wer <b>krass danebenliegt</b> (etwa zehnmal zu viel oder zu wenig), bekommt 3. Wer nicht antwortet, bekommt 2.</li>')}
+ var he=HELP.emoji;if(he)he.h=he.h.replace(/5 Schlücke/g,'2 Schlücke');if(HELPC.emoji)HELPC.emoji.h=HELPC.emoji.h.replace(/\b5 (Schlücke|Strafpunkte)/g,'2 $1');
+ var H=I18N.help||{},HC=I18N.helpC||(I18N.helpC={});
+ if(H.sek){H.sek.h='<ol><li><b>One phone:</b> Everyone gets their own target time, all close together (for example 10, 11 and 12 seconds).</li><li>Tap the button to start and again when you think the time is up. You don’t see a clock.</li><li>Then pass the phone on. Only when everyone has played are the results shown.</li><li><b>Online:</b> One player creates a room, the others join. Everyone gets the same target time and stops on their own phone at the same time.</li><li>Whoever is closest drinks nothing. Second place drinks 1 sip, everyone else 2.</li></ol>';
+  HC.sek=cp(H.sek);setLi(HC.sek,'<li>Whoever is closest gets no penalty point. Second place gets 1, everyone else 2.</li>')}
+ if(H.schaetz){setLi(H.schaetz,'<li>Whoever is closest drinks nothing. Second place drinks 1 sip, everyone else 2. Anyone who is <b>way off</b> (about ten times too much or too little) drinks 3. No answer = 2.</li>');
+  HC.schaetz=cp(H.schaetz);setLi(HC.schaetz,'<li>Whoever is closest gets no penalty point. Second place gets 1, everyone else 2. Anyone who is <b>way off</b> (about ten times too much or too little) gets 3. No answer = 2.</li>')}
+ if(H.emoji)H.emoji.h=H.emoji.h.replace(/\b5 sips/g,'2 sips');if(HC.emoji)HC.emoji.h=HC.emoji.h.replace(/\b5 (sips|penalty points)/g,'2 $1');
+}catch(e){}
+})();
+</script>
 </body></html>
