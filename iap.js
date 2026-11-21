@@ -1,4 +1,4 @@
-// TrinkFest: In-App-Kauf "TrinkFest Premium" (Einmalkauf, kein Abo). Nur in der iOS-App.
+// TrinkFest: In-App-Kauf "TrinkFest Premium" (Einmalkauf, 2,99 €, kein Abo). Nur in der iOS-App.
 // Nutzt Apples StoreKit 2 über das Capacitor-Plugin @capgo/native-purchases (npm install @capgo/native-purchases).
 // Die App (index.html) erwartet window.TF_IAP = { buy(), restore(), price() }.
 (function () {
@@ -26,7 +26,7 @@
         try { await p.restorePurchases(); } catch (e) { if (!cancelled(e)) throw e; }
         return (await owned(p)) ? 'life' : null;
       },
-      // lokalisierter Preis aus dem App Store, z. B. "4,99 €"
+      // lokalisierter Preis aus dem App Store, z. B. "2,99 €"
       price: async function () {
         var p = need();
         var r = await p.getProducts({ productIdentifiers: [ID], productType: 'inapp' });

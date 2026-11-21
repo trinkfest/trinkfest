@@ -22,7 +22,7 @@ Die Seite läuft über GitHub Pages (Settings > Pages). Auf dem Handy öffnen, d
 Nie geheime Schlüssel (z. B. Server-Passwörter, "service_role"-Key) in dieses Repo legen.
 
 ## Premium / Kasse (v49)
-Der Button „Premium“ öffnet das Premium-Fenster (Premium entfernt die Werbung) (Lifetime 4,99 €, Jährlich, Monatlich, Wöchentlich). Preise stehen in `PWP` in `index.html`.
+Der Button „Premium“ öffnet das Premium-Fenster (Premium entfernt die Werbung) (Werbefrei einmalig 2,99 €, lebenslang). Preise stehen in `PWP` in `index.html`.
 Standard ist der TEST-MODUS (`demo:true`): es wird nichts abgebucht. Echte Zahlung in `config.js` einstellen, zum Beispiel:
 
     window.TF_PAY_CFG={demo:false,paypal:{life:'https://www.paypal.com/ncp/payment/XXXX'},stripe:{life:'https://buy.stripe.com/XXXX'}};
@@ -341,3 +341,6 @@ Marker `v135`: Karten heißen jetzt „Seven Heaven“, „Eight Mate“ und „
 
 ## v145 – Block 1: Allgemein + gemeinsame Bausteine (Version 133, 20.11., Claude Code)
 Marker `v136`: Zurück-Knopf fragt in allen Spielen „Weiter oder zurück?“, Scroll-Balken am Rand weg, Dreh-Knopf mittig und (Circle, Old Nick) unter dem Fragezeichen, neue Spieler bekommen sofort eine Farbe, Würfelfieber und Kartenchaos gestrichen, „Suche“ unten weg. Neu als Bausteine für später: Münzwurf `tfCoin({...})` und Siegerpodest `tfPodium({...})`.
+
+## v146 – Block 2: Werbung & Werbefrei-Kauf (Version 134, 20.11., Claude Code)
+Marker `v137`: „Werbefrei“ kostet 2,99 € (einmalig, lebenslang) statt 4,99 €. Die **erste Woche ist gratis werbefrei**: ab dem ersten Start 7 Tage ohne Werbung, danach kommt Werbung zurück, außer man kauft. Die Gratis-Woche steht auf dem Premium-Knopf der Startseite („🎁 Gratis · 5 Tage“), im Premium-Fenster und in den Einstellungen unter „Kauf“. Werbung kommt jetzt nach **jeder 2.** Runde (vorher jede 3.), Pause zwischen zwei Spots 40 s (vorher 45 s). Der echte Preis muss noch in App Store Connect auf 2,99 € gesetzt werden.

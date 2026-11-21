@@ -17,7 +17,7 @@ window.TF_ADS_CFG = {
   admob: { ios: 'ca-app-pub-6905262120753416/7164142243' }
 };
 
-// In-App-Kauf "Werbefrei" (Einmalkauf, 4,99 €). Die Produkt-ID muss exakt so in App Store Connect angelegt sein
+// In-App-Kauf "Werbefrei" (Einmalkauf, 2,99 €, lebenslang). Die Produkt-ID muss exakt so in App Store Connect angelegt sein
 // (Typ: Nicht verbrauchbar / Non-Consumable). Der Preis kommt aus dem App Store, hier steht kein Preis.
 window.TF_IAP_CFG = {
   productId: 'de.trinkfest.app.adfree'

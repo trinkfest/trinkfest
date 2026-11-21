@@ -19,9 +19,9 @@ Start einer Sitzung: „Mach Block N aus AUFGABEN.md“. Erledigtes hier abhaken
 - [x] **Siegerpodest/Ranking** als gemeinsamer Baustein für Normal-Modus und Endlisten (1./2./3., Buttons „Nochmal“ + „Exit“)
 
 ## Block 2 – Werbung & Werbefrei-Kauf (Details siehe „Geklärt“ unten)
-- [ ] Werbefrei kostet 2,99 € (einmalig, lebenslang)
-- [ ] Erste Woche gratis werbefrei, danach Werbung, außer man kauft
-- [ ] Etwas mehr Werbung schalten
+- [x] Werbefrei kostet 2,99 € (einmalig, lebenslang)
+- [x] Erste Woche gratis werbefrei, danach Werbung, außer man kauft
+- [x] Etwas mehr Werbung schalten (jede 2. Runde statt jede 3., Pause 40 s statt 45 s)
 
 ## Block 3 – Schätz-Spiele + Emoji raten
 **Schätzfragen**

@@ -36,7 +36,7 @@ _Zahlen = Zeile in `index.html`. Mehrere Zahlen = später in einem vNNN-Block ü
 - **Spieler (global):** `PLY` 4830 · `plBtn` 4838 · `plxH` 5222 · `plxOpen` 5235 · `plxBuild` 5225, 5721 · `plxClose` 5243
 - **Ton / Vibration / Stimme:** `TFSnd` 5410 · `TFS` 5419 · `TFH` 5312 · `tfVoice` 5456 · `tfVoiceN` 5457, 5602 · `tfBeep` 5601
 - **Hilfen:** `toast` 2352 · `skEsc` 2523 · `fit` 1596, 3585, 5153
-- **Premium / Werbung:** `openPW` 3398 · `proDraw` 3396
+- **Premium / Werbung:** `openPW` 3398 · `proDraw` 3396, 5850
 
 ## Änderungsblöcke (vNNN, neueste unten)
 | Block | Zeile | Inhalt |
@@ -95,5 +95,7 @@ _Zahlen = Zeile in `index.html`. Mehrere Zahlen = später in einem vNNN-Block ü
 | `v135js` | 5611 | – |
 | `v136` | 5620 | v136 (Block 1, 20.11.): Scroll-Balken weg, Dreh-Knopf mittig und unter dem Fragezeichen, Suche weg, Zurueck-Abfrage, Muenzwurf, Siegerpodest |
 | `v136js` | 5696 | – |
+| `v137` | 5809 | ===== v137 (Block 2, 20.11.): Gratis-Woche sichtbar machen ===== |
+| `v137js` | 5815 | ===== v137 (Block 2, 20.11.): Werbefrei 2,99 EUR, erste Woche gratis, etwas mehr Werbung ===== |
 
 _(Code-Karte fehlt – `graphify update analyse`)_
