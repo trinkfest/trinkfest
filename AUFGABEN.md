@@ -57,10 +57,10 @@ Start einer Sitzung: „Mach Block N aus AUFGABEN.md“. Erledigtes hier abhaken
 - [x] **Kreis zeichnen:** größeres Feld
 
 ## Block 5 – Duelle Teil 2 (Brett-, Wissens-, Trinkduelle)
-- [ ] **Drei gewinnt:** klar als „Drei gewinnt“ erkennbar; Spieler blau vs. rot (Steine in der Farbe); Drop-Leiste weg, direkt in die Spalte tippen, Taler fällt; Boden klarer (Ständer größer o. ä.); Zurück-Button links oben, kein Dreh-Button
-- [ ] **Flaggen erraten:** Lösung darf nicht auf dem Button stehen, alles sauber anordnen
-- [ ] **Tic Tac Toe:** bei Unentschieden bis zu 3 Runden, dann Münzwurf
-- [ ] **Armdrücken:** ohne Countdown ins Spiel; beide drücken „Bereit“, dann großer animierter Countdown 3-2-1-GO; Gewinner erst nach 1 s antippbar
+- [x] **Drei gewinnt:** klar als „Drei gewinnt“ erkennbar; Spieler blau vs. rot (Steine in der Farbe); Drop-Leiste weg, direkt in die Spalte tippen, Taler fällt; Boden klarer (Ständer größer o. ä.); Zurück-Button links oben, kein Dreh-Button
+- [x] **Flaggen erraten:** Lösung darf nicht auf dem Button stehen, alles sauber anordnen
+- [x] **Tic Tac Toe:** bei Unentschieden bis zu 3 Runden, dann Münzwurf
+- [x] **Armdrücken:** ohne Countdown ins Spiel; beide drücken „Bereit“, dann großer animierter Countdown 3-2-1-GO; Gewinner erst nach 1 s antippbar
 - [ ] **Wo liegt das:** Nord-/Südpol-Namen weg; kleinere, klarere Markierung aufs richtige Land; **kein Land/Gebäude doppelt in einem Spiel**; statt „Gib das Handy …“ → „[Name], du bist dran“ + Button „Ready“
 - [ ] **Trinkduell:** Bereit-Screen neu (kein plumpes Bier-Icon, schöne Schrift, animierte Biere im Hintergrund); nach der Runde groß und klar, wer trinkt und wer nicht (Namen in Spielerfarbe); klarer, dass man auf ein Pferd setzt; Gewonnen/Verloren-Animation per Tippen überspringbar (ohne Hinweistext)
 

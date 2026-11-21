@@ -3914,7 +3914,7 @@ const DLM=[
 {id:'flag',nocd:1,e:'🚩',n:'Flaggen raten',en:'Guess the flag',d:'Wer die Flagge kennt, tippt „Ich wusste es“!|Vorher beide „Bereit“. Dann Lösung ansehen und ehrlich sagen, ob richtig.|Keiner weiß es? Kein Punkt. Wer zuerst 3 hat, gewinnt.',den:'Whoever knows the flag taps “I knew it”!|Both “Ready” first. Then check the answer and say honestly if you were right.|Nobody knows? No point. First to 3 wins.'},
 {id:'cap',nocd:1,e:'🏛️',n:'Hauptstädte raten',en:'Guess the capital',d:'Wer die Hauptstadt kennt, tippt „Ich wusste es“!|Vorher beide „Bereit“. Dann Lösung ansehen und ehrlich sagen, ob richtig.|Keiner weiß es? Kein Punkt. Wer zuerst 3 hat, gewinnt.',den:'Whoever knows the capital taps “I knew it”!|Both “Ready” first. Then check the answer and say honestly if you were right.|Nobody knows? No point. First to 3 wins.'},
 {id:'where',e:'🗺️',n:'Wo liegt das?',en:'Where is it?',d:'Tippt auf der Weltkarte, wo der Ort liegt!|Ihr tippt nacheinander und reicht das Handy weiter – geheim.|Näher dran = Punkt. Wer zuerst 3 hat, gewinnt.',den:'Tap on the world map where the place is!|Take turns and pass the phone – your guess stays secret.|Closer = point. First to 3 wins.'},
-{id:'arm',e:'💪',n:'Armdrücken',en:'Arm wrestling',t:'irl',d:'Armdrücken in echt!|Duelliert euch, sobald es losgeht.|Danach tippt ihr den Gewinner an.',den:'Arm wrestling for real!|Duel each other as soon as it starts.|Then tap the winner.'},
+{id:'arm',nocd:1,e:'💪',n:'Armdrücken',en:'Arm wrestling',t:'irl',d:'Armdrücken in echt!|Duelliert euch, sobald es losgeht.|Danach tippt ihr den Gewinner an.',den:'Arm wrestling for real!|Duel each other as soon as it starts.|Then tap the winner.'},
 {id:'exen',nocd:1,e:'🍺',n:'Trink-Duell',en:'Drink duel',t:'irl',alc:1,d:'Wer sein Glas zuerst leer hat, gewinnt!|Beide „Bereit“ → Countdown → bei „TRINK!“ trinken.|Leeres Glas umgedreht abstellen, dann den Gewinner antippen.',den:'Whoever empties their glass first wins!|Both “Ready” → countdown → drink on “DRINK!”.|Put the empty glass down upside down, then tap the winner.'}];
 /* ===== v93: Farben, Icons, Minispiele-Übersicht ===== */
 const DLPAL=[['#ff3b4e','Rot','Red'],['#ff8a1f','Orange','Orange'],['#ffd21f','Gelb','Yellow'],['#35d46a','Grün','Green'],['#14c8c0','Türkis','Teal'],['#44b8ff','Hellblau','Sky blue'],['#3a5cff','Blau','Blue'],['#a24dff','Lila','Purple'],['#ff5cbc','Pink','Pink'],['#f4f4f4','Weiß','White']];
@@ -4494,7 +4494,7 @@ DLRUN.four=function(c){
 
 /* ---------- 11. Tic Tac Toe ---------- */
 DLRUN.ttt=function(c){
- const a=c.a,b=c.b;let cur=Math.random()<.5?a:b,start=cur,grid,over=false;
+ const a=c.a,b=c.b;let cur=Math.random()<.5?a:b,start=cur,grid,over=false,dr=0;
  [a,b].forEach(p=>{dlP(c,p).innerHTML=`<div class="dnt"></div>`});
  dlMidSet(c,`<div class="dxt pe" id="dxT"></div>`);
  const mark=p=>p==a?`<svg viewBox="0 0 100 100" class="dxm"><path d="M26 26L74 74M74 26L26 74" stroke="${c.col(a)}" stroke-width="14" stroke-linecap="round" fill="none"/></svg>`:`<svg viewBox="0 0 100 100" class="dxm"><circle cx="50" cy="50" r="27" stroke="${c.col(b)}" stroke-width="13" fill="none"/></svg>`;
@@ -4503,7 +4503,7 @@ DLRUN.ttt=function(c){
  c.dar.addEventListener('pointerdown',e=>{const t=e.target.closest&&e.target.closest('.dxc');if(!t||over||t.firstChild)return;e.preventDefault();const i=+t.dataset.i;if(grid[i]!=null)return;grid[i]=cur;t.innerHTML=mark(cur);t.classList.add('pop');dlBuzz(10);
   const w=L.find(l=>grid[l[0]]!=null&&grid[l[0]]==grid[l[1]]&&grid[l[1]]==grid[l[2]]);
   if(w){over=true;w.forEach(k=>document.querySelector('.dxc[data-i="'+k+'"]').classList.add('win'));[a,b].forEach(p=>c.side(p).classList.remove('turn'));dlFinish(c,cur,1400);return}
-  if(grid.every(x=>x!=null)){const m=document.getElementById('dxT');m.classList.add('dim');dlLater(()=>{m.classList.remove('dim');start=start==a?b:a;cur=start;reset()},1200);return}
+  if(grid.every(x=>x!=null)){const m=document.getElementById('dxT');m.classList.add('dim');dr++;const t=document.createElement('div');t.className='dmsg d4m';t.textContent=dr>=3?dlT('Dreimal Unentschieden – Münzwurf','Three draws – coin toss'):dlT('Unentschieden – Runde '+(dr+1)+'/3','Draw – round '+(dr+1)+'/3');m.appendChild(t);if(dr>=3){over=true;[a,b].forEach(p=>c.side(p).classList.remove('turn'));dlLater(()=>{try{tfCoin({p:[{n:c.name(a),c:c.col(a)},{n:c.name(b),c:c.col(b)}],sub:dlT('Dreimal Unentschieden','Three draws')}).then(r=>c.win(r.win?b:a))}catch(e){c.win(Math.random()<.5?a:b)}},1400);return}dlLater(()=>{t.remove();m.classList.remove('dim');start=start==a?b:a;cur=start;reset()},1400);return}
   cur=cur==a?b:a;dlTurnGlow(c,cur)});
  reset();
 };
@@ -4651,9 +4651,9 @@ function dlQuiz(c,kind){
  const a=c.a,b=c.b,WIN=3,sc={[a]:0,[b]:0};let used=[],cur=null,ph='ready',who=null,res=null,rd={},cd=0,peek=false;
  const nm=x=>skEsc(dlT(x.de,x.en)),cp=x=>skEsc(dlT(x.cd,x.ce));
  const qh=()=>ph=='ready'?`<div class="dqr">${kind=='flag'?'🚩':'🏛️'}<small>${dlT('Bereit?','Ready?')}</small></div>`:ph=='cd'?`<div class="dqn">${cd}</div>`:kind=='flag'?`<div class="dqf">${dlFlag(cur.i)}</div>`:`<div class="dqc"><small>${dlT('Hauptstadt von','Capital of')}</small><b>${nm(cur)}</b></div>`;
- const ah=()=>((ph!='ask'&&ph!='ready'&&ph!='cd')||(ph=='ask'&&peek))?`<div class="dqa">${kind=='flag'?nm(cur):cp(cur)}</div>`:'';
+ const ah=()=>((ph!='ask'&&ph!='ready'&&ph!='cd')||(ph=='ask'&&peek))?`<div class="dqa">${kind=='flag'?nm(cur):cp(cur)}</div>`:ph=='ask'?`<div class="dqa" style="visibility:hidden">·</div>`:'';
  const score=()=>`<div class="dsco sm"><b>${sc[a]}</b><span>:</span><b>${sc[b]}</b></div>`;
- function strip(){if(ph=='res')return res.none?`<div class="dqw no">${dlT('Kein Punkt','No point')}</div>${score()}`:`<div class="dqw ${res.ok?'ok':'no'}">${res.ok?'✓':'✗'} ${c.nm(res.to)} +1</div>${score()}`;return `${score()}<div class="dqb">${ph=='ask'?`${peek?'':`<button class="pe" data-q="peek">${dlT('Lösung zeigen','Show answer')}</button>`}<button class="pe" data-q="skip">${dlT('Keiner weiß es','Nobody knows')}</button>`:''}</div>`}
+ function strip(){if(ph=='res')return res.none?`<div class="dqw no">${dlT('Kein Punkt','No point')}</div>${score()}`:`<div class="dqw ${res.ok?'ok':'no'}">${res.ok?'✓':'✗'} ${c.nm(res.to)} +1</div>${score()}`;return `${score()}<div class="dqb">${ph=='ask'?`<button class="pe" data-q="peek"${peek?' style="display:none"':''}>${dlT('Lösung zeigen','Show answer')}</button><button class="pe" data-q="skip">${dlT('Keiner weiß es','Nobody knows')}</button>`:''}</div>`}
  function render(){dlMidSet(c,`<div class="r180 dqx">${qh()}${ah()}</div><div class="dqs">${strip()}</div><div class="dqx">${qh()}${ah()}</div>`);sides()}
  /* Eine Seite: „Ich wusste es“. Danach sieht man die Lösung und sagt selbst, ob man richtig lag. */
  function sides(){[a,b].forEach(p=>{const h=dlP(c,p);
@@ -6328,5 +6328,62 @@ window.dlFitV=function dlFitV(v){var e=dlEl(v);if(!e||!FITV[v])return;e.classLis
 var _v=window.dlV;window.dlV=function dlV(v){var r=_v.apply(this,arguments);try{dlFitV(v);setTimeout(function(){if(gm15.dataset.v==v)dlFitV(v)},450)}catch(e){}return r};
 var _tip=window.dlTip;window.dlTip=function dlTip(){var r=_tip.apply(this,arguments);try{dlFitV('tp')}catch(e){}return r};
 }catch(e){console.warn('v139',e)}})();
+</script>
+<style id="v140">
+/* v140 (Block 5a, 21.11.): Duelle Teil 2 – Drei gewinnt (blau/rot, direkt tippen, Boden), Flaggen/Hauptstädte (feste Anordnung), Armdrücken (Bereit + Countdown) */
+.dxfour .dlbk{top:calc(var(--sat,0px) + 26px);transform:none;left:4px;margin:0}
+.dxfour .d4w:before,.dxfour .d4w:after{content:none!important}
+.dxfour .d4w{position:relative;padding-bottom:34px;margin-bottom:0}
+.dxfour .d4t{font:900 21px var(--fn);letter-spacing:1px;text-align:center;color:#fff;text-shadow:0 2px 10px rgba(0,0,0,.5);margin-bottom:8px}
+.dxfour .d4l{background:#1c1f29}
+.dxfour .d4f{border-color:#e0a82e;box-shadow:0 0 0 2px #8a6212,inset 0 0 0 2px #8a6212}
+.dxfour .d4h{background:radial-gradient(circle,transparent 0 17.5px,#8a6212 18px 19.5px,#e0a82e 20px)}
+.dxfour .d4h.win{background:radial-gradient(circle,transparent 0 17.5px,#fff 18px 22px,#e0a82e 23px)}
+.dxfour .d4fl{position:absolute;left:-22px;right:-22px;bottom:0;height:30px;border-radius:10px 10px 16px 16px;background:linear-gradient(#b8814a,#6b4520);box-shadow:0 7px 0 rgba(0,0,0,.35),inset 0 3px 0 rgba(255,255,255,.28)}
+.dxfour .d4fl:before,.dxfour .d4fl:after{content:"";position:absolute;top:-16px;width:26px;height:20px;background:linear-gradient(#e0a82e,#8a6212);border-radius:4px 4px 0 0}
+.dxfour .d4fl:before{left:26px}.dxfour .d4fl:after{right:26px}
+.dxfour .d4b{cursor:pointer}
+/* Flaggen / Hauptstädte: Lösung als eigene Zeile mit festem Platz, nie in einem Knopf */
+.dqx{min-height:0}
+.dqa{min-height:32px;box-sizing:border-box;padding:3px 16px;border-radius:12px;background:rgba(0,0,0,.34);display:flex;align-items:center;justify-content:center;max-width:90%;text-align:center;line-height:1.15}
+.dqb{min-height:52px;align-items:center;justify-content:center}
+.dqb button{white-space:nowrap}
+/* Armdrücken */
+.dxwho.dim{opacity:.35;pointer-events:none}
+</style>
+<script id="v140js">
+/* ===== v140 (Block 5a, 21.11.): Duelle Teil 2 ===== */
+(function(){try{
+/* (1) Drei gewinnt: Blau gegen Rot, direkt in die Spalte tippen, kein Dreh-Knopf, Boden mit Ständer */
+DLRUN.four=function(c){
+ const a=c.a,b=c.b,COLS=5,ROWS=4,N=3,CS=45,PD=6,KC={[a]:'#2f7bff',[b]:'#ff3b3b'};
+ let cur=Math.random()<.5?a:b,start=cur,grid,busy=false,over=false;c.dar.classList.add('dxfour');
+ [a,b].forEach(p=>{c.side(p).style.setProperty('--pc',KC[p]);dlP(c,p).innerHTML=`<div class="dnt"></div>`});
+ dlMidSet(c,`<div class="d4" id="dxD4"><div class="d4t">${dlT('Drei gewinnt','Three in a row')}</div><div class="d4w"><div class="d4b" id="d4b"><div class="d4l" id="d4l"></div><div class="d4f" id="d4f"></div></div><div class="d4fl"></div></div></div>`);
+ const discBg=p=>{const k=KC[p];return `radial-gradient(circle at 35% 30%,${dlShade(k,.55)},${k} 55%,${dlShade(k,-.45)})`};
+ function reset(){grid=Array.from({length:ROWS},()=>Array(COLS).fill(null));document.getElementById('d4l').innerHTML='';document.getElementById('d4f').innerHTML=Array.from({length:ROWS*COLS},(_,i)=>`<div class="d4h" data-c="${i%COLS}"></div>`).join('');busy=false;dlTurnGlow(c,cur)}
+ function drop(col){if(busy||over)return;let r=-1;for(let i=ROWS-1;i>=0;i--)if(grid[i][col]==null){r=i;break}if(r<0)return;busy=true;grid[r][col]=cur;
+  const d=document.createElement('i');d.className='d4disc';d.style.cssText=`left:${PD+col*CS+4.5}px;top:${PD+r*CS+4.5}px;background:${discBg(cur)}`;document.getElementById('d4l').appendChild(d);
+  const from=-(PD+r*CS+4.5+46),dur=240+r*110;
+  try{d.animate([{transform:`translateY(${from}px)`,easing:'cubic-bezier(.5,0,.9,.55)'},{transform:'translateY(0)',offset:.8,easing:'ease-out'},{transform:'translateY(-8px)',offset:.9,easing:'ease-in'},{transform:'translateY(0)'}],{duration:dur+160})}catch(e){}
+  dlBuzz(10);
+  dlLater(()=>{const w=dlLine3(grid,N);if(w){over=true;w.cells.forEach(([rr,cc])=>{const e=document.querySelectorAll('#d4f .d4h')[rr*COLS+cc];if(e)e.classList.add('win')});[a,b].forEach(p=>{c.side(p).classList.remove('turn')});dlFinish(c,w.p,1600);return}
+   if(grid.every(row=>row.every(x=>x!=null))){const m=document.querySelector('#dxD4');const t=document.createElement('div');t.className='dmsg d4m';t.textContent=dlT('Unentschieden – nochmal!','Draw – again!');m.appendChild(t);dlLater(()=>{t.remove();start=start==a?b:a;cur=start;reset()},1300);return}
+   cur=cur==a?b:a;busy=false;dlTurnGlow(c,cur)},dur+200)}
+ c.dar.addEventListener('pointerdown',e=>{const t=e.target.closest&&e.target.closest('.d4h,.d4b');if(!t)return;e.preventDefault();let col=t.dataset&&t.dataset.c!=null?+t.dataset.c:-1;if(col<0){const r=document.getElementById('d4b').getBoundingClientRect();col=Math.max(0,Math.min(COLS-1,Math.floor((e.clientX-r.left-PD*(r.width/237))/(CS*(r.width/237)))))}drop(col)});
+ reset();
+};
+/* (2) Armdrücken: direkt ins Spiel, beide „Bereit“, großer Countdown, Gewinner erst nach 1 s antippbar */
+DLRUN.arm=function(c){
+ dlMidSet(c,`<div class="dirp">${DLARM}<h4>${dlT('Armdrücken','Arm wrestling')}</h4><p>${dlT('Beide tippen <b>Bereit</b>, dann zählt der Countdown.','Both tap <b>Ready</b>, then the countdown starts.')}</p></div>`);
+ dlReady(c,()=>{
+  let ok=false;
+  dlMidSet(c,`<div class="dirp">${DLARM}<h4>${dlT('Los – drückt!','Go – push!')}</h4><div class="dxwho dim">${dlWho(c)}</div></div>`);
+  [c.a,c.b].forEach(p=>{dlP(c,p).innerHTML=''});
+  c.dar.addEventListener('pointerdown',e=>{const t=e.target.closest&&e.target.closest('[data-w]');if(!t||!ok)return;e.preventDefault();c.win(+t.dataset.w)});
+  dlLater(()=>{ok=true;const w=c.mid.querySelector('.dxwho');if(w)w.classList.remove('dim')},1000);
+ },{goMs:650,go:dlT('LOS!','GO!'),label:dlT('SPIEL STARTET IN','GAME STARTS IN')});
+};
+}catch(e){console.warn('v140',e)}})();
 </script>
 </body></html>

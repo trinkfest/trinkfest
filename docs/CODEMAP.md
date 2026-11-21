@@ -29,7 +29,7 @@ _Zahlen = Zeile in `index.html`. Mehrere Zahlen = später in einem vNNN-Block ü
 | `#gm11` | Einstellungen |  | 2069 | `view11` 2642 · `hapToggle` 5317 · `sndToggle` 5422 · `pfSave` 3858 |
 | `#gm12` | Anmelden | au…, auth… | 2109 | `authEmail` 2670 · `authOAuth` 2666 · `auMode` 2664 |
 
-**Duell-Minispiele (`DLRUN.<id>`, Zeile):** `react` 4155 · `tug` 4193 · `hockey` 4211 · `trace` 4324 · `simon` 4354 · `bomb` 4413, 6278 · `stop` 4432, 6291 · `circle` 4457, 6276 · `four` 4474 · `ttt` 4496 · `flag` 4679 · `cap` 4680 · `rps` 4688 · `arm` 4689 · `exen` 4693 · `where` 4783
+**Duell-Minispiele (`DLRUN.<id>`, Zeile):** `react` 4155 · `tug` 4193 · `hockey` 4211 · `trace` 4324 · `simon` 4354 · `bomb` 4413, 6278 · `stop` 4432, 6291 · `circle` 4457, 6276 · `four` 4474, 6358 · `ttt` 4496 · `flag` 4679 · `cap` 4680 · `rps` 4688 · `arm` 4689, 6377 · `exen` 4693 · `where` 4783
 
 ## Globale Bausteine
 - **Startseite / Navigation:** `hub` 2320 · `hmDraw` 2181 · `hsGo` 2339 · `pick` 2356, 3078, 5502 · `openG` 3502 · `closeG` 3503 · `hSet` 2325 · `showHelp` 3384
@@ -103,6 +103,8 @@ _Zahlen = Zeile in `index.html`. Mehrere Zahlen = später in einem vNNN-Block ü
 | `v138js` | 5926 | ===== v138 (Block 3, 21.11.): Schaetzfragen (Rang statt Abstand, krass daneben, Tastatur), Sekundenschaetzen (neue Regeln + online), Emoji-Raten (auch Trinkspie |
 | `v139` | 6166 | v139 (Block 4, 21.11.): Duelle Teil 1 – kurze Erklärungen mit Schlagwörtern, kein Scrollen, größere Zeichenfelder, Boom wie im normalen Boom, Zeitgefühl neu |
 | `v139js` | 6232 | ===== v139 (Block 4, 21.11.): Duelle Teil 1 ===== |
+| `v140` | 6332 | v140 (Block 5a, 21.11.): Duelle Teil 2 – Drei gewinnt (blau/rot, direkt tippen, Boden), Flaggen/Hauptstädte (feste Anordnung), Armdrücken (Bereit + Countdown) |
+| `v140js` | 6354 | ===== v140 (Block 5a, 21.11.): Duelle Teil 2 ===== |
 
 ## Meistbenutzte Funktionen (vor Änderung `graphify affected` prüfen)
-`skEsc()` 2523 (47×) · `dlT()` 4067 (46×) · `toast()` 2352 (27×) · `xL()` 4868 (21×) · `bpL()` 3146 (19×) · `dlLater()` 4141 (17×) · `c()` 5449 (16×) · `bpBc()` 3202 (15×) · `dlBuzz()` 4139 (14×) · `plBtn()` 4838 (12×) · `plNames()` 4837 (12×) · `sqSet()` 2979 (12×) · `tfRound()` 3468 (11×) · `sqNetInit()` 3013 (11×) · `hBc()` 3071 (11×)
+`skEsc()` 2523 (47×) · `dlT()` 4067 (46×) · `toast()` 2352 (27×) · `xL()` 4868 (21×) · `bpL()` 3146 (19×) · `dlLater()` 4141 (17×) · `c()` 5449 (17×) · `bpBc()` 3202 (15×) · `dlBuzz()` 4139 (14×) · `plBtn()` 4838 (12×) · `plNames()` 4837 (12×) · `sqSet()` 2979 (12×) · `tfRound()` 3468 (11×) · `sqNetInit()` 3013 (11×) · `hBc()` 3071 (11×)

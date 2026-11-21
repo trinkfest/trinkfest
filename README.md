@@ -351,5 +351,8 @@ Marker `v138`: **Schätzfragen:** Wer am nächsten dran ist, trinkt nichts, der 
 ## v148 – Block 4: Duelle Teil 1 (Version 136, 21.11., Claude Code)
 Marker `v139`: Erklärungen der Minispiele kürzer, Schlagwörter gelb hervorgehoben; Text auf Start- und Runden-Seite kürzer, „Zurück“ unter „Los geht’s“ weg. Im Duell muss man nie mehr scrollen (Seiten werden bei vielen Spielern automatisch kompakter). **Air Hockey** 45 s, bei Gleichstand 15 s Verlängerung (nächstes Tor gewinnt), danach Münzwurf. **Linie nachfahren** 3 s merken, 3 s zeichnen, größeres Feld, 10 neue Formen. **Simon says** startet mit 4 Farben, kurze „✓ ✓“-Meldung, zweimal beide falsch → Münzwurf. **Schere, Stein, Papier** nur noch antippen, wer gewonnen hat. **Boom** im Duell mit Ton und gleicher Explosion wie im normalen Boom. **Zeitgefühl** neu: drehende Ringe während die Zeit läuft, Auflösung mit hochzählenden Zeiten und Zeitstrahl. **Kreis zeichnen** größeres Feld.
 
+## v149 – Block 5a: Duelle Teil 2 (Version 137, 21.11., Claude Code)
+Drei gewinnt (Blau/Rot, direkt tippen, Boden), Tic Tac Toe (3× Unentschieden → Münzwurf), Armdrücken (Bereit + Countdown), Flaggen/Hauptstädte (feste Anordnung). Offen: Wo liegt das, Trinkduell (Block 5b).
+
 ## Test-Werkzeuge (21.11., Claude Code)
 `npm run -s test-duel -- hockey` testet ein Duell-Minispiel, `npm run -s overflow` prüft, ob man im Duell scrollen muss, `npm run -s replace -- patch.json` ersetzt sicher in index.html. Regeln zum Token-Sparen stehen in CLAUDE.md.
