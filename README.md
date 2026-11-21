@@ -371,3 +371,4 @@ Rennen, Startmenü, Einsatz- und Endseite passen jetzt immer auf den Bildschirm 
 
 ### v146 – Pferderennen: Karte mittig, Namen einzeilig
 Stapel und aufgedeckte Karte stehen mittig zwischen Rennbahn und unterem Rand. Namen im Endergebnis bleiben immer in einer Zeile; lange Namen bekommen kleinere Schrift.
+Nachtrag: Die Karte wird jetzt zum echten unteren Bildschirmrand zentriert (vorher wurde der Home-Balken-Abstand doppelt abgezogen).
