@@ -75,6 +75,11 @@ for (const [id, name, pre, fns] of GAMES) {
   const i = html.indexOf('id="' + id + '"');
   o += '| `#' + id + '` | ' + name + ' | ' + (pre || '') + ' | ' + (i > 0 ? lineOf(i) : '–') + ' | ' + fmt(fns) + ' |\n';
 }
+/* Duell-Minispiele: jede Stelle DLRUN.xyz= (spätere = Überschreibung in vNNN) */
+const dlr = {}; const reD = /DLRUN\.([A-Za-z_$][\w$]*)\s*=(?!=)/g; let d;
+while ((d = reD.exec(html))) (dlr[d[1]] = dlr[d[1]] || []).push(lineOf(d.index));
+if (Object.keys(dlr).length) o += '\n**Duell-Minispiele (`DLRUN.<id>`, Zeile):** ' + Object.entries(dlr).map(([k, v]) => '`' + k + '` ' + v.join(', ')).join(' · ') + '\n';
+
 o += '\n## Globale Bausteine\n';
 for (const [t, names] of CORE) o += '- **' + t + ':** ' + fmt(names) + '\n';
 

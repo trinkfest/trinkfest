@@ -36,7 +36,8 @@ function strip(code) {
     .replace(/(window\.([A-Za-z_$][\w$]*)\s*=\s*function)\s*\(/g, '$1 $2(');
 }
 
-fs.rmSync(out, { recursive: true, force: true });
+/* nur analyse/js leeren – analyse/graphify-out (Code-Karte) bleibt stehen */
+fs.rmSync(jsDir, { recursive: true, force: true });
 fs.mkdirSync(jsDir, { recursive: true });
 
 const re = /<script([^>]*)>([\s\S]*?)<\/script>/gi;
