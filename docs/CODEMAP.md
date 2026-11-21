@@ -12,7 +12,7 @@ _Zahlen = Zeile in `index.html`. Mehrere Zahlen = später in einem vNNN-Block ü
 | Panel | Spiel | Präfix | Zeile Panel | Einstieg (Funktion Zeile) |
 |---|---|---|---|---|
 | `#gm` | Circle (Kingscup) | Kartenregeln R (Zeile 2354), flip, again | 1991 | `flip` 3511 · `again` 3517 |
-| `#gm2` | Pferderennen | r… | 1996 | `rstart` 3531, 6676 · `rdraw` 3536, 6682 · `rpay` 3527 |
+| `#gm2` | Pferderennen | r… | 1996 | `rstart` 3531, 6676, 6735 · `rdraw` 3536, 6682 · `rpay` 3527 |
 | `#gm3` | Old Nick | b… | 2001 | `bstart` 3557 · `bok` 3578, 6484 · `bend` 3581 |
 | `#gm4` | Ass ziehen | a… | 2006 | `astart` 2383 · `adraw` 2384, 6486 · `aok` 2388 |
 | `#gm5` | Zungenbrecher | z… | 2011 | `zstart` 2399 · `zgood` 2400 · `zbad` 2401 |
@@ -37,7 +37,7 @@ _Zahlen = Zeile in `index.html`. Mehrere Zahlen = später in einem vNNN-Block ü
 - **Sprache DE/EN:** `I18N` 3593 · `dlT` 4067
 - **Spieler (global):** `PLY` 4830 · `plBtn` 4838 · `plxH` 5222 · `plxOpen` 5235 · `plxBuild` 5225, 5721 · `plxClose` 5243
 - **Ton / Vibration / Stimme:** `TFSnd` 5410 · `TFS` 5419 · `TFH` 5312 · `tfVoice` 5456 · `tfVoiceN` 5457, 5602 · `tfBeep` 5601
-- **Hilfen:** `toast` 2352 · `skEsc` 2523 · `fit` 1596, 3585, 5153
+- **Hilfen:** `toast` 2352 · `skEsc` 2523 · `fit` 1596, 3585, 5153, 6728
 - **Premium / Werbung:** `openPW` 3398 · `proDraw` 3396, 5850
 
 ## Änderungsblöcke (vNNN, neueste unten)
@@ -113,6 +113,8 @@ _Zahlen = Zeile in `index.html`. Mehrere Zahlen = später in einem vNNN-Block ü
 | `v143js` | 6518 | ===== v143 (Block 6b, 21.11.): Busfahren ===== |
 | `v144` | 6587 | v144 (Block 7, 21.11.): Pferderennen im Rennbahn-Look |
 | `v144js` | 6648 | ===== v144 (Block 7, 21.11.): Pferderennen – Rennbahn-Look, Pferde, Tafel oben, kein Cooldown ===== |
+| `v145` | 6704 | v145 (Block 7 Nachtrag, 21.11.): Pferderennen ohne Scrollen |
+| `v145js` | 6723 | ===== v145 (Block 7 Nachtrag, 21.11.): Pferderennen ohne Scrollen – kompaktes Setup, Rennen passt sich der Höhe an ===== |
 
 ## Meistbenutzte Funktionen (vor Änderung `graphify affected` prüfen)
 `skEsc()` 2523 (47×) · `dlT()` 4067 (45×) · `toast()` 2352 (27×) · `xL()` 4868 (21×) · `c()` 5449 (20×) · `bpL()` 3146 (19×) · `dlLater()` 4141 (17×) · `bpBc()` 3202 (15×) · `dlBuzz()` 4139 (14×) · `plBtn()` 4838 (12×) · `plNames()` 4837 (12×) · `sqSet()` 2979 (12×) · `tfRound()` 3468 (11×) · `sqNetInit()` 3013 (11×) · `hBc()` 3071 (11×)

@@ -6660,7 +6660,7 @@ function horse(s){return '<span class="v144h">🏇</span><b class="v144s '+SY[s]
 function anim(s,c,ms){var e=document.getElementById('ac'+s);if(!e)return;e.classList.remove(c);void e.offsetWidth;e.classList.add(c);T.push(setTimeout(function(){e.classList.remove(c)},ms))}
 
 var _o=window.openR;window.openR=function(){_o.apply(this,arguments);
- su.textContent=cards()?L('Setzt Punkte auf ein Pferd – das Pferd, das zuerst im Ziel ist, gewinnt.','Bet points on a horse – the first horse to reach the finish wins.'):L('Setzt Schlücke auf ein Pferd – das Pferd, das zuerst im Ziel ist, gewinnt.','Bet sips on a horse – the first horse to reach the finish wins.')};
+ su.textContent=cards()?L('Setzt Punkte auf ein Pferd – wer zuerst im Ziel ist, gewinnt.','Bet points on a horse – first to the finish wins.'):L('Setzt Schlücke auf ein Pferd – wer zuerst im Ziel ist, gewinnt.','Bet sips on a horse – first to the finish wins.')};
 
 /* Einsatz: Zahl groß zwischen − und + */
 var _rr=window.rrows;window.rrows=function(){_rr.apply(this,arguments);
@@ -6700,5 +6700,43 @@ window.rwin=function(s){try{tfRound(1)}catch(e){}hap('ok');
  h+=l.map(function(p){return '<div class="v144rs l"><span class="v144n">'+skEsc(p.n)+' '+SYM(p.s)+'</span><span class="v144t">'+(cards()?L('verliert ','loses ')+sips(p.b):L('geht leer aus','gets nothing'))+'</span></div>'}).join('');
  rwt.innerHTML=h;view2('en')};
 }catch(e){console.error('v144',e)}})();
+</script>
+<style id="v145">
+/* v145 (Block 7 Nachtrag, 21.11.): Pferderennen ohne Scrollen */
+#r-pl.on{overflow:hidden;padding-bottom:calc(var(--sab,0px) + 4px);box-sizing:border-box}
+#gm2 #rm.v144bd{margin:2px 10px 5px;padding:6px 10px;min-height:0;font-size:11.5px}
+#gm2 #rch{padding-top:0;padding-bottom:0;min-height:0;margin-bottom:0}#gm2 #rch .ch{padding:3px 8px}
+#gm2 .ln{height:42px}#gm2 .ace{height:42px}
+#gm2 .or{margin-top:5px}#gm2 .or>div{height:54px}
+#gm2 .bm{padding:10px 8px 2px}#gm2 .pile,#gm2 .dr{width:72px;height:100px}
+/* Setup: ein Spieler = eine Zeile */
+#r-pay.on,#r-en.on{padding-bottom:calc(var(--sab,0px) + 12px)}#r-en.on{padding-top:8px}#r-pay.v145m .v144py{padding:4px 8px;margin-bottom:4px}#r-pay.v145m .v144cd{width:24px;height:30px;font-size:17px}#r-en.v145m .v144rs{margin:4px 0;padding:6px 10px}#r-en.v145m .v144rs .v144t strong{font-size:18px}#r-en.v145m .v144win{transform:scale(.6);margin:-18px auto -18px}#gm2 #r-en.v145m h3{display:none}#r-en.on{overflow:hidden}#r-pay.on{overflow:hidden}#r-su.on{overflow:hidden;padding-top:8px;padding-bottom:calc(var(--sab,0px) + 12px)}#r-su.v145m>p.one{display:none}#r-su.v145m #rows2 .pc{flex-wrap:nowrap;gap:4px;margin-bottom:4px;padding:5px 6px}#r-su.v145m #rows2 .plnm+.sbr{order:0;width:auto;gap:2px}#r-su.v145m #rows2 .sb{flex:none;width:22px}#r-su.v145m #rows2 .sbr>span:first-child{display:none}#gm2 #r-su.v145m #rows2 .stp b{min-width:26px}#gm2 #r-su>p.one.v144bd{margin:2px 4px 10px;padding:7px 10px}
+#rows2 .pc{display:flex;flex-wrap:wrap;align-items:center;gap:5px 6px;padding:6px 8px;margin-bottom:6px}
+#rows2 .plnm{flex:1 1 0;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;padding:0}
+#rows2 .sbr{margin:0;gap:4px;flex:none}#rows2 .plnm+.sbr{order:3;width:100%}#rows2 .sbr>span:first-child{font-size:10px;font-weight:800;opacity:.8;margin-right:4px}
+#rows2 .sb,#rows2 .stp button{margin:0!important}#rows2 .sb{flex:1;height:28px;font-size:15px;border-radius:8px}
+#rows2 .stp button{width:28px;height:28px;border-radius:9px}#gm2 #rows2 .stp b{min-width:34px;font-size:21px}
+#gm2 #rows2 .stp b small{display:none}
+.v145hd{display:flex;gap:6px;padding:0 8px 4px;font:800 9px var(--fn);letter-spacing:.06em;opacity:.85;text-transform:uppercase}
+.v145hd span:first-child{flex:1}.v145hd span:nth-child(2){width:109px;text-align:center}.v145hd span:last-child{width:86px;text-align:center}
+</style>
+<script id="v145js">
+/* ===== v145 (Block 7 Nachtrag, 21.11.): Pferderennen ohne Scrollen – kompaktes Setup, Rennen passt sich der Höhe an ===== */
+(function(){try{
+var L=function(d,e){return LANG=='en'?e:d};
+/* Inhalt verkleinern (zoom), bis die Ansicht nicht mehr scrollt */
+function fit(v,els){if(!v||!v.classList.contains('on'))return;els.forEach(function(e){e.style.zoom=''});
+ var d=v.scrollHeight-v.clientHeight;if(d<=0)return;var h=0;els.forEach(function(e){h+=e.offsetHeight});
+ var z=1;for(var i=0;i<4&&d>0;i++){z=Math.max(.5,z*(h*z-d-3)/(h*z));els.forEach(function(e){e.style.zoom=z});d=v.scrollHeight-v.clientHeight}}
+function fitPl(){fit(document.getElementById('r-pl'),[tk,document.querySelector('#r-pl .bm')])}
+function fitSu(){var v=document.getElementById('r-su');v.classList.toggle('v145m',RP.length>5);fit(v,[rows2])}
+var _rr=window.rrows;window.rrows=function(){_rr.apply(this,arguments);try{
+ requestAnimationFrame(fitSu)}catch(e){}};
+var _rs=window.rstart;window.rstart=function(){_rs.apply(this,arguments);requestAnimationFrame(fitPl)};
+function fitPay(){fit(document.getElementById('r-pay'),[pys])}function fitEn(){fit(document.getElementById('r-en'),[rwt])}
+var _w=window.rwin;window.rwin=function(){_w.apply(this,arguments);document.getElementById('r-en').classList.toggle('v145m',RP.length>5);requestAnimationFrame(fitEn)};
+var _pr=window.rpr;window.rpr=function(){_pr.apply(this,arguments);document.getElementById('r-pay').classList.toggle('v145m',RP.length>5);requestAnimationFrame(fitPay)};
+addEventListener('resize',function(){setTimeout(function(){fitPl();fitSu();fitPay();fitEn()},200)});
+}catch(e){console.error('v145',e)}})();
 </script>
 </body></html>
