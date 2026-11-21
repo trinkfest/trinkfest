@@ -117,6 +117,8 @@ _Zahlen = Zeile in `index.html`. Mehrere Zahlen = später in einem vNNN-Block ü
 | `v145js` | 6723 | ===== v145 (Block 7 Nachtrag, 21.11.): Pferderennen ohne Scrollen – kompaktes Setup, Rennen passt sich der Höhe an ===== |
 | `v146` | 6742 | v146 (Block 7 Nachtrag 2, 21.11.): Karte mittig unter der Bahn, Namen immer einzeilig |
 | `v146js` | 6750 | ===== v146: Namen im Pferderennen passen die Schrift an, statt umzubrechen ===== |
+| `v147` | 6757 | v147 (21.11.): Duell-Wetten – Name des Tippenden sichtbar (statt nur Farbe) |
+| `v147js` | 6762 | ===== v147 (21.11.): Duell-Wetten – lange Namen verkleinern statt abschneiden ===== |
 
 ## Meistbenutzte Funktionen (vor Änderung `graphify affected` prüfen)
 `skEsc()` 2523 (47×) · `dlT()` 4067 (45×) · `toast()` 2352 (27×) · `xL()` 4868 (21×) · `c()` 5449 (20×) · `bpL()` 3146 (19×) · `dlLater()` 4141 (17×) · `bpBc()` 3202 (15×) · `dlBuzz()` 4139 (14×) · `plBtn()` 4838 (12×) · `plNames()` 4837 (12×) · `sqSet()` 2979 (12×) · `tfRound()` 3468 (11×) · `sqNetInit()` 3013 (11×) · `hBc()` 3071 (11×)

@@ -6436,7 +6436,7 @@ window.dlRs=function(){const a=DLS.a,b=DLS.b,lc=DLS.rr.lc,last=DLS.rnd>=DLS.R;
   +(ok.length&&bad.length?`<div class="rsg ok">✓ ${dlT('MÜSSEN NICHT','OFF THE HOOK')}</div><div class="rok">${ok.map(x=>`<span>${dlNm(x.i)}</span>`).join('')}</div>`:'')
   +`</div><button class="bt" onclick="${last?"dlV('en')":'dlNext()'}">${last?dlT('Zum Endstand','To the final result'):dlT('Erledigt, nächste Runde','Done, next round')}</button>`;try{dlFitV('rs')}catch(x){}};
 /* (4) Wetten: klarer, dass man auf einen Spieler setzt */
-var _tp=window.dlTp;window.dlTp=function(){var r=_tp.apply(this,arguments);try{var e=dlEl('tp'),h=e.querySelector('h3');if(h)h.textContent=dlT('Setzt auf den Sieger!','Bet on the winner!');e.querySelectorAll('.dxh span').forEach(function(s){s.textContent=dlT('setzt auf …','bets on …')})}catch(x){}return r};
+var _tp=window.dlTp;window.dlTp=function(){var r=_tp.apply(this,arguments);try{var e=dlEl('tp'),h=e.querySelector('h3');if(h)h.textContent=dlT('Setzt auf den Sieger!','Bet on the winner!');e.querySelectorAll('.dxh>span').forEach(function(s){s.textContent=dlT('setzt auf …','bets on …')})}catch(x){}return r};
 /* (5) Gewonnen/Verloren-Animation: Tippen überspringt (nach 0,7 s) */
 var _rv=window.dlResV;window.dlResV=function(w){_rv.apply(this,arguments);try{var o=document.querySelector('#d-pl .dxr3'),t0=Date.now(),gi=DLS.gi,done=false;if(!o)return;o.addEventListener('pointerdown',function(e){if(done||Date.now()-t0<700||!DLS||DLS.gi!=gi)return;done=true;e.preventDefault();DLT.forEach(clearTimeout);DLT=[];dlAfterGame()})}catch(x){}};
 }catch(e){console.warn('v141',e)}})();
@@ -6753,5 +6753,14 @@ addEventListener('resize',function(){setTimeout(function(){fitPl();fitSu();fitPa
 function shrink(sel){document.querySelectorAll(sel).forEach(function(e){e.style.fontSize='';var f=parseFloat(getComputedStyle(e).fontSize);while(e.scrollWidth>e.clientWidth+1&&f>10){f-=.5;e.style.fontSize=f+'px'}})}
 var _w=window.rwin;window.rwin=function(){_w.apply(this,arguments);shrink('#rwt .v144n')};
 }catch(e){console.error('v146',e)}})();
+</script>
+<style id="v147">
+/* v147 (21.11.): Duell-Wetten – Name des Tippenden sichtbar (statt nur Farbe) */
+#d-tp .dxp .dxh{text-overflow:clip}
+#d-tp .dxp .dxh.wr{white-space:normal;overflow-wrap:anywhere;line-height:1.1}
+</style>
+<script id="v147js">
+/* ===== v147 (21.11.): Duell-Wetten – lange Namen verkleinern statt abschneiden ===== */
+(function(){try{var _tp=window.dlTp;window.dlTp=function(){var r=_tp.apply(this,arguments);try{dlEl('tp').querySelectorAll('.dxp .dxh').forEach(function(h){var b=h.querySelector('b');if(!b)return;var f=parseFloat(getComputedStyle(b).fontSize)||15;while(f>11&&h.scrollWidth>h.clientWidth){f-=.5;b.style.fontSize=f+'px'}if(h.scrollWidth>h.clientWidth)h.classList.add('wr')})}catch(x){}return r}}catch(e){console.warn('v147',e)}})();
 </script>
 </body></html>
